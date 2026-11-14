@@ -16,22 +16,44 @@ def client() -> anthropic.Anthropic:
     return _client
 
 
+_FORCED_OK = True  # 모델이 tool_choice 강제 호출을 지원하는지 (Opus 5.5 등은 미지원 → 자동 전환)
+
+
 def _call_tool(cfg: dict, system: str, user: str, tool: dict, max_tokens: int = 4000) -> dict:
-    resp = client().messages.create(
-        model=cfg["claude"]["model"],
-        max_tokens=max_tokens,
-        system=system,
-        messages=[{"role": "user", "content": user}],
-        tools=[tool],
-        tool_choice={"type": "tool", "name": tool["name"]},
-    )
-    if resp.stop_reason == "max_tokens":
-        raise RuntimeError("Claude 응답이 길이 제한에 걸려 잘렸어요. 잠시 뒤 다시 실행해 주세요.")
-    for block in resp.content:
-        if block.type == "tool_use":
-            print(f"   토큰 사용: 입력 {resp.usage.input_tokens} / 출력 {resp.usage.output_tokens}")
-            return block.input
-    raise RuntimeError("Claude 응답에 결과가 없어요.")
+    """Claude가 지정한 도구(tool)를 호출하게 해서 구조화된 결과를 받는다.
+
+    강제 호출(tool_choice)을 지원하지 않는 모델이면 auto 방식으로 바꾸고,
+    도구를 부르지 않고 글로만 답하면 다시 요청한다(최대 3번).
+    """
+    global _FORCED_OK
+    messages = [{"role": "user", "content": user}]
+    nudge = f"\n\n반드시 {tool['name']} 도구를 호출해서 결과를 제출해. 도구 밖에 글을 쓰지 마."
+    for attempt in range(3):
+        kwargs = dict(model=cfg["claude"]["model"], max_tokens=max_tokens, system=system,
+                      messages=messages, tools=[tool])
+        if _FORCED_OK:
+            kwargs["tool_choice"] = {"type": "tool", "name": tool["name"]}
+        else:
+            kwargs["system"] = system + nudge
+        try:
+            resp = client().messages.create(**kwargs)
+        except anthropic.BadRequestError as e:
+            if _FORCED_OK and "tool_choice" in str(e):
+                print("   (이 모델은 도구 강제 호출을 지원하지 않아 자동 방식으로 전환)")
+                _FORCED_OK = False
+                continue
+            raise
+        if resp.stop_reason == "max_tokens":
+            raise RuntimeError("Claude 응답이 길이 제한에 걸려 잘렸어요. 잠시 뒤 다시 실행해 주세요.")
+        for block in resp.content:
+            if block.type == "tool_use" and block.name == tool["name"]:
+                print(f"   토큰 사용: 입력 {resp.usage.input_tokens} / 출력 {resp.usage.output_tokens}")
+                return block.input
+        messages = messages + [
+            {"role": "assistant", "content": resp.content},
+            {"role": "user", "content": f"{tool['name']} 도구를 호출해서 결과를 제출해줘."},
+        ]
+    raise RuntimeError("Claude가 결과 도구를 호출하지 않았어요. 잠시 뒤 다시 실행해 주세요.")
 
 
 # ── 1단계: 기사 고르기 ─────────────────────────────────────
