@@ -1,0 +1,25 @@
+name: 9. 파일 정리 (한 번만)
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  move:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: 바깥 파일을 src·tests로 옮기기
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in check_setup common custom draft github_api handle_comment instagram news publish refresh_token render verify writer; do
+            [ -f "$f.py" ] && git mv -f "$f.py" "src/$f.py"
+          done
+          for f in e2e_mock robust_mock; do
+            [ -f "$f.py" ] && git mv -f "$f.py" "tests/$f.py"
+          done
+          git rm -q .github/workflows/cleanup.yml
+          git commit -m "파일 정리: src·tests로 이동"
+          git push
