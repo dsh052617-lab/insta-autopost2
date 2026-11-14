@@ -15,11 +15,11 @@ TEXT = {"https://www.bok.or.kr/a": "한국은행 금융통화위원회는 다음
         "https://www.fsc.go.kr/c": "금융위원회는 청년도약계좌 제도를 개편한다. 기준금리를 현 수준인 연 2.50%로 유지하기로 하였다. 소비자물가 상승률은 2% 내외에서 안정 " * 10,
         "https://random-blog.com/x": "블로그 " * 300}
 class R:
-    def __init__(s, url): s.url = url; s.text = "<html><article><p>" + TEXT.get(url, "") + "</p></article></html>"
+    def __init__(s, url): s.url = url; s.text = "<html><article><p>" + TEXT.get(url, "") + "</p></article></html>"; s.content = s.text.encode()
     def raise_for_status(s): pass
 news.requests.get = lambda url, **k: R(url)
 import trafilatura
-trafilatura.extract = lambda html, **k: html.replace("<html><article><p>", "").replace("</p></article></html>", "")
+trafilatura.extract = lambda html, **k: (html.decode() if isinstance(html, bytes) else html).replace("<html><article><p>", "").replace("</p></article></html>", "")
 trafilatura.extract_metadata = lambda html: None
 ITEMS = [{"title": "통화정책방향 결정", "url": "https://www.bok.or.kr/a", "source": "한국은행", "tier": "official", "summary": "", "published": "2026-11-13", "ts": 2},
          {"title": "한은 기준금리 동결", "url": "https://www.yna.co.kr/b", "source": "연합뉴스", "tier": "press", "summary": "", "published": "2026-11-13", "ts": 1}]
@@ -37,10 +37,13 @@ gh.comment = lambda n, t: print(f"   💬 #{n}: {t.splitlines()[0]}")
 gh.add_labels = lambda n, ls: ISS[n]["labels"].extend({"name": l} for l in ls)
 gh.remove_label = lambda n, l: ISS[n].update(labels=[x for x in ISS[n]["labels"] if x["name"] != l])
 gh.open_drafts = lambda: [i for i in ISS.values() if i["state"] == "open" and "draft" in gh.label_names(i)]
+gh.recent_drafts = lambda: [i for i in ISS.values() if "draft" in gh.label_names(i)]
+gh.list_comments = lambda n: []
 pub = []
 instagram.publish_carousel = lambda uid, tok, urls, cap, ai_label: pub.append((urls, cap)) or {"media_id": str(len(pub)), "permalink": "https://instagram.com/p/x"}
 os.environ.update(IG_USER_ID="1", IG_ACCESS_TOKEN="t")
 import draft, handle_comment, publish, custom
+publish.requests.head = lambda url, **k: type("H", (), {"status_code": 200})()
 print("=== 주간 자동 (경제)")
 sys.argv = ["draft.py", "--topic", "economy"]; draft.main()
 print("TITLE:", ISS[1]["title"])

@@ -13,7 +13,10 @@ import instagram  # noqa: E402
 
 
 def main() -> None:
-    token = os.environ["IG_ACCESS_TOKEN"]
+    token = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+    if not token:
+        print("ℹ️  IG_ACCESS_TOKEN 시크릿이 아직 없어요. 등록 전에는 할 일이 없어요.")
+        return
     if not instagram.is_instagram_login_token(token):
         print("✅ 통합 로그인(시스템 사용자) 토큰은 만료가 없어서 연장할 필요가 없어요.")
         return

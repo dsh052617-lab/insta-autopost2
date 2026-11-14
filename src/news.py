@@ -61,7 +61,8 @@ def collect(cfg: dict, feeds: list[dict], lookback_days: int, exclude_urls: set[
     items, seen = [], set()
     for feed in feeds:
         try:
-            resp = requests.get(feed["url"], headers={"User-Agent": UA}, timeout=20)
+            resp = requests.get(feed["url"], headers={"User-Agent": UA, "Accept": "application/rss+xml, application/xml, */*"},
+                                timeout=20)
             resp.raise_for_status()
             parsed = feedparser.parse(resp.content)
         except Exception as e:  # 피드 하나가 죽어도 나머지는 계속
@@ -71,7 +72,10 @@ def collect(cfg: dict, feeds: list[dict], lookback_days: int, exclude_urls: set[
         count = 0
         for entry in parsed.entries:
             stamp = entry.get("published_parsed") or entry.get("updated_parsed")
-            ts = calendar.timegm(stamp) if stamp else time.time()
+            try:
+                ts = calendar.timegm(stamp) if stamp else time.time()
+            except (TypeError, ValueError, OverflowError):
+                ts = time.time()
             title = _clean(entry.get("title", ""), 200)
             link = entry.get("link", "")
             summary = _clean(entry.get("summary", ""), 300)
@@ -105,7 +109,8 @@ def fetch_article(cfg: dict, item: dict, max_chars: int = 8000) -> dict | None:
         print(f"⚠️  신뢰 목록 밖 → 제외: {item['url']}")
         return None
     try:
-        resp = requests.get(item["url"], headers={"User-Agent": UA}, timeout=25)
+        resp = requests.get(item["url"], headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8"},
+                            timeout=25)
         resp.raise_for_status()
     except Exception as e:
         print(f"⚠️  원문 접속 실패 → 제외: {item['url']} ({e})")
@@ -113,14 +118,19 @@ def fetch_article(cfg: dict, item: dict, max_chars: int = 8000) -> dict | None:
     if not is_trusted(resp.url, domains):
         print(f"⚠️  신뢰 목록 밖으로 이동 → 제외: {resp.url}")
         return None
-    text = trafilatura.extract(resp.text, favor_precision=True, include_comments=False) or ""
+    # 바이트로 넘겨야 EUC-KR 같은 국내 사이트 인코딩도 trafilatura가 알아서 맞춘다
+    try:
+        text = trafilatura.extract(resp.content, favor_precision=True, include_comments=False) or ""
+        meta = trafilatura.extract_metadata(resp.content)
+    except Exception as e:
+        print(f"⚠️  본문 추출 실패 → 제외: {item['url']} ({e})")
+        return None
     if len(text) < min_chars:
         print(f"⚠️  본문 부족({len(text)}자) → 제외: {item['url']}")
         return None
-    meta = trafilatura.extract_metadata(resp.text)
     info = source_info(cfg, resp.url)
     return {"title": item.get("title") or (meta.title if meta and meta.title else resp.url),
-            "published": item.get("published") or (meta.date if meta and meta.date else ""),
+            "published": str(item.get("published") or (meta.date if meta and meta.date else ""))[:10],
             **{k: v for k, v in item.items() if k not in ("title", "published")},
             "source": info["name"], "tier": info["tier"], "url": resp.url, "text": text[:max_chars],
             "origin": wire_origin(text) or info["name"]}

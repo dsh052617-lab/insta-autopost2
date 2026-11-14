@@ -25,10 +25,17 @@ def main() -> None:
     first = text.splitlines()[0].strip() if text else ""
     issue = gh.get_issue(number)
     marker = gh.read_marker(issue)
-    if not marker:
+    if not marker or not marker.get("dir"):
         return
+    if not first.startswith(("승인", "취소", "수정")) and not first.replace(" ", "").startswith("지금게시"):
+        return  # 명령이 아닌 일반 댓글은 무시
     draft_dir = ROOT / marker["dir"]
-    data = json.loads((draft_dir / "post.json").read_text(encoding="utf-8"))
+    post_file = draft_dir / "post.json"
+    if not post_file.exists():
+        gh.comment(number, f"⚠️ 초안 파일({marker['dir']}/post.json)을 저장소에서 찾지 못했어요. "
+                           "초안을 다시 만들어 주세요 (Actions → 1. 초안 만들기).")
+        return
+    data = json.loads(post_file.read_text(encoding="utf-8"))
     passed = data.get("verification", {}).get("passed", False)
     when = f"{date_label(dt.date.fromisoformat(marker['date']))} {cfg['schedule']['post_time']}"
 
@@ -64,6 +71,9 @@ def main() -> None:
             return
         gh.comment(number, "✏️ 수정 중이에요. 원문을 다시 가져와 검증까지 하고 올릴게요 (1~2분).")
         articles = fetch_articles(cfg, data["sources"])
+        if not articles:
+            gh.comment(number, "⚠️ 원문 사이트에 접속하지 못해 지금은 수정할 수 없어요. 잠시 뒤 같은 댓글을 다시 달아주세요.")
+            return
         if len(articles) < len(data["sources"]):
             gh.comment(number, "⚠️ 일부 원문을 다시 가져오지 못해, 확인된 원문만으로 검증해요.")
         post, result = writer.write_verified(cfg, data["topic"], articles, base=data["post"], feedback=feedback)
@@ -81,4 +91,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        if not getattr(e, "reported", False):
+            gh.report_error(e, "댓글 처리", int(os.environ.get("ISSUE_NUMBER", "0") or 0))
+        raise

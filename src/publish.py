@@ -13,6 +13,8 @@ import sys
 import time
 from pathlib import Path
 
+import requests
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import github_api as gh  # noqa: E402
@@ -28,17 +30,33 @@ def publish_issue(cfg: dict, issue: dict) -> str:
         print(f"#{issue['number']}은 이미 처리됐어요.")
         return ""
     marker = gh.read_marker(issue)
+    if not marker or not marker.get("dir"):
+        raise RuntimeError("이 이슈에서 초안 정보를 찾지 못했어요 (본문 맨 아래 숨김 표시가 지워졌을 수 있어요).")
     draft_dir = ROOT / marker["dir"]
-    data = json.loads((draft_dir / "post.json").read_text(encoding="utf-8"))
+    post_file = draft_dir / "post.json"
+    if not post_file.exists():
+        raise RuntimeError(f"초안 파일 {marker['dir']}/post.json 이 저장소에 없어요.")
+    data = json.loads(post_file.read_text(encoding="utf-8"))
     if not data.get("verification", {}).get("passed"):
         gh.comment(issue["number"], "❌ 출처 검증을 통과하지 못한 초안이라 게시하지 않았어요.")
         raise RuntimeError("출처 검증 미통과 초안은 게시할 수 없어요.")
     images = sorted((draft_dir / f"v{data['version']}").glob("*.jpg"))
+    if len(images) < 2:
+        raise RuntimeError(f"카드 이미지가 {len(images)}장뿐이에요. `수정: 다시 그려줘`로 새 버전을 만들어 주세요.")
     urls = [raw_url(p) for p in images]
+    for u in urls[:1]:  # 인스타가 가져갈 이미지 주소가 실제로 열리는지 먼저 확인
+        try:
+            ok = requests.head(u, timeout=20, allow_redirects=True).status_code == 200
+        except requests.RequestException:
+            ok = False
+        if not ok:
+            raise RuntimeError(f"카드 이미지 주소가 열리지 않아요: {u}\n저장소가 공개(Public)인지 확인해 주세요.")
     caption = build_caption(data["post"], data["sources"])
 
-    token = os.environ["IG_ACCESS_TOKEN"]
-    user_id = os.environ.get("IG_USER_ID") or instagram.my_user_id(token)
+    token = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+    if not token:
+        raise RuntimeError("IG_ACCESS_TOKEN 시크릿이 비어 있어요. Meta에서 발급한 토큰을 GitHub Secrets에 넣어주세요.")
+    user_id = os.environ.get("IG_USER_ID", "").strip() or instagram.my_user_id(token)
     result = instagram.publish_carousel(
         user_id, token, urls, caption,
         ai_label=cfg["instagram"].get("ai_label", True))
@@ -64,8 +82,13 @@ def publish_or_report(cfg: dict, issue: dict) -> str:
     try:
         return publish_issue(cfg, issue)
     except Exception as e:
-        gh.comment(issue["number"], f"⚠️ 게시에 실패했어요.\n```\n{str(e)[:600]}\n```\n"
-                                    "원인을 해결한 뒤 `지금 게시`라고 달면 다시 시도해요.")
+        try:
+            gh.comment(issue["number"], f"⚠️ 게시에 실패했어요.\n```\n{str(e)[:600]}\n```\n"
+                                        f"실행 기록: {gh.run_link()}\n"
+                                        "원인을 해결한 뒤 `지금 게시`라고 달면 다시 시도해요.")
+        except Exception:
+            pass
+        e.reported = True
         raise
 
 
@@ -106,18 +129,34 @@ def main() -> None:
         print(f"예정 시각까지 {int(wait // 60)}분 대기")
         time.sleep(wait)
 
+    failed = False
     for issue in todays:
         issue = gh.get_issue(issue["number"])  # 기다리는 동안 달린 승인 반영
         if issue["state"] != "open":
             continue
         if "approved" in gh.label_names(issue):
-            print("게시:", publish_or_report(cfg, issue))
+            try:
+                print("게시:", publish_or_report(cfg, issue))
+            except Exception as e:  # 한 건이 실패해도 다른 초안은 계속
+                print(f"#{issue['number']} 게시 실패: {e}")
+                failed = True
         else:
-            gh.comment(issue["number"],
-                       "⏸ 승인 댓글이 없어서 예정 시각에 게시하지 않았어요.\n"
-                       "지금이라도 올리려면 `지금 게시`, 건너뛰려면 `취소`라고 댓글 달아주세요.")
+            # 예비 실행이 한 번 더 돌아도 같은 안내를 두 번 달지 않게
+            if not any("⏸" in (c.get("body") or "") for c in gh.list_comments(issue["number"])):
+                gh.comment(issue["number"],
+                           "⏸ 승인 댓글이 없어서 예정 시각에 게시하지 않았어요.\n"
+                           "지금이라도 올리려면 `지금 게시`, 건너뛰려면 `취소`라고 댓글 달아주세요.")
             print(f"#{issue['number']} 미승인 — 게시 안 함")
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        if not getattr(e, "reported", False):
+            gh.report_error(e, "인스타 게시")
+        raise

@@ -150,14 +150,17 @@ def main() -> None:
         sys.exit(f"알 수 없는 주제: {topic} (config.yaml의 topics 확인)")
     print(f"▶ 게시 예정: {date} / 주제: {topic}")
 
+    same_day: list[dict] = []
     if not args.local:
         import github_api as gh
         gh.ensure_labels()
-        for issue in gh.open_drafts():
-            m = gh.read_marker(issue)
-            if m and not m.get("custom") and m["date"] == date.isoformat() and not args.force:
-                print(f"이미 초안이 있어요: #{issue['number']} — 건너뜀 (--force로 새로 만들기)")
-                return
+        same_day = [i for i in gh.recent_drafts()
+                    if (m := gh.read_marker(i)) and not m.get("custom") and m.get("date") == date.isoformat()]
+        if same_day and not args.force:
+            print(f"이 날짜 초안이 이미 있어요(열림·게시·취소 포함): #{same_day[0]['number']} — 건너뜀 "
+                  "(새로 만들려면 Run workflow에서 force 체크)")
+            return
+        same_day = [i for i in same_day if i["state"] == "open"]
 
     history = load_history()
     used_urls = {u for h in history for u in h.get("urls", [])}
@@ -176,7 +179,7 @@ def main() -> None:
     print(f"② 기사 고르기 + 원문 확보 (후보 {len(items)}건)")
     avoid: list[str] = []
     story, articles = None, []
-    for attempt in range(3):
+    for attempt in range(4):
         story = writer.select_story(cfg, topic, items, recent_titles, avoid, recent_categories)
         chosen = [items[i] for i in story["indices"]]
         if _repeats(story.get("category", ""), recent_categories):
@@ -215,7 +218,7 @@ def main() -> None:
         sys.exit(1)
 
     print("③ 카드뉴스 쓰기 + 출처 검증")
-    post, result = writer.write_verified(cfg, topic, articles, story["angle"])
+    post, result = writer.write_verified(cfg, topic, articles, story.get("angle", ""))
     print("   " + ("✅ 검증 통과" if result["passed"] else f"❌ 검증 실패: {result['problems']}"))
 
     slug = f"{date.isoformat()}-{topic}"
@@ -223,7 +226,7 @@ def main() -> None:
     draft_dir.mkdir(parents=True, exist_ok=True)
     data = {"date": date.isoformat(), "topic": topic, "version": 1, "post": post,
             "sources": [{k: a[k] for k in SOURCE_KEYS} for a in articles],
-            "story": {"reason": story["reason"], "angle": story["angle"],
+            "story": {"reason": story.get("reason", ""), "angle": story.get("angle", ""),
                       "category": story.get("category", "")},
             "verification": result}
 
@@ -240,7 +243,23 @@ def main() -> None:
     git_commit_push(f"draft: {slug}", [draft_dir])
     issue = gh.create_issue(issue_title(cfg, data), issue_body(cfg, data, paths, draft_dir), ["draft"])
     print(f"✅ 검토 요청 이슈: {issue['html_url']}")
+    # --force로 새로 만든 경우: 같은 날짜의 예전 초안은 닫아서 두 개가 함께 게시되는 일을 막는다
+    for old in same_day:
+        gh.comment(old["number"], f"새 초안 #{issue['number']}으로 대체돼서 이 초안은 닫을게요.")
+        gh.remove_label(old["number"], "approved")
+        gh.add_labels(old["number"], ["skipped"])
+        gh.update_issue(old["number"], state="closed")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit as e:
+        if isinstance(e.code, str):  # sys.exit("이유")로 멈춘 경우도 이슈로 알림
+            import github_api as gh
+            gh.report_error(RuntimeError(e.code), "초안 만들기")
+        raise
+    except Exception as e:
+        import github_api as gh
+        gh.report_error(e, "초안 만들기")
+        raise

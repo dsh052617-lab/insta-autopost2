@@ -12,31 +12,57 @@ _client = None
 def client() -> anthropic.Anthropic:
     global _client
     if _client is None:
-        _client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+        if not key:
+            raise RuntimeError("ANTHROPIC_API_KEY 시크릿이 비어 있어요. Settings → Secrets and variables → Actions에서 등록해 주세요.")
+        # 과부하(529)·요청 한도(429)·일시 오류는 SDK가 자동으로 기다렸다 다시 시도
+        _client = anthropic.Anthropic(api_key=key, max_retries=6)
     return _client
 
 
 _FORCED_OK = True  # 모델이 tool_choice 강제 호출을 지원하는지 (Opus 5.5 등은 미지원 → 자동 전환)
 
 
-def _call_tool(cfg: dict, system: str, user: str, tool: dict, max_tokens: int = 4000) -> dict:
+def _create(**kwargs):
+    """스트리밍으로 요청해 최종 메시지를 받는다 (긴 응답도 시간 제한 없이 안전)."""
+    with client().messages.stream(**kwargs) as stream:
+        return stream.get_final_message()
+
+
+def _as_dict(value) -> dict:
+    """도구 입력이 dict가 아니라 JSON 문자열로 오는 경우까지 처리."""
+    if isinstance(value, dict):
+        return dict(value)
+    if isinstance(value, str):
+        try:
+            loaded = json.loads(value)
+            if isinstance(loaded, dict):
+                return loaded
+        except ValueError:
+            pass
+    raise ValueError("도구 입력이 올바른 형식이 아니에요.")
+
+
+def _call_tool(cfg: dict, system: str, user: str, tool: dict, max_tokens: int = 4000,
+               validate=None) -> dict:
     """Claude가 지정한 도구(tool)를 호출하게 해서 구조화된 결과를 받는다.
 
-    강제 호출(tool_choice)을 지원하지 않는 모델이면 auto 방식으로 바꾸고,
-    도구를 부르지 않고 글로만 답하면 다시 요청한다(최대 3번).
+    - 강제 호출(tool_choice)을 지원하지 않는 모델이면 자동 방식으로 바꾼다.
+    - 도구를 부르지 않고 글로만 답하거나, 길이 한도에 걸리거나, 형식이 틀리면 다시 요청한다(최대 5번).
+    - validate(result)가 문제 문장을 돌려주면 그 내용을 알려주고 다시 받는다.
     """
     global _FORCED_OK
     messages = [{"role": "user", "content": user}]
-    nudge = f"\n\n반드시 {tool['name']} 도구를 호출해서 결과를 제출해. 도구 밖에 글을 쓰지 마."
-    for attempt in range(3):
-        kwargs = dict(model=cfg["claude"]["model"], max_tokens=max_tokens, system=system,
-                      messages=messages, tools=[tool])
+    nudge = f"\n\n결과는 반드시 {tool['name']} 도구를 호출해서 제출해. 도구 밖에 결과를 글로 쓰지 마."
+    last_error = ""
+    for attempt in range(5):
+        # 최신 모델은 답하기 전에 생각하는 데도 토큰을 써서 한도를 넉넉히 둔다(요금은 실제 사용량만큼).
+        kwargs = dict(model=cfg["claude"]["model"], max_tokens=max(max_tokens, 16000),
+                      system=system + nudge, messages=messages, tools=[tool])
         if _FORCED_OK:
             kwargs["tool_choice"] = {"type": "tool", "name": tool["name"]}
-        else:
-            kwargs["system"] = system + nudge
         try:
-            resp = client().messages.create(**kwargs)
+            resp = _create(**kwargs)
         except anthropic.BadRequestError as e:
             if _FORCED_OK and "tool_choice" in str(e):
                 print("   (이 모델은 도구 강제 호출을 지원하지 않아 자동 방식으로 전환)")
@@ -44,16 +70,111 @@ def _call_tool(cfg: dict, system: str, user: str, tool: dict, max_tokens: int = 
                 continue
             raise
         if resp.stop_reason == "max_tokens":
-            raise RuntimeError("Claude 응답이 길이 제한에 걸려 잘렸어요. 잠시 뒤 다시 실행해 주세요.")
-        for block in resp.content:
-            if block.type == "tool_use" and block.name == tool["name"]:
-                print(f"   토큰 사용: 입력 {resp.usage.input_tokens} / 출력 {resp.usage.output_tokens}")
-                return block.input
-        messages = messages + [
-            {"role": "assistant", "content": resp.content},
-            {"role": "user", "content": f"{tool['name']} 도구를 호출해서 결과를 제출해줘."},
-        ]
-    raise RuntimeError("Claude가 결과 도구를 호출하지 않았어요. 잠시 뒤 다시 실행해 주세요.")
+            last_error = "응답이 길이 한도에 걸려 잘렸어요"
+            print("   (응답이 길이 한도에 걸려 다시 요청)")
+            continue
+        block = next((b for b in resp.content if b.type == "tool_use" and b.name == tool["name"]), None)
+        if block is None:
+            last_error = "Claude가 결과 도구를 호출하지 않았어요"
+            print("   (결과 도구를 부르지 않아 다시 요청)")
+            messages = [{"role": "user", "content": user},
+                        {"role": "assistant", "content": [b for b in resp.content if b.type == "text"] or "..."},
+                        {"role": "user", "content": f"{tool['name']} 도구를 호출해서 결과를 제출해줘."}]
+            continue
+        try:
+            result = _as_dict(block.input)
+            problem = validate(result) if validate else None
+        except Exception as e:  # 형식이 틀리면 다시 요청
+            problem = f"형식 오류: {e}"
+        if problem:
+            last_error = problem
+            print(f"   (결과 형식 문제 → 다시 요청: {problem})")
+            messages = [{"role": "user", "content": user + f"\n\n[주의] 직전 결과에 문제가 있었어: {problem}\n"
+                                                           "모든 필수 항목을 정해진 형식대로 채워서 다시 제출해."}]
+            continue
+        print(f"   토큰 사용: 입력 {resp.usage.input_tokens} / 출력 {resp.usage.output_tokens}")
+        return result
+    raise RuntimeError(f"Claude에게서 올바른 결과를 받지 못했어요({last_error}). 잠시 뒤 다시 실행해 주세요.")
+
+
+# ── 결과 정리: 빠진 항목·틀린 형식을 바로잡는다 ─────────────
+
+def _str(v, default: str = "") -> str:
+    if v is None:
+        return default
+    if isinstance(v, (list, tuple)):
+        return " ".join(_str(x) for x in v)
+    return str(v).strip()
+
+
+def _list(v) -> list:
+    if v is None:
+        return []
+    if isinstance(v, str):
+        try:
+            loaded = json.loads(v)
+            if isinstance(loaded, list):
+                return loaded
+        except ValueError:
+            pass
+        return [x for x in (p.strip() for p in v.split("\n")) if x]
+    if isinstance(v, dict):
+        return [v]
+    return list(v)
+
+
+def _int(v, default: int = -1) -> int:
+    try:
+        return int(str(v).strip().split()[-1].strip("[]<>#번"))
+    except (ValueError, IndexError):
+        digits = "".join(ch for ch in str(v) if ch.isdigit())
+        return int(digits) if digits else default
+
+
+def normalize_post(post: dict) -> dict:
+    """카드 그리기·검증에 필요한 항목을 모두 올바른 형식으로 맞춘다."""
+    out = dict(post)
+    for k in ("cover_kicker", "cover_title", "cover_subtitle", "question", "caption"):
+        out[k] = _str(out.get(k))
+    out["cover_title"] = out["cover_title"].replace("\\n", "\n")
+    slides = []
+    for s in _list(out.get("slides")):
+        if isinstance(s, str):
+            s = {"heading": s}
+        if not isinstance(s, dict):
+            continue
+        terms = []
+        for t in _list(s.get("terms")):
+            if isinstance(t, dict) and _str(t.get("term")) and _str(t.get("meaning")):
+                terms.append({"term": _str(t["term"]), "meaning": _str(t["meaning"])})
+        slides.append({"heading": _str(s.get("heading")), "highlight": _str(s.get("highlight")),
+                       "points": [_str(p) for p in _list(s.get("points")) if _str(p)][:3],
+                       "terms": terms[:2]})
+    out["slides"] = [s for s in slides if s["heading"] or s["points"]][:4]
+    out["takeaways"] = [_str(t) for t in _list(out.get("takeaways")) if _str(t)][:3]
+    out["hashtags"] = [_str(t) for t in _list(out.get("hashtags")) if _str(t)]
+    nd = out.get("needs_disclaimer")
+    out["needs_disclaimer"] = nd if isinstance(nd, bool) else _str(nd).lower() in ("true", "1", "yes", "예")
+    claims = []
+    for c in _list(out.get("claims")):
+        if isinstance(c, dict):
+            claims.append({"claim": _str(c.get("claim")), "source": _int(c.get("source"), 0),
+                           "evidence": _str(c.get("evidence"))})
+    out["claims"] = claims
+    return out
+
+
+def post_problem(post: dict) -> str | None:
+    """정리한 뒤에도 카드로 만들 수 없을 만큼 빠진 게 있으면 그 내용을 돌려준다."""
+    p = normalize_post(post)
+    missing = [k for k in ("cover_title", "caption") if not p[k]]
+    if len(p["slides"]) < 2:
+        missing.append("slides(본문 카드 3~4장)")
+    if not p["takeaways"]:
+        missing.append("takeaways")
+    if not p["claims"]:
+        missing.append("claims(사실 근거)")
+    return f"빠진 항목: {', '.join(missing)}" if missing else None
 
 
 # ── 1단계: 기사 고르기 ─────────────────────────────────────
@@ -111,10 +232,17 @@ def select_story(cfg: dict, topic_key: str, items: list[dict], recent_titles: li
         f"이번엔 고르지 말 것(출처 확인 실패): {json.dumps(avoid or [], ensure_ascii=False)}\n\n"
         "기사 목록:\n" + "\n".join(lines)
     )
-    result = _call_tool(cfg, system, user, SELECT_TOOL, max_tokens=800)
-    result["indices"] = [i for i in result["indices"] if 0 <= i < len(items)][: cfg["news"]["max_articles_per_post"]]
-    if not result["indices"]:
-        result["indices"] = [0]
+    def check(r: dict) -> str | None:
+        idx = [_int(i) for i in _list(r.get("indices"))]
+        return None if any(0 <= i < len(items) for i in idx) else "indices에 목록에 있는 기사 번호를 넣어야 해요"
+
+    result = _call_tool(cfg, system, user, SELECT_TOOL, max_tokens=800, validate=check)
+    idx = [_int(i) for i in _list(result.get("indices"))]
+    idx = list(dict.fromkeys(i for i in idx if 0 <= i < len(items)))
+    result["indices"] = idx[: cfg["news"]["max_articles_per_post"]] or [0]
+    result["category"] = _str(result.get("category"))
+    result["angle"] = _str(result.get("angle"))
+    result["reason"] = _str(result.get("reason"))
     return result
 
 
@@ -210,15 +338,18 @@ def write_post(cfg: dict, topic_key: str, articles: list[dict], angle: str) -> d
     user = (f"다음 기사들로 카드뉴스를 만들어줘. 풀어갈 관점: {angle}\n"
             "구성: 표지 → 본문 카드 3~4장(무슨 일 → 핵심 내용 → 왜 중요한지) → 한 줄 정리.\n\n"
             + _articles_block(articles))
-    return _call_tool(cfg, _system(cfg, topic_key), user, POST_TOOL, max_tokens=8000)
+    return normalize_post(_call_tool(cfg, _system(cfg, topic_key), user, POST_TOOL, max_tokens=8000,
+                                     validate=post_problem))
 
 
 def revise_post(cfg: dict, topic_key: str, post: dict, feedback: str, articles: list[dict]) -> dict:
+    post = normalize_post(post)
     current = {k: post[k] for k in POST_TOOL["input_schema"]["required"] if k in post}
     user = ("아래 카드뉴스 초안을 요청대로 고쳐줘. 요청과 관계없는 부분은 유지하고, claims도 고친 내용에 맞게 다시 달아.\n\n"
             f"[요청]\n{feedback}\n\n[현재 초안]\n{json.dumps(current, ensure_ascii=False, indent=2)}\n\n"
             f"[기사]\n{_articles_block(articles)}")
-    return _call_tool(cfg, _system(cfg, topic_key), user, POST_TOOL, max_tokens=8000)
+    return normalize_post(_call_tool(cfg, _system(cfg, topic_key), user, POST_TOOL, max_tokens=8000,
+                                     validate=post_problem))
 
 
 INVEST_WORDS = ("주가", "주식", "종목", "증시", "코스피", "코스닥", "나스닥", "시가총액", "상장", "매수", "매도",
@@ -289,21 +420,37 @@ def research(cfg: dict, topic: str, domains: list[str], avoid_urls: list[str] | 
             f"쓰지 말 URL: {json.dumps(avoid_urls or [], ensure_ascii=False)}")
     messages = [{"role": "user", "content": user}]
     seen_urls: list[str] = []
-    for _ in range(4):
-        resp = client().messages.create(model=cfg["claude"].get("research_model", cfg["claude"]["model"]),
-                                        max_tokens=3000, system=system,
-                                        messages=messages, tools=tools)
+    model = cfg["claude"].get("research_model") or cfg["claude"]["model"]
+    for _ in range(5):
+        try:
+            resp = _create(model=model, max_tokens=8000, system=system, messages=messages, tools=tools)
+        except anthropic.BadRequestError as e:
+            msg = str(e)
+            if "web_search" in msg or "web search" in msg.lower():
+                raise RuntimeError("Claude 웹 검색을 쓸 수 없어요. Claude Console → Settings → Privacy(또는 "
+                                   "Features)에서 Web search를 켜 주세요. 원문: " + msg[:200]) from e
+            raise
+        pick = None
         for block in resp.content:
             if block.type == "web_search_tool_result" and isinstance(block.content, list):
                 seen_urls += [r.url for r in block.content if getattr(r, "url", None)]
             if block.type == "tool_use" and block.name == "pick_sources":
-                return dict(block.input)
-        if resp.stop_reason == "pause_turn":
-            messages.append({"role": "assistant", "content": resp.content})
-            continue
+                pick = block
+        if pick is not None:
+            try:
+                found = _as_dict(pick.input)
+            except ValueError:
+                found = {}
+            urls = [_str(u) for u in _list(found.get("urls")) if _str(u).startswith("http")]
+            if urls:
+                return {"urls": urls[:4], "category": _str(found.get("category")) or "economy",
+                        "angle": _str(found.get("angle")) or topic}
+            break
         messages.append({"role": "assistant", "content": resp.content})
+        if resp.stop_reason == "pause_turn":  # 서버 검색이 길어져 잠시 멈춤 → 그대로 이어서
+            continue
         messages.append({"role": "user", "content": "이제 pick_sources를 호출해서 고른 URL을 알려줘."})
-    return {"urls": seen_urls[:4], "category": "economy", "angle": topic}
+    return {"urls": list(dict.fromkeys(seen_urls))[:4], "category": "economy", "angle": topic}
 
 
 def corroborate(cfg: dict, articles: list[dict], domains: list[str]) -> list[str]:

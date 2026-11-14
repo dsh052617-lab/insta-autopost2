@@ -33,9 +33,9 @@ def visible_text(post: dict) -> str:
              post.get("caption", ""), post.get("question", "")]
     for s in post.get("slides", []):
         parts += [s.get("heading", ""), s.get("highlight", "")] + list(s.get("points", []))
-        parts += [f"{t.get('term', '')} {t.get('meaning', '')}" for t in s.get("terms", [])]
+        parts += [f"{t.get('term', '')} {t.get('meaning', '')}" for t in s.get("terms", []) if isinstance(t, dict)]
     parts += post.get("takeaways", [])
-    return "\n".join(parts).replace("**", "")
+    return "\n".join(str(p) for p in parts if p).replace("**", "")
 
 
 def source_rule(articles: list[dict]) -> str | None:
@@ -53,13 +53,16 @@ def check(post: dict, articles: list[dict]) -> dict:
     if rule:
         problems.append(rule)
 
-    corpus = [_norm(a["text"]) for a in articles]
+    corpus = [_norm(a.get("text", "")) for a in articles]
     verified = []
     claims = post.get("claims", [])
     if not claims:
         problems.append("근거(claims)가 하나도 없어요.")
     for c in claims:
-        idx = int(c.get("source", 0)) - 1
+        try:
+            idx = int(c.get("source", 0)) - 1
+        except (TypeError, ValueError):
+            idx = -1
         ev = _norm(c.get("evidence", ""))
         if not 0 <= idx < len(articles):
             problems.append(f"없는 기사 번호를 근거로 댔어요: \"{c.get('claim', '')}\"")
@@ -68,7 +71,7 @@ def check(post: dict, articles: list[dict]) -> dict:
         else:
             verified.append({"claim": c.get("claim", ""), "source": idx + 1})
 
-    all_numbers = set().union(*(_numbers(a["text"]) for a in articles)) if articles else set()
+    all_numbers = set().union(*(_numbers(a.get("text", "")) for a in articles)) if articles else set()
     for n in sorted(_numbers(visible_text(post)) - all_numbers):
         problems.append(f"원문에서 찾을 수 없는 숫자: {n}")
 

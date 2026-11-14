@@ -22,20 +22,67 @@ def _base(token: str) -> str:
     return f"https://{host}/{VERSION}"
 
 
+HINTS = {
+    190: "토큰이 만료됐거나 잘못됐어요. Meta 비즈니스 설정 → 시스템 사용자에서 토큰을 새로 만들어 IG_ACCESS_TOKEN을 바꿔주세요.",
+    10: "토큰에 권한이 없어요. 토큰을 만들 때 instagram_basic, instagram_content_publish, pages_show_list, "
+        "pages_read_engagement, business_management 권한을 모두 체크했는지 확인해주세요.",
+    200: "토큰에 권한이 없어요. 시스템 사용자에게 인스타 계정(과 연결된 페이지) 자산이 '전체 권한'으로 할당됐는지 확인해주세요.",
+    100: "요청 값이 잘못됐어요. IG_USER_ID가 인스타 '비즈니스 계정 ID'(17841…로 시작)인지 확인해주세요.",
+    4: "요청이 너무 많아요. 1시간쯤 뒤에 다시 시도해주세요.",
+    9: "인스타 게시 한도(하루 50개)에 걸렸어요. 내일 다시 시도해주세요.",
+    36003: "이미지 비율이 맞지 않아요.",
+    9004: "인스타가 이미지 주소를 열지 못했어요. 저장소가 공개(Public)인지 확인해주세요.",
+}
+
+
+class InstagramError(RuntimeError):
+    def __init__(self, msg: str, code: int | None = None, transient: bool = False):
+        super().__init__(msg)
+        self.code = code
+        self.transient = transient
+
+
 def _check(r: requests.Response) -> dict:
-    data = r.json() if r.text else {}
+    try:
+        data = r.json() if r.text else {}
+    except ValueError:
+        data = {"error": {"message": r.text[:300]}}
     if r.status_code >= 400 or "error" in data:
-        err = data.get("error", {})
-        raise RuntimeError(f"Instagram API 오류 {r.status_code}: {err.get('message', r.text[:300])}")
+        err = data.get("error", {}) if isinstance(data, dict) else {}
+        code = err.get("code")
+        sub = err.get("error_subcode")
+        hint = HINTS.get(sub) or HINTS.get(code) or ""
+        transient = bool(err.get("is_transient")) or r.status_code >= 500 or code in (1, 2, 4, 17, 32, 613)
+        msg = f"Instagram API 오류 {r.status_code} (code {code}/{sub}): {err.get('message', r.text[:300])}"
+        raise InstagramError(msg + (f"\n→ {hint}" if hint else ""), code, transient)
     return data
 
 
-def _post(path: str, token: str, **params) -> dict:
-    return _check(requests.post(f"{_base(token)}/{path}", data={**params, "access_token": token}, timeout=60))
+def _call(method: str, path: str, token: str, retry: bool, **params) -> dict:
+    url = f"{_base(token)}/{path}"
+    for attempt in range(4 if retry else 1):
+        try:
+            if method == "GET":
+                r = requests.get(url, params={**params, "access_token": token}, timeout=60)
+            else:
+                r = requests.post(url, data={**params, "access_token": token}, timeout=90)
+            return _check(r)
+        except requests.RequestException as e:
+            err: Exception = InstagramError(f"인스타 서버 접속 실패: {e}", transient=True)
+        except InstagramError as e:
+            err = e
+        if not (retry and getattr(err, "transient", False)) or attempt == 3:
+            raise err
+        time.sleep(10 * (attempt + 1))
+    raise RuntimeError("unreachable")
+
+
+def _post(path: str, token: str, retry: bool = True, **params) -> dict:
+    return _call("POST", path, token, retry, **params)
 
 
 def _get(path: str, token: str, **params) -> dict:
-    return _check(requests.get(f"{_base(token)}/{path}", params={**params, "access_token": token}, timeout=60))
+    return _call("GET", path, token, True, **params)
 
 
 def _wait_ready(container_id: str, token: str, timeout: int = 180) -> None:
@@ -67,14 +114,15 @@ def publish_carousel(ig_user_id: str, token: str, image_urls: list[str], caption
         parent = _post(f"{ig_user_id}/media", token, **params,
                        **({"is_ai_generated": "true"} if ai_label else {}))["id"]
     except RuntimeError as e:
-        if ai_label and "is_ai_generated" in str(e):
+        if ai_label and ("is_ai_generated" in str(e) or getattr(e, "code", None) == 100):
             print("⚠️  AI 라벨 파라미터가 거부돼 라벨 없이 다시 시도해요.")
             parent = _post(f"{ig_user_id}/media", token, **params)["id"]
         else:
             raise
     _wait_ready(parent, token)
 
-    media_id = _post(f"{ig_user_id}/media_publish", token, creation_id=parent)["id"]
+    # 게시 요청은 중복 게시를 막기 위해 자동 재시도하지 않는다
+    media_id = _post(f"{ig_user_id}/media_publish", token, retry=False, creation_id=parent)["id"]
     permalink = ""
     try:
         permalink = _get(media_id, token, fields="permalink").get("permalink", "")
@@ -90,8 +138,8 @@ def my_user_id(token: str) -> str:
         print(f"   계정: @{me.get('username')}")
         return str(me.get("user_id") or me["id"])
     # 통합 로그인(시스템 사용자) 토큰: 할당된 인스타 계정 → 없으면 페이지에 연결된 계정
-    for path, fields in (("me/assigned_instagram_accounts", "id,username"),
-                         ("me/accounts", "instagram_business_account{id,username}")):
+    for path, fields in (("me/accounts", "instagram_business_account{id,username}"),
+                         ("me/assigned_instagram_accounts", "id,username")):
         try:
             data = _get(path, token, fields=fields).get("data", [])
         except RuntimeError:
