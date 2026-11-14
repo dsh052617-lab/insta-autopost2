@@ -125,3 +125,15 @@ pip install -r requirements.txt   # 한글 폰트: sudo apt-get install fonts-no
 python tests/e2e_mock.py          # 모의 전체 흐름 (끝나면 drafts/·data/history.json 원복)
 ANTHROPIC_API_KEY=... python src/draft.py --local --topic economy   # 실제 뉴스+Claude로 미리보기만 (preview/ 폴더)
 ```
+
+
+## 2026-11-15 첫 실제 실행에서 고친 것
+- Opus 5.5는 `tool_choice` 강제 호출을 지원하지 않음(400) → `_call_tool`이 자동 방식으로 전환, 결과 도구를 안 부르거나 형식이 틀리면 최대 5번 재요청.
+- 생각 토큰 때문에 `max_tokens=800`에서 잘림 → 최소 16000, 스트리밍 호출(`messages.stream`)로 SDK 시간 제한 회피.
+- 응답 정리 `normalize_post`/`post_problem`, `select_story` 번호 정리, `verify.check` 번호 파싱 방어.
+- 실패 알림: `github_api.report_error` → `[오류]` 이슈 또는 해당 이슈 댓글. 로그는 비공개라도 이슈는 공개라서 원인 확인이 쉬움.
+- 설정 점검 `src/check_setup.py` + `0. 설정 점검` 워크플로.
+- 러너 `ubuntu-24.04` 고정, actions/checkout@v5·setup-python@v6, 의존성 버전 범위 고정.
+- 예비 cron(초안 화·목 09:23, 게시 화·목 20:12) + 같은 날짜 초안 중복 방지(닫힌 초안 포함).
+- 한국경제 RSS는 403이라 피드에서 제외(도메인은 신뢰 목록 유지).
+- 남은 위험: openai.com 등 일부 사이트가 원문 요청을 403으로 막을 수 있음(그 기사는 건너뛰고 다른 이슈로 재선정), 인스타 실제 게시(EAA 토큰·raw 이미지)는 아직 미검증 → 0. 설정 점검으로 먼저 확인.

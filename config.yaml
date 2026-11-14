@@ -118,9 +118,7 @@ topics:
           keywords: ["AI", "인공지능", "AGI", "생성형", "LLM", "챗GPT", "오픈AI", "엔비디아", "반도체", "디지털"] }
       - { url: "https://www.yna.co.kr/rss/economy.xml",
           keywords: ["AI", "인공지능", "AGI", "생성형", "디지털 전환", "자동화"] }
-      # 아래 국내 언론 피드는 주소 확인 전 (안 열리면 실행 기록에 '피드 실패'로 표시되고 건너뜀)
-      - { url: "https://www.hankyung.com/feed/it",
-          keywords: ["AI", "인공지능", "AGI", "생성형", "LLM", "챗GPT", "반도체"] }
+      # 한국경제 피드는 자동 접속을 막아서(403) 뺐어요. 한경 기사는 출처 보충 검색으로는 계속 쓸 수 있어요.
       - { url: "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml",
           keywords: ["AI", "인공지능", "생성형", "반도체"] }
       - { url: "https://rss.donga.com/economy.xml",
@@ -136,8 +134,7 @@ topics:
       - { url: "https://www.yna.co.kr/rss/economy.xml" }
       - { url: "https://www.yna.co.kr/rss/market.xml" }
       - { url: "http://feeds.bbci.co.uk/news/business/rss.xml" }
-      # 아래 국내 언론 피드는 주소 확인 전 (안 열리면 실행 기록에 '피드 실패'로 표시되고 건너뜀)
-      - { url: "https://www.hankyung.com/feed/economy" }
+      # 아래 국내 언론 피드는 안 열리면 실행 기록에 '피드 실패'로 표시되고 건너뜀 (0. 설정 점검으로 확인 가능)
       - { url: "https://www.mk.co.kr/rss/30100041/" }
       - { url: "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml" }
       - { url: "https://rss.donga.com/economy.xml" }

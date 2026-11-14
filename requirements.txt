@@ -1,6 +1,6 @@
-anthropic>=0.40
-feedparser>=6.0
-trafilatura>=1.12
-requests>=2.31
-Pillow>=10.0
-PyYAML>=6.0
+anthropic>=2.8,<3
+feedparser>=6.0,<7
+trafilatura>=2.0,<3
+requests>=2.32,<3
+Pillow>=11,<13
+PyYAML>=6,<7
