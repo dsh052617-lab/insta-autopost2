@@ -42,7 +42,13 @@ def gather(cfg: dict, topic: str, extra: str) -> tuple[list[dict], dict]:
         if articles and not verify.source_rule(articles):
             break
         print("   신뢰 출처 안에서 검색 중…")
-        found = writer.research(cfg, f"{topic}\n{extra}".strip(), domains, avoid)
+        try:
+            found = writer.research(cfg, f"{topic}\n{extra}".strip(), domains, avoid)
+        except Exception as e:
+            print(f"   ⚠️ 검색 실패: {e}")
+            if not articles:
+                raise
+            break
         plan.update({k: found.get(k, "") for k in ("category", "angle")})
         for u in found.get("urls", []):
             if u in avoid or any(a["url"] == u for a in articles):
@@ -124,4 +130,15 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        import github_api as gh_api
+        num = 0
+        for i, a in enumerate(sys.argv):
+            if a.startswith("--issue="):
+                num = int(a.split("=", 1)[1] or 0)
+        gh_api.report_error(e, "내 주제 카드뉴스 만들기", num)
+        raise
