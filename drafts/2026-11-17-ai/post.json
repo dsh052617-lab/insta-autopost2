@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-17",
+  "topic": "ai",
+  "version": 1,
+  "post": {
+    "cover_kicker": "엔비디아 리더십",
+    "cover_title": "엔비디아 CEO 사임\nAI 투자 공백 우려",
+    "cover_subtitle": "아시아 정부 점검, 스타트업 투자 위축 우려",
+    "slides": [
+      {
+        "heading": "33년 이끈 CEO 사임",
+        "highlight": "33년",
+        "points": [
+          "젠슨 황, **33년** 이끈 엔비디아서 사임",
+          "임시 CEO는 **콜레트 크레스**",
+          "더버지, **AI 산업 안정성**이 걸린 문제로 봐요"
+        ],
+        "terms": [
+          {
+            "term": "임시 CEO",
+            "meaning": "후임이 정해질 때까지 회사를 맡는 대표"
+          }
+        ]
+      },
+      {
+        "heading": "아시아 정부, 공급 재확인",
+        "highlight": "260,000개",
+        "points": [
+          "한국: GPU **260,000개** 공급 계획 재확인",
+          "한국 AI 전략위, **긴급회의**로 영향 점검",
+          "대만 본사 계획 유지, 일본은 **면밀히 주시**"
+        ],
+        "terms": [
+          {
+            "term": "GPU",
+            "meaning": "AI 계산에 쓰이는 고성능 처리 칩"
+          }
+        ]
+      },
+      {
+        "heading": "스타트업 투자 공백 우려",
+        "highlight": "105건",
+        "points": [
+          "올해만 **105건** 투자 라운드 참여",
+          "한 투자자 \"크레스는 훨씬 **보수적**\"",
+          "소액·선별 투자로 **기업 가치** 하락 예상"
+        ],
+        "terms": [
+          {
+            "term": "투자 라운드",
+            "meaning": "스타트업이 단계별로 투자금을 모으는 일"
+          },
+          {
+            "term": "기업 가치",
+            "meaning": "투자할 때 매겨지는 회사의 값어치"
+          }
+        ]
+      },
+      {
+        "heading": "한 사람 의존도와 확인점",
+        "highlight": "",
+        "points": [
+          "주요 투자 결정은 주로 **황 본인** 몫이었다는 평",
+          "빅테크가 **빈자리** 채울지 지켜볼 점",
+          "다수는 AI 붐 **중단**까진 보지 않아요"
+        ],
+        "terms": [
+          {
+            "term": "빅테크",
+            "meaning": "구글·아마존 같은 대형 기술 기업"
+          }
+        ]
+      }
+    ],
+    "takeaways": [
+      "리더 공백에 아시아 정부도 점검",
+      "스타트업 투자·기업 가치 위축 우려",
+      "AI 산업의 한 회사 의존도 드러나"
+    ],
+    "question": "AI 산업이 한 회사에 기대는 구조, 어떻게 보시나요?",
+    "caption": "엔비디아를 33년 동안 이끈 젠슨 황 CEO가 사임하면서 AI 업계 전반이 그 영향을 점검하고 있어요.\n\n한국 정부는 엔비디아가 GPU 260,000개 공급 계획을 재확인했다고 밝혔고, 대만과 일본도 대응에 나섰어요. 투자자들은 올해만 105건의 투자 라운드에 참여한 엔비디아가 투자를 줄이면 스타트업 자금이 줄고 기업 가치도 낮아질 수 있다고 우려해요.\n\nAI 산업이 회사 하나와 리더 한 명에게 얼마나 기대고 있는지 살펴볼 때예요.",
+    "hashtags": [
+      "AGI시대경제",
+      "엔비디아",
+      "젠슨황",
+      "AI반도체",
+      "AI스타트업",
+      "GPU",
+      "벤처투자"
+    ],
+    "needs_disclaimer": true,
+    "claims": [
+      {
+        "claim": "젠슨 황이 33년 이끈 엔비디아에서 사임",
+        "source": 2,
+        "evidence": "who co-founded and led the company for 33 years, had officially stepped down"
+      },
+      {
+        "claim": "임시 CEO는 콜레트 크레스",
+        "source": 2,
+        "evidence": "Nvidia’s interim CEO, Colette Kress, is expected to institute some changes"
+      },
+      {
+        "claim": "더버지는 AI 산업 전체의 안정성이 걸린 문제로 봄",
+        "source": 3,
+        "evidence": "and about the very stability of the AI industry as a whole"
+      },
+      {
+        "claim": "한국: 엔비디아가 GPU 260,000개 공급 계획 재확인",
+        "source": 1,
+        "evidence": "Nvidia had reaffirmed its plan to supply 260,000 advanced GPUs to the country and to continue joint AI projects"
+      },
+      {
+        "claim": "한국 정부 AI 전략위원회 긴급회의로 영향 점검",
+        "source": 1,
+        "evidence": "South Korea’s government AI strategy council held an emergency meeting on Friday to assess the potential impact of Huang’s departure"
+      },
+      {
+        "claim": "대만 타이베이 해외 본사 계획 유지",
+        "source": 1,
+        "evidence": "Nvidia’s planned overseas headquarters in the city remained on track despite the leadership change"
+      },
+      {
+        "claim": "일본 정부는 엔비디아를 면밀히 주시",
+        "source": 1,
+        "evidence": "the Industry Ministry said the government would closely monitor Nvidia following Huang’s resignation"
+      },
+      {
+        "claim": "엔비디아는 올해만 105건 투자 라운드 참여",
+        "source": 2,
+        "evidence": "participating in 105 rounds this year alone, often as the largest investor, according to PitchBook"
+      },
+      {
+        "claim": "한 투자자는 크레스가 훨씬 보수적이라고 말함",
+        "source": 2,
+        "evidence": "“She’s much more conservative,” one investor said of Kress."
+      },
+      {
+        "claim": "선별·소액 투자로 기업 가치 하락 예상",
+        "source": 2,
+        "evidence": "while writing smaller-sized checks into its existing portfolio, contributing to a drop in valuations"
+      },
+      {
+        "claim": "주요 투자 결정은 주로 젠슨 황 본인이 내림(패드발)",
+        "source": 2,
+        "evidence": "Most of the significant decisions to invest in startups often came from Jensen himself"
+      },
+      {
+        "claim": "빅테크가 엔비디아의 투자 자리를 두고 경쟁할 것이라는 전망",
+        "source": 2,
+        "evidence": "expects Big Tech rivals to vie for Nvidia’s investment crown"
+      },
+      {
+        "claim": "투자 둔화만으로 AI 붐이 멈출 것이라 보는 이는 적음",
+        "source": 2,
+        "evidence": "few believe that Nvidia’s investment slowdown will by itself halt the broader AI boom"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
+      "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
+      "source": "TechCrunch",
+      "published": "2026-11-14",
+      "tier": "press"
+    },
+    {
+      "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "source": "TechCrunch",
+      "published": "2026-11-13",
+      "tier": "press"
+    },
+    {
+      "title": "What’s really at stake in the Jensen Huang saga",
+      "url": "https://www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast",
+      "source": "The Verge",
+      "published": "2026-11-13",
+      "tier": "press"
+    }
+  ],
+  "story": {
+    "reason": "젠슨 황 엔비디아 CEO 사임은 이번 주 TechCrunch와 The Verge 등 여러 언론이 가장 많이 다룬 AI 이슈다. 각국 정부가 칩 공급을 점검하고 AI 스타트업 투자 시장에도 영향이 예상되는 등 실제 시장에 변화를 만들고 있다. 엔비디아의 비중이 큰 반도체 업황, 주식시장, AI 인프라 투자 흐름을 이해하는 데 직접 도움이 된다. 사생활 관련 자극적인 내용은 다루지 않고, 서로 다른 두 언론사가 보도한 경제적 영향만 다룬다. 출처 확인에 실패한 국내 GPU 26만 장 관련 기사는 제외했다. ChatGPT Wallet 같은 신제품 소식보다 이 이슈가 훨씬 비중이 커서 이번 주제로 골랐다.",
+    "angle": "스캔들 내용은 빼고, 'AI의 핵심 회사 엔비디아가 갑자기 CEO를 잃으면 경제에 무슨 일이 생기나'에 집중한다. ① 아시아 각국 정부가 AI 칩 공급 약속을 다시 확인하고 자국 사업 영향을 점검하는 움직임, ② 엔비디아의 대규모 투자가 줄 수 있어 AI 스타트업이 받는 투자금과 기업 가치가 낮아질 거라는 업계 우려, ③ AI 산업이 회사 하나와 그 회사 리더 한 명에게 얼마나 기대고 있는지를 쉽게 풀어, AI 관련 투자와 산업 흐름을 보는 눈을 키워준다.",
+    "category": "산업·기업"
+  },
+  "verification": {
+    "passed": true,
+    "problems": [],
+    "verified": [
+      {
+        "claim": "젠슨 황이 33년 이끈 엔비디아에서 사임",
+        "source": 2
+      },
+      {
+        "claim": "임시 CEO는 콜레트 크레스",
+        "source": 2
+      },
+      {
+        "claim": "더버지는 AI 산업 전체의 안정성이 걸린 문제로 봄",
+        "source": 3
+      },
+      {
+        "claim": "한국: 엔비디아가 GPU 260,000개 공급 계획 재확인",
+        "source": 1
+      },
+      {
+        "claim": "한국 정부 AI 전략위원회 긴급회의로 영향 점검",
+        "source": 1
+      },
+      {
+        "claim": "대만 타이베이 해외 본사 계획 유지",
+        "source": 1
+      },
+      {
+        "claim": "일본 정부는 엔비디아를 면밀히 주시",
+        "source": 1
+      },
+      {
+        "claim": "엔비디아는 올해만 105건 투자 라운드 참여",
+        "source": 2
+      },
+      {
+        "claim": "한 투자자는 크레스가 훨씬 보수적이라고 말함",
+        "source": 2
+      },
+      {
+        "claim": "선별·소액 투자로 기업 가치 하락 예상",
+        "source": 2
+      },
+      {
+        "claim": "주요 투자 결정은 주로 젠슨 황 본인이 내림(패드발)",
+        "source": 2
+      },
+      {
+        "claim": "빅테크가 엔비디아의 투자 자리를 두고 경쟁할 것이라는 전망",
+        "source": 2
+      },
+      {
+        "claim": "투자 둔화만으로 AI 붐이 멈출 것이라 보는 이는 적음",
+        "source": 2
+      }
+    ]
+  }
+}
