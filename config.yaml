@@ -1,0 +1,146 @@
+# ─────────────────────────────────────────────
+#  인스타 카드뉴스 자동 업로드 설정
+#  이 파일만 고치면 대부분의 동작을 바꿀 수 있어요.
+# ─────────────────────────────────────────────
+
+account:
+  handle: "@agi.economy.kr"
+  project: "AGI시대 경제"           # 카드 상단·하단에 표시되는 프로젝트 이름
+  audience: "AI가 바꾸는 경제에 관심 있는 일반 국민 (대학생·사회초년생 포함)"
+  tone: "차분한 해설 기사 톤의 해요체. 과장·감탄사·느낌표·이모지 없이 사실 중심으로. 어려운 용어는 한 번 쉽게 풀어서 설명."
+
+claude:
+  model: "claude-opus-5-5"            # 글쓰기 모델. 비용을 줄이려면 claude-sonnet-5-5
+  research_model: "claude-haiku-5-5"  # '내 주제'의 자료 검색 단계 (가장 저렴한 모델)
+
+schedule:
+  timezone: "Asia/Seoul"
+  post_time: "20:00"               # 게시 시각 (바꾸면 .github/workflows/publish.yml의 cron도 같이 바꿔주세요)
+  days:                            # 게시 요일: 주제  (요일을 바꾸면 draft.yml / publish.yml cron도 같이)
+    tuesday: ai
+    thursday: economy
+
+instagram:
+  ai_label: true                   # 인스타의 'AI 정보' 라벨 표시 (AI로 만든 콘텐츠임을 밝힘)
+
+news:
+  lookback_days: 7                 # 최근 7일 안에 나온 기사만 사용 (최신 이슈만)
+  max_articles_per_post: 3         # 게시물 하나에 참고할 기사 수
+  min_article_chars: 400           # 본문을 이만큼 못 가져온 기사는 사용하지 않음
+
+# ─────────────────────────────────────────────
+#  신뢰 출처 목록 (코드로 강제돼요)
+#  - 여기 있는 도메인의 글만 사용. 그 외 사이트는 자동 제외
+#  - official = 정부·중앙은행·국제기구·기업 공식 발표 / press = 주요 언론
+#  - 한 게시물은 official 1건 이상, 또는 서로 다른 press 2곳 이상이 같은 내용을 다뤄야 함
+#    (다른 언론사가 연합뉴스·뉴시스·뉴스1 기사를 그대로 실은 경우는 같은 1곳으로 셈)
+#  - 출처가 부족하면 이 목록 안에서만 웹 검색해 같은 사건을 다룬 기사를 자동 보충
+# ─────────────────────────────────────────────
+sources:
+  # 정부·공공기관·국제기구
+  bok.or.kr:            { name: "한국은행", tier: official }
+  korea.kr:             { name: "대한민국 정책브리핑", tier: official }
+  mofe.go.kr:           { name: "재정경제부", tier: official }
+  fsc.go.kr:            { name: "금융위원회", tier: official }
+  fss.or.kr:            { name: "금융감독원", tier: official }
+  moel.go.kr:           { name: "고용노동부", tier: official }
+  msit.go.kr:           { name: "과학기술정보통신부", tier: official }
+  kostat.go.kr:         { name: "통계청", tier: official }
+  kdi.re.kr:            { name: "KDI 한국개발연구원", tier: official }
+  federalreserve.gov:   { name: "미국 연방준비제도", tier: official }
+  imf.org:              { name: "IMF", tier: official }
+  oecd.org:             { name: "OECD", tier: official }
+  worldbank.org:        { name: "세계은행", tier: official }
+  # AI 기업·연구기관 공식 발표
+  openai.com:           { name: "OpenAI", tier: official }
+  anthropic.com:        { name: "Anthropic", tier: official }
+  deepmind.google:      { name: "Google DeepMind", tier: official }
+  research.google:      { name: "Google Research", tier: official }
+  blog.google:          { name: "Google", tier: official }
+  microsoft.com:        { name: "Microsoft", tier: official }
+  nvidia.com:           { name: "NVIDIA", tier: official }
+  # 주요 언론 — 통신사
+  yna.co.kr:            { name: "연합뉴스", tier: press }
+  newsis.com:           { name: "뉴시스", tier: press }
+  news1.kr:             { name: "뉴스1", tier: press }
+  # 주요 언론 — 종합일간지
+  chosun.com:           { name: "조선일보", tier: press }
+  joongang.co.kr:       { name: "중앙일보", tier: press }
+  donga.com:            { name: "동아일보", tier: press }
+  hani.co.kr:           { name: "한겨레", tier: press }
+  khan.co.kr:           { name: "경향신문", tier: press }
+  hankookilbo.com:      { name: "한국일보", tier: press }
+  kmib.co.kr:           { name: "국민일보", tier: press }
+  seoul.co.kr:          { name: "서울신문", tier: press }
+  # 주요 언론 — 경제지
+  hankyung.com:         { name: "한국경제", tier: press }
+  mk.co.kr:             { name: "매일경제", tier: press }
+  sedaily.com:          { name: "서울경제", tier: press }
+  mt.co.kr:             { name: "머니투데이", tier: press }
+  fnnews.com:           { name: "파이낸셜뉴스", tier: press }
+  edaily.co.kr:         { name: "이데일리", tier: press }
+  heraldcorp.com:       { name: "헤럴드경제", tier: press }
+  asiae.co.kr:          { name: "아시아경제", tier: press }
+  # 주요 언론 — 방송
+  kbs.co.kr:            { name: "KBS", tier: press }
+  imbc.com:             { name: "MBC", tier: press }
+  sbs.co.kr:            { name: "SBS", tier: press }
+  ytn.co.kr:            { name: "YTN", tier: press }
+  nocutnews.co.kr:      { name: "CBS노컷뉴스", tier: press }
+  # 주요 언론 — IT 전문
+  etnews.com:           { name: "전자신문", tier: press }
+  zdnet.co.kr:          { name: "지디넷코리아", tier: press }
+  dt.co.kr:             { name: "디지털타임스", tier: press }
+  bbc.com:              { name: "BBC", tier: press }
+  bbc.co.uk:            { name: "BBC", tier: press }
+  bbci.co.uk:           { name: "BBC", tier: press }
+  reuters.com:          { name: "Reuters", tier: press }
+  apnews.com:           { name: "AP", tier: press }
+  technologyreview.com: { name: "MIT Technology Review", tier: press }
+  techcrunch.com:       { name: "TechCrunch", tier: press }
+  theverge.com:         { name: "The Verge", tier: press }
+
+# 자동 업로드가 기사를 모으는 피드 (위 신뢰 출처 목록에 있는 사이트만)
+#  keywords: 적어두면 제목·요약에 그 단어가 있는 기사만 후보로 씀
+topics:
+  ai:
+    label: "AI"
+    color: "#27466E"   # 신뢰감 있는 남색
+    feeds:
+      - { url: "https://openai.com/news/rss.xml" }
+      - { url: "https://deepmind.google/blog/rss.xml" }
+      - { url: "https://research.google/blog/rss/" }
+      - { url: "https://news.microsoft.com/source/topics/ai/feed/" }
+      - { url: "https://www.technologyreview.com/topic/artificial-intelligence/feed" }
+      - { url: "https://techcrunch.com/category/artificial-intelligence/feed/" }
+      - { url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml" }
+      - { url: "https://www.yna.co.kr/rss/industry.xml",
+          keywords: ["AI", "인공지능", "AGI", "생성형", "LLM", "챗GPT", "오픈AI", "엔비디아", "반도체", "디지털"] }
+      - { url: "https://www.yna.co.kr/rss/economy.xml",
+          keywords: ["AI", "인공지능", "AGI", "생성형", "디지털 전환", "자동화"] }
+      # 아래 국내 언론 피드는 주소 확인 전 (안 열리면 실행 기록에 '피드 실패'로 표시되고 건너뜀)
+      - { url: "https://www.hankyung.com/feed/it",
+          keywords: ["AI", "인공지능", "AGI", "생성형", "LLM", "챗GPT", "반도체"] }
+      - { url: "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml",
+          keywords: ["AI", "인공지능", "생성형", "반도체"] }
+      - { url: "https://rss.donga.com/economy.xml",
+          keywords: ["AI", "인공지능", "생성형", "반도체"] }
+  economy:
+    label: "경제"
+    color: "#2F5F50"   # 차분한 짙은 녹색
+    feeds:
+      - { url: "https://www.bok.or.kr/portal/bbs/P0000093/news.rss?menuNo=200789" }   # 한국은행 의결사항
+      - { url: "https://www.bok.or.kr/portal/bbs/P0002353/news.rss?menuNo=200433" }   # 한국은행 이슈노트
+      - { url: "https://www.bok.or.kr/portal/bbs/P0002017/news.rss?menuNo=200365" }   # 한국은행 금융시장동향
+      - { url: "https://www.federalreserve.gov/feeds/press_all.xml" }
+      - { url: "https://www.yna.co.kr/rss/economy.xml" }
+      - { url: "https://www.yna.co.kr/rss/market.xml" }
+      - { url: "http://feeds.bbci.co.uk/news/business/rss.xml" }
+      # 아래 국내 언론 피드는 주소 확인 전 (안 열리면 실행 기록에 '피드 실패'로 표시되고 건너뜀)
+      - { url: "https://www.hankyung.com/feed/economy" }
+      - { url: "https://www.mk.co.kr/rss/30100041/" }
+      - { url: "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml" }
+      - { url: "https://rss.donga.com/economy.xml" }
+      - { url: "https://www.khan.co.kr/rss/rssdata/economy_news.xml" }
+      - { url: "https://www.hani.co.kr/rss/economy/" }
+      - { url: "https://www.newsis.com/RSS/economy.xml" }
