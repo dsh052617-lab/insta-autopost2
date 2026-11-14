@@ -1,0 +1,45 @@
+name: 2. 인스타 게시
+
+on:
+  schedule:
+    # 화·목 저녁 7시 35분(한국시간)에 시작 → 8시 정각까지 기다렸다가 게시. 화·목 10:35 UTC
+    - cron: "35 10 * * 2,4"
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "바로 게시할 이슈 번호 (비우면 오늘 예정분)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: insta
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: 패키지·한글 폰트 설치
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+      - name: 게시
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          ISSUE: ${{ inputs.issue }}
+        run: |
+          if [ -n "$ISSUE" ]; then python src/publish.py --issue "$ISSUE"; else python src/publish.py; fi

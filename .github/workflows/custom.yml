@@ -1,0 +1,66 @@
+name: 5. 내 주제로 만들기
+
+on:
+  # 새 이슈 제목을 "주제: …" 로 쓰면 자동 실행
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "카드뉴스로 만들 주제 (예: 청년도약계좌 바뀐 점)"
+        required: true
+      detail:
+        description: "원하는 관점이나 참고할 신뢰 출처 링크 (선택)"
+        required: false
+        default: ""
+      category:
+        description: "분야 (비우면 자동: ai / economy)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: insta-custom
+  cancel-in-progress: false
+
+jobs:
+  custom:
+    # 저장소 주인(또는 협업자)이 만든 '주제:' 이슈, 또는 수동 실행만
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (startsWith(github.event.issue.title, '주제') &&
+       contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: 패키지·한글 폰트 설치
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+      - name: 카드뉴스 만들기
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          IN_TOPIC: ${{ inputs.topic }}
+          IN_DETAIL: ${{ inputs.detail }}
+          IN_CATEGORY: ${{ inputs.category }}
+        run: |
+          if [ -n "$ISSUE_NUMBER" ]; then
+            TOPIC=$(printf '%s' "$ISSUE_TITLE" | sed -E 's/^주제[[:space:]]*[:：]?[[:space:]]*//')
+            python src/custom.py --topic="$TOPIC" --detail="$ISSUE_BODY" --issue="$ISSUE_NUMBER"
+          else
+            python src/custom.py --topic="$IN_TOPIC" --detail="$IN_DETAIL" --category="$IN_CATEGORY"
+          fi
