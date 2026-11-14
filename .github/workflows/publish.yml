@@ -4,6 +4,8 @@ on:
   schedule:
     # 화·목 저녁 7시 35분(한국시간)에 시작 → 8시 정각까지 기다렸다가 게시. 화·목 10:35 UTC
     - cron: "35 10 * * 2,4"
+    # 예비 실행: 위 예약이 늦거나 빠졌을 때 대비(이미 게시된 초안은 건너뜀) → 저녁 8시 12분
+    - cron: "12 11 * * 2,4"
   workflow_dispatch:
     inputs:
       issue:
@@ -21,13 +23,13 @@ concurrency:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip

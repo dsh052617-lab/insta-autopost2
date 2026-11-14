@@ -1,0 +1,37 @@
+name: 0. 설정 점검
+
+on:
+  workflow_dispatch:
+    inputs:
+      search:
+        description: "Claude 웹 검색까지 확인 (약 10~20원)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: 패키지·한글 폰트 설치
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+      - name: 점검
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          SEARCH: ${{ inputs.search }}
+        run: |
+          if [ "$SEARCH" = "true" ]; then python src/check_setup.py --search; else python src/check_setup.py; fi
