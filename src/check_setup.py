@@ -117,6 +117,33 @@ def main() -> None:
             pass
         return True, f"토큰 {kind}, 계정 @{info.get('username', '?')} (ID {uid}){limit}"
 
+    @check("인스타 게시 리허설 (실제로 올리지는 않음)")
+    def _():
+        """가장 최근 초안 이미지로 인스타 '게시 준비'까지만 해 본다. 마지막 게시 버튼(media_publish)은 누르지 않는다."""
+        import json
+
+        import instagram
+        token = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+        if not token:
+            return False, "IG_ACCESS_TOKEN이 없어 건너뜀"
+        drafts = sorted((ROOT / "drafts").glob("*/post.json"), key=lambda p: p.stat().st_mtime)
+        if not drafts:
+            return True, "아직 초안이 없어 건너뜀 (초안을 만든 뒤 다시 점검하면 확인돼요)"
+        data = json.loads(drafts[-1].read_text(encoding="utf-8"))
+        images = sorted((drafts[-1].parent / f"v{data['version']}").glob("*.jpg"))
+        urls = [raw_url(p) for p in images]
+        uid = os.environ.get("IG_USER_ID", "").strip() or instagram.my_user_id(token)
+        children = []
+        for u in urls:
+            children.append(instagram._post(f"{uid}/media", token, image_url=u, is_carousel_item="true")["id"])
+        for cid in children:
+            instagram._wait_ready(cid, token)
+        parent = instagram._post(f"{uid}/media", token, media_type="CAROUSEL",
+                                 children=",".join(children), caption="리허설")["id"]
+        instagram._wait_ready(parent, token)
+        return True, (f"{drafts[-1].parent.name} 이미지 {len(urls)}장을 인스타가 정상으로 받아 게시 직전 단계까지 확인 "
+                      "(실제 게시는 안 함, 준비본은 24시간 뒤 자동 삭제)")
+
     @check("GitHub 이슈·라벨 권한")
     def _():
         import github_api as gh
