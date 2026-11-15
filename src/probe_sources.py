@@ -40,10 +40,23 @@ URLS = [  # 직접 시험할 기사 주소
     ("뉴스1 (11/15 불법사금융)", "https://www.news1.kr/finance/general-finance/6354296"),
     ("아시아경제 (11/15 불법사금융)", "https://view.asiae.co.kr/article/2026111511531056567"),
     ("이투데이 (11/15 불법사금융)", "https://www.etoday.co.kr/news/view/2648258"),
+    ("Artificial Analysis 모델 비교", "https://artificialanalysis.ai/models"),
+    ("Artificial Analysis 지능 지수", "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index"),
+    ("Artificial Analysis GPQA", "https://artificialanalysis.ai/evaluations/gpqa-diamond"),
+    ("Artificial Analysis HLE", "https://artificialanalysis.ai/evaluations/humanitys-last-exam"),
+    ("Epoch AI 벤치마크", "https://epoch.ai/benchmarks"),
+    ("Epoch AI SWE-bench", "https://epoch.ai/benchmarks/swe-bench-verified"),
+    ("LMArena 순위", "https://lmarena.ai/leaderboard"),
+    ("Vals AI SWE-bench", "https://www.vals.ai/benchmarks/swebench"),
+    ("Stanford AI Index 2026", "https://hai.stanford.edu/ai-index/2026-ai-index-report"),
+    ("SWE-bench 공식 순위", "https://www.swebench.com/"),
 ]
 
 
 def try_article(cfg, url):
+    from urllib.parse import urlparse
+    host = urlparse(url).netloc.removeprefix("www.")
+    cfg = {**cfg, "sources": {**cfg["sources"], host: cfg["sources"].get(host) or {"name": host, "tier": "press"}}}
     a = news.fetch_article(cfg, {"url": url, "title": "", "published": ""})
     return (f"✅ 본문 {len(a['text'])}자" if a else "❌ 본문 못 가져옴")
 
