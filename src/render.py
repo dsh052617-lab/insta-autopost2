@@ -189,6 +189,35 @@ def cover(post: dict, ctx: dict) -> Image.Image:
     return img
 
 
+def draw_chart(d, chart: dict, y: int, limit: int, accent) -> int:
+    """가로 막대그래프. 모든 막대는 같은 색(우열을 색으로 강조하지 않음), 값은 원문 표기 그대로."""
+    items = chart["items"]
+    if chart.get("title"):
+        d.text((M, y), chart["title"], font=font(34, True), fill=INK)
+        y += 64
+    label_w = 300
+    bar_x0, bar_x1 = M + label_w, W - M - 170
+    room = max(limit - y - 70, 200)
+    gap = min(140, room // len(items))
+    bar_h = min(56, gap - 34)
+    top = max(it["num"] for it in items) or 1
+    for it in items:
+        lf, llines, _ = fit(it["label"], label_w - 24, bar_h + 20, 34, 24, True, 1.15)
+        ly = y + (bar_h - lf.size * len(llines)) // 2
+        for ln in llines:
+            d.text((M, ly), ln, font=lf, fill=BODY)
+            ly += int(lf.size * 1.15)
+        d.rounded_rectangle((bar_x0, y, bar_x1, y + bar_h), radius=10, fill=mix(accent, PAPER, 0.88))
+        x1 = bar_x0 + max(int((bar_x1 - bar_x0) * it["num"] / top), 14)
+        d.rounded_rectangle((bar_x0, y, x1, y + bar_h), radius=10, fill=accent)
+        d.text((bar_x1 + 20, y + (bar_h - 34) // 2), f"{it['value']}{chart.get('unit', '')}", font=font(34, True), fill=INK)
+        y += gap
+    if chart.get("note"):
+        d.text((M, y), chart["note"], font=font(26), fill=MUTED)
+        y += 52
+    return y + 30
+
+
 def body(slide: dict, idx: int, ctx: dict) -> Image.Image:
     accent = ctx["accent"]
     img = Image.new("RGB", (W, H), PAPER)
@@ -221,7 +250,10 @@ def body(slide: dict, idx: int, ctx: dict) -> Image.Image:
 
     d.text((M, y + 4), f"{idx:02d}", font=font(hf.size, True), fill=mix(accent, PAPER, 0.45))
     y = draw_lines(d, (M + 110, y), hlines, hf, hlh, INK) + 40
-    if hl:
+    chart = slide.get("chart")
+    if chart:  # 그래프 카드: 제목 → 가로 막대 → (요점 1줄) → 주석
+        y = draw_chart(d, chart, y, bottom - (len(wrapped[0]) * lh + 30 if points else 0), accent)
+    elif hl:
         box_w = max(bf.getlength(ln) for ln in blines) + 72
         d.rounded_rectangle((M, y, min(W - M, M + box_w), y + blh * len(blines) + 34), radius=18,
                             fill=mix(accent, PAPER, 0.88))

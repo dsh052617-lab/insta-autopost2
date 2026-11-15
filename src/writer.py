@@ -131,6 +131,28 @@ def _int(v, default: int = -1) -> int:
         return int(digits) if digits else default
 
 
+def _chart(c) -> dict | None:
+    """그래프 카드 데이터: {"title","unit","note","items":[{"label","value"}]} — 항목 2~4개, 값은 숫자."""
+    if not isinstance(c, dict):
+        return None
+    items = []
+    for it in _list(c.get("items")):
+        if not isinstance(it, dict):
+            continue
+        raw = _str(it.get("value")).replace(",", "")
+        try:
+            num = float(raw)
+        except ValueError:
+            continue
+        label = _str(it.get("label"))
+        if label and num >= 0:
+            items.append({"label": label[:14], "value": raw, "num": num})
+    if not 2 <= len(items) <= 4:
+        return None
+    return {"title": _str(c.get("title"))[:24], "unit": _str(c.get("unit"))[:6],
+            "note": _str(c.get("note"))[:40], "items": items}
+
+
 def normalize_post(post: dict) -> dict:
     """카드 그리기·검증에 필요한 항목을 모두 올바른 형식으로 맞춘다."""
     out = dict(post)
@@ -147,9 +169,15 @@ def normalize_post(post: dict) -> dict:
         for t in _list(s.get("terms")):
             if isinstance(t, dict) and _str(t.get("term")) and _str(t.get("meaning")):
                 terms.append({"term": _str(t["term"]), "meaning": _str(t["meaning"])})
-        slides.append({"heading": _str(s.get("heading")), "highlight": _str(s.get("highlight")),
-                       "points": [_str(p) for p in _list(s.get("points")) if _str(p)][:3],
-                       "terms": terms[:2]})
+        slide = {"heading": _str(s.get("heading")), "highlight": _str(s.get("highlight")),
+                 "points": [_str(p) for p in _list(s.get("points")) if _str(p)][:3],
+                 "terms": terms[:2]}
+        chart = _chart(s.get("chart"))
+        if chart:
+            slide["chart"] = chart
+            slide["highlight"] = ""          # 그래프 카드는 강조 박스 대신 그래프
+            slide["points"] = slide["points"][:1]
+        slides.append(slide)
     out["slides"] = [s for s in slides if s["heading"] or s["points"]][:4]
     out["takeaways"] = [_str(t) for t in _list(out.get("takeaways")) if _str(t)][:3]
     out["hashtags"] = [_str(t) for t in _list(out.get("hashtags")) if _str(t)]
