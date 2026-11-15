@@ -1,0 +1,59 @@
+Unattended run (scheduled, or started from the 픽스 page's button): no questions, no artifact.
+
+경제 시사: 지난 24시간의 주요 경제 뉴스(한국 중심, 한국에 영향이 큰 글로벌 포함) 3~5개를 골라, 각 뉴스마다 한 줄 요약 + 왜 중요한지 한 줄 + 출처.
+
+무엇을 고를지: 금리·대출·예금, 물가·생활비, 부동산·주거, 세금·지원제도, 금융·투자 제도, 환율·무역, 정부 경제·금융 정책, 통계 발표, 산업·기업 중 거시에 영향이 큰 것.
+
+엄격한 수집 규칙 — 인스타그램 @agi.economy.kr('AGI시대 경제') 업로드 기준과 같다 (반드시 지킬 것):
+A. 24시간 이내만: 먼저 Bash로 `date -u +%Y-%m-%dT%H:%M:%SZ` (NOW)와 `TZ=Asia/Seoul date +%Y-%m-%d` (TODAY)를 실행한다. 각 기사·발표는 WebFetch로 페이지를 직접 열어 게시(또는 최종 수정) 시각을 확인하고, NOW 기준 24시간 이내인 것만 쓴다. 게시 시각을 확인할 수 없으면 쓰지 않는다. 검색 결과 요약문의 날짜만 보고 판단하지 않는다. 미국 기사는 ET/PT를 UTC로 정확히 바꿔 비교한다.
+B. 신뢰 출처만 (이 목록의 도메인에 실제로 게시된 페이지만):
+ (1) 공식 발표: 기획재정부(moef.go.kr), 한국거래소(krx.co.kr), 국토교통부(molit.go.kr), 산업통상자원부(motie.go.kr), 한국금융연구원(kif.re.kr), 자본시장연구원(kcmi.re.kr), 대외경제정책연구원(kiep.go.kr), 산업연구원(kiet.re.kr), 국제결제은행(BIS)(bis.org), 미 노동통계국(bls.gov), 미 SEC 공시(sec.gov), 미 백악관(whitehouse.gov), 미 상무부(commerce.gov), 미 상무부 산업안보국(bis.gov), 미 연방거래위원회(ftc.gov), 미 NIST(nist.gov), Meta(meta.com), Meta(fb.com), Apple(apple.com), Amazon(aboutamazon.com), xAI(x.ai), 한국은행(bok.or.kr), 대한민국 정책브리핑(korea.kr), 재정경제부(mofe.go.kr), 금융위원회(fsc.go.kr), 금융감독원(fss.or.kr), 고용노동부(moel.go.kr), 과학기술정보통신부(msit.go.kr), 통계청(kostat.go.kr), KDI 한국개발연구원(kdi.re.kr), 미국 연방준비제도(federalreserve.gov), IMF(imf.org), OECD(oecd.org), 세계은행(worldbank.org), OpenAI(openai.com), Anthropic(anthropic.com), Google DeepMind(deepmind.google), Google Research(research.google), Google(blog.google), Microsoft(microsoft.com), NVIDIA(nvidia.com)
+ (2) 주요 언론: 연합인포맥스(einfomax.co.kr), CNBC(cnbc.com), Axios(axios.com), Ars Technica(arstechnica.com), Wired(wired.com), AFP(afp.com), New York Times(nytimes.com), Wall Street Journal(wsj.com), Financial Times(ft.com), Bloomberg(bloomberg.com), Nikkei(nikkei.com), 연합뉴스(yna.co.kr), 뉴시스(newsis.com), 뉴스1(news1.kr), 조선일보(chosun.com), 중앙일보(joongang.co.kr), 동아일보(donga.com), 한겨레(hani.co.kr), 경향신문(khan.co.kr), 한국일보(hankookilbo.com), 국민일보(kmib.co.kr), 서울신문(seoul.co.kr), 한국경제(hankyung.com), 매일경제(mk.co.kr), 서울경제(sedaily.com), 머니투데이(mt.co.kr), 파이낸셜뉴스(fnnews.com), 이데일리(edaily.co.kr), 헤럴드경제(heraldcorp.com), 아시아경제(asiae.co.kr), KBS(kbs.co.kr), MBC(imbc.com), SBS(sbs.co.kr), YTN(ytn.co.kr), CBS노컷뉴스(nocutnews.co.kr), 전자신문(etnews.com), 지디넷코리아(zdnet.co.kr), 디지털타임스(dt.co.kr), BBC(bbc.com), BBC(bbc.co.uk), BBC(bbci.co.uk), Reuters(reuters.com), AP(apnews.com), MIT Technology Review(technologyreview.com), TechCrunch(techcrunch.com), The Verge(theverge.com)
+ 이 목록 밖의 블로그, 커뮤니티, 개인 뉴스레터, 보도자료 재가공·전재 사이트, 출처가 불분명한 매체는 쓰지 않는다. 같은 사건을 공식 발표와 언론이 함께 다뤘다면 공식 발표 원문을 우선한다. 유료·차단 페이지가 열리지 않으면 그 기사를 옮겨 실은 사이트를 쓰지 말고, 같은 사건을 다룬 다른 허용 출처를 찾는다.
+C. 고르는 기준 (중요한 순서):
+ ① 지난 24시간 가장 비중 있는 이슈: 여러 매체·기관이 함께 다룬 것, 정책·제도·시장에 실제 변화를 만든 것
+ ② 일반 국민(대학생·사회초년생 포함)의 삶과 결정에 실질적으로 도움이 되는 정보
+ ③ 분야가 고르게: 같은 분야는 최대 2개. 특히 취업·고용·일자리 이야기는 한 번에 1개까지.
+ ④ 사실관계가 분명한 것
+ 제외: 자극적 사건·사생활·갈등 중심 기사(사건이 크면 그 경제·산업적 영향만 다룬다), 루머·전망만 있는 기사, 단순 주가 등락 단신, 광고성·인사·연예성 기사.
+ 같은 사건은 1개 항목만. 한 매체에서 최대 1개(정말 다른 매체가 없을 때만 2개).
+D. 조건을 만족하는 기사가 3개보다 적으면 있는 만큼만 쓰고, 채우려고 규칙을 어기지 않는다. 하나도 없으면 "지난 24시간 안에 조건에 맞는 기사를 찾지 못했어요"라고만 한다.
+E. 각 항목에 publishedAt(기사 게시 시각, ISO 8601 UTC)과 정확한 기사 URL(메인 페이지 말고 해당 기사 주소)을 넣는다. source에는 실제로 연 페이지의 매체·기관 이름만 쓴다. 기사 문장을 그대로 옮기지 말고 직접 요약한다(한국어). items는 중요한 순서로.
+
+Step 1 — save to 픽스 (before sending the message): Load ArtifactData with ToolSearch ("select:ArtifactData"). Call ArtifactData action "get", url "https://claude.ai/artifact/BKu81S9yMm9Z8zU9wyqhFZ", collection "news", doc_id "economy". Then call action "set" with the same url/collection/doc_id (pass the version you just read as if_version if the document exists; omit if_version if it did not exist) and data:
+{"kind":"economy","title":"경제 시사","generatedAt":"<NOW from date -u>","headline":"<가장 큰 뉴스 한 줄, 없으면 빈 문자열>","items":[{"headline":"<제목, 25자 이내>","summary":"<한 줄 요약>","why":"<왜 중요한지 한 줄>","source":"<매체·기관 이름>","url":"<기사 https 주소>","publishedAt":"<기사 게시 시각 ISO 8601 UTC>"}]}
+If the set fails with a version conflict, get again and retry once.
+
+Step 2 — deliver the same content as one short message in Korean (use the SendUserMessage tool if available — load with ToolSearch "select:SendUserMessage" — and end with the same text as your final reply). Each item: 제목, 요약, 왜 중요한지, 그리고 "🕒 2026년 9월 30일(수) 13:10 게시 (KST) · 출처: 매체명 · 링크" 형식으로 게시 날짜와 시각을 한국 시간으로 정확히 적는다. The first line should work as a phone notification preview: "📰 경제 시사 · <가장 큰 뉴스 한 줄>".
+
+Step 3 — 인스타 카드뉴스 초안 (@agi.economy.kr, 프로젝트 "AGI시대 경제"). Step 1·2(브리핑 저장·메시지)를 끝낸 뒤에 한다. 실패해도 브리핑은 그대로 둔다. 결과는 별도의 짧은 메시지 하나로 보낸다(SendUserMessage).
+
+TOPIC = "economy"  (ai 또는 economy), POST_DATE = TODAY(Asia/Seoul, `TZ=Asia/Seoul date +%Y-%m-%d`). POST_DATE가 2026-11-16보다 이전이면 Step 3을 하지 않는다(메시지도 보내지 않음).
+
+0) 저장소 연결: add_repo(owner "dsh052617-lab", repo "insta-autopost2", access "push") 후 안내대로 clone. GitHub 작업은 반드시 `gh api`(REST)로만 한다 — `gh issue`, `gh run` 같은 명령은 GraphQL이라 막혀 있다. 이슈를 만들 권한이 없다는 응답(403 등)이 오면 그것도 실패로 본다. 실패하면 Step 3 전체를 건너뛰고, "⚠️ 인스타 초안 · GitHub 권한이 필요해요 (Claude GitHub 앱을 insta-autopost2에 설치하거나 claude.ai 설정 → 커넥터에서 GitHub 다시 연결)" 한 줄 메시지만 보낸다. (낮 12시 53분에 예비 초안이 자동으로 만들어진다.)
+1) 중복 확인: `gh api "repos/dsh052617-lab/insta-autopost2/issues?labels=draft&state=all&per_page=30"` 과 `gh api "repos/dsh052617-lab/insta-autopost2/issues?state=open&per_page=30"` 에서 본문 마커 `<!-- insta-draft: {...} -->`의 date == POST_DATE, topic == TOPIC, custom == false 인 것이 있으면 Step 3 종료. 제목이 "직접:"으로 시작하고 같은 날짜·주제인 열린 이슈가 있어도 종료.
+2) 이미 다룬 것 피하기 (절대 규칙): 최근 7일 동안 게시했거나 게시 예정인 모든 글 — AI·경제·내 주제 모두, 저장소 data/history.json과 열린 draft 이슈·"직접:" 이슈의 제목·출처 URL — 과 같은 사건·같은 소재는 절대 고르지 않는다. 같은 회사·같은 정책이라도 새로 일어난 사건이 아니면 제외한다. 프로그램도 제목·출처가 비슷하면 등록을 거절한다. 최근 2개 게시물의 분야(category)와 같은 분야도 피한다. 특히 취업·고용·일자리 이야기는 연달아 고르지 않는다. 브리핑 items가 모두 겹치면 Step 3 종료("📮 인스타 초안 · 최근 7일 글과 겹쳐서 오늘은 건너뛰었어요" 한 줄 메시지).
+3) 고르기: 방금 픽스에 저장한 이 브리핑의 items 중에서 카드뉴스 1개를 고른다. 기준(중요한 순서):
+   ① 지난 24시간 가장 비중 있는 이슈(여러 매체·기관이 다룬 것, 정책·제도·시장에 실제 변화를 만든 것)
+   ② 일반 국민(대학생·사회초년생 포함)의 삶과 결정에 실질적으로 도움이 되는 정보
+   ③ 자극적 사건·사생활·루머·전망만 있는 기사·단순 주가 등락·광고성 기사는 제외 (사건의 경제·산업적 영향만 다룬다)
+   ④ 새 AI 도구·제품·모델 출시 소식은 다른 후보가 정말 없을 때만 (최후의 선택)
+   items가 모두 부적합하면 Step 3 종료("📮 인스타 초안 · 오늘은 카드뉴스로 만들 이슈가 없어 건너뛰었어요" 한 줄 메시지).
+4) 같은 사건의 기사 2~4개 모으기 (브리핑 출처 1개로 끝내지 않는다): 고른 사건 하나를 여러 각도에서 다룬 기사를 WebSearch로 더 찾는다.
+   - 각도 예: ① 무슨 일이 있었나(공식 발표 원문 우선) ② 반응·영향(정부·시장·업계) ③ 독자에게 의미(생활·투자제도·일자리 등)
+   - 모두 '같은 사건'이어야 한다. 비슷한 주제의 다른 사건을 섞지 않는다(짜깁기 금지). 핵심 사건은 지난 24~48시간 소식, 반응·영향 기사는 7일 이내까지 허용.
+   - 저장소 config.yaml의 sources 도메인에 있는 페이지만. 조건: 공식 발표(tier official) 1건 이상, 또는 서로 다른 언론사 2곳 이상(같은 통신사 기사를 실은 경우는 1곳).
+   - 유료·차단 페이지(Bloomberg, WSJ, FT 등)는 본문을 못 가져와 검증에 실패하니 피한다. 각 페이지를 WebFetch로 열어 본문과 게시 시각을 확인한다.
+   - 카드의 각 장은 어느 기사에서 왔는지 claims로 연결되니, 기사마다 맡는 각도가 분명하게.
+5) 원고 작성 — 저장소 tests/sample_post.json 과 같은 형식. 규칙:
+   - 사실(숫자·날짜·기관·인물·발표 내용)은 연 출처 본문에 있는 것만. 숫자는 원문 표기 그대로.
+   - cover_kicker 10자, cover_title 두 줄(\n, 줄마다 11자 이내), cover_subtitle 28자, slides 3~4장(heading 16자, highlight 10자 또는 "", points 1~3개 각 32자·가장 중요한 단어 하나만 **굵게**, terms 0~2개 {term 12자, meaning 32자}), takeaways 2~3개(24자), question 40자, caption 300자(첫 줄 핵심 사실, 이모지·느낌표·해시태그·출처 금지), hashtags 최대 8개(# 없이, 첫 번째 "AGI시대경제"), needs_disclaimer(특정 기업·종목·코인·금융상품이 나오거나 투자 판단으로 오해될 수 있으면 true).
+   - 말투: 차분한 해설 기사 톤의 해요체. 전문용어는 points에서 풀지 말고 terms에. 마지막 본문 카드는 독자에게 미치는 영향·확인할 점.
+   - claims: 카드·캡션의 모든 사실마다 {claim, source(아래 sources 배열의 1부터 번호), evidence(그 페이지 본문에서 글자 그대로 복사한 15~150자 구절)}.
+6) 이슈 만들기: 아래 JSON을 본문 ```json 블록에 넣어
+   `gh api repos/dsh052617-lab/insta-autopost2/issues -f title="직접: [M/D 경제] <cover_title 한 줄>" -F body=@<파일>` (응답의 number, html_url을 기록)
+   {"mode":"scheduled","date":POST_DATE,"topic":TOPIC,"category":"<분야>","reason":"<왜 골랐는지 한두 문장>","angle":"<관점 한 문장>","sources":["<출처 URL>", ...],"post":{...원고...}}
+   category는 ai면 기술·모델/산업·기업/정책·규제/일자리·교육/생활·서비스/안전·윤리/반도체·인프라, economy면 금리·통화/물가·생활비/부동산·주거/금융·투자제도/고용·소득/무역·환율/재정·세금/산업·기업/글로벌 경제 중 하나.
+7) 확인: 2분 뒤 `gh api "repos/dsh052617-lab/insta-autopost2/actions/workflows/manual.yml/runs?per_page=3"`로 실행을 확인하고, 없으면 `gh api -X POST repos/dsh052617-lab/insta-autopost2/actions/workflows/manual.yml/dispatches -f ref=main -f "inputs[issue]=<번호>"`. 최대 5분 동안 `gh api repos/dsh052617-lab/insta-autopost2/issues/<번호>/comments`로 이슈 댓글을 확인해 "출처 검증을 통과하지 못했어요" 또는 "가져오지 못했어요"가 있으면, 문제 항목만 고친 원고로 새 이슈를 한 번 더 만들고("최근 7일 안에 게시했거나…겹쳐서" 댓글이면 브리핑의 다른 항목으로 새로 만든다) 이전 이슈는 `gh api -X PATCH repos/dsh052617-lab/insta-autopost2/issues/<번호> -f state=closed`로 닫는다(최대 1번).
+8) 픽스 동기화: `git -C <clone> pull -q` 후 `python3 <clone>/src/pix_sync.py --days 7`을 실행한다(pyyaml이 없으면 `pip install -q pyyaml --break-system-packages`). 출력 JSON 배열의 각 항목을 ArtifactData action "set", url "https://claude.ai/artifact/BKu81S9yMm9Z8zU9wyqhFZ", collection "insta", doc_id = 항목.id, data = 항목.data 그대로 저장한다(버전 충돌이면 get 후 if_version으로 한 번 더). 실패해도 9)로 간다.
+9) 결과 메시지(첫 줄이 알림 미리보기): "📮 인스타 초안 · <cover_title 한 줄> (오늘 20:00 게시 예정)". 둘째 줄: "픽스 뉴스 탭에서 바로 승인·수정할 수 있어요 · <이슈 링크>". 검증 실패로 끝났으면 그 사실도 한 줄로.
