@@ -71,7 +71,7 @@ def publish_issue(cfg: dict, issue: dict) -> str:
         except Exception as e:
             print(f"⚠️  게시 후 이슈 정리 실패(게시는 완료): {e}")
 
-    entry = {"date": data["date"], "topic": data["topic"],
+    entry = {"date": data["date"], "topic": data["topic"], "kind": data.get("kind", "news"),
              "category": data.get("story", {}).get("category", ""),
              "title": data["post"]["cover_title"].replace("\\n", " ").replace("\n", " "),
              "urls": [s["url"] for s in data["sources"]],
