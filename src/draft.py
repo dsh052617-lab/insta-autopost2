@@ -198,10 +198,10 @@ def main() -> None:
             avoid += [c["title"] for c in chosen]
             articles = []
             continue
-        # 최근 7일 게시·예정 글(AI·경제·내 주제 모두)과 같은 소재면 절대 쓰지 않는다
+        # 예전에 게시했거나 예정인 글(기간 제한 없음, AI·경제·내 주제 모두)과 같은 소재면 절대 쓰지 않는다
         dup = [h for c in chosen for h in recent_overlap(cfg, c.get("title", ""), [c.get("url", "")], history)]
         if dup:
-            print(f"   ✗ 최근 7일 글과 겹침({dup[0].get('title', '')[:30]}) → 다른 이야기 선택")
+            print(f"   ✗ 예전 글과 겹침({dup[0].get('title', '')[:30]}) → 다른 이야기 선택")
             avoid += [c["title"] for c in chosen]
             articles = []
             continue

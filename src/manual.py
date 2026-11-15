@@ -146,10 +146,21 @@ def main() -> None:
         except Exception as e:
             print(f"   (대기 중 초안 확인 실패: {e})")
     overlaps = recent_overlap(cfg, post.get("cover_title", ""), [a["url"] for a in articles], others)
-    if overlaps and scheduled:  # 자동 초안은 최근 7일 글과 겹치면 절대 등록하지 않는다
-        fail("최근 7일 안에 게시했거나 게시 예정인 글과 내용이 겹쳐서 등록하지 않았어요.\n"
+    followup = spec.get("followup") if isinstance(spec.get("followup"), dict) else None
+    if overlaps and followup:
+        # 후속 보도: 이전 글 이후에 나온 새 기사가 있어야만 허용 (같은 내용 반복 금지)
+        last = max((o.get("date") or "") for o in overlaps)
+        newer = [a for a in articles if (a.get("published") or "") > last]
+        if newer and str(followup.get("new", "")).strip():
+            print(f"   후속 보도로 허용: 이전 글({last}) 이후 기사 {len(newer)}건")
+            overlaps = []
+        else:
+            fail("후속 보도로 올리려면 이전 글 이후에 나온 새 기사와, 새로 추가된 내용(followup.new)이 필요해요.\n"
+                 + "\n".join(f"- {o.get('date', '')} {o.get('title', '')}" for o in overlaps[:3]))
+    if overlaps and scheduled:  # 자동 초안은 예전 글과 겹치면 절대 등록하지 않는다 (기간 제한 없음)
+        fail("이미 게시했거나 게시 예정인 글과 내용이 겹쳐서 등록하지 않았어요.\n"
              + "\n".join(f"- {o.get('date', '')} {o.get('title', '')} ({o['why']})" for o in overlaps[:3])
-             + "\n다른 이슈로 원고를 다시 만들어 주세요.")
+             + "\n새로 추가된 내용이 있는 후속 보도라면 followup을 넣어 다시 만들고, 아니면 다른 이슈로 만들어 주세요.")
 
     stamp = now(cfg).strftime("%Y%m%d-%H%M")
     name = f"{post_date}-{topic}" if scheduled else f"manual-{stamp}"
@@ -188,7 +199,7 @@ def main() -> None:
     if notes:
         msg += "\n\n" + "\n".join(f"- {n}" for n in notes)
     if overlaps:
-        msg += ("\n\n⚠️ 최근 7일 안의 글과 내용이 겹쳐요. 겹치면 올리지 말고 `취소`해 주세요.\n" + "\n".join(
+        msg += ("\n\n⚠️ 예전 글과 내용이 겹쳐요. 새로 추가된 내용이 없으면 올리지 말고 `취소`해 주세요.\n" + "\n".join(
             f"- {o.get('date', '')} {o.get('title', '')} ({o['why']})" for o in overlaps[:3]))
     gh.comment(args.issue, msg)
 

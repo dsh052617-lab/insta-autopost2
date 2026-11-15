@@ -141,7 +141,7 @@ def append_history_and_push(entry: dict, message: str) -> None:
     raise RuntimeError("게시 기록 푸시 실패 (5번 시도)")
 
 
-# ── 최근 7일 내용 겹침 검사 (AI·경제·내 주제 모두) ──
+# ── 내용 겹침 검사 (기간 제한 없음, AI·경제·내 주제 모두) ──
 def _norm_title(t: str) -> str:
     import re as _re
     return _re.sub(r"[^0-9A-Za-z가-힣]", "", (t or "").replace("\\n", "").replace("\n", "")).lower()
@@ -152,10 +152,10 @@ def _tokens(t: str) -> set:
     return {w for w in _re.findall(r"[0-9A-Za-z가-힣]{2,}", (t or "").replace("\\n", " ").replace("\n", " ").lower())}
 
 
-def recent_overlap(cfg: dict, title: str, urls: list[str], others: list[dict], days: int = 7) -> list[dict]:
-    """최근 days일 안에 게시됐거나 게시 예정인 글 중, 같은 출처 기사를 쓰거나 제목이 비슷한 것을 돌려준다."""
+def recent_overlap(cfg: dict, title: str, urls: list[str], others: list[dict], days: int | None = None) -> list[dict]:
+    """게시됐거나 게시 예정인 글 중(기본: 기간 제한 없음), 같은 출처 기사를 쓰거나 제목이 비슷한 것을 돌려준다."""
     import difflib
-    cutoff = (now(cfg).date() - dt.timedelta(days=days)).isoformat()
+    cutoff = (now(cfg).date() - dt.timedelta(days=days)).isoformat() if days else "0000"
     mine_t, mine_k, mine_u = _norm_title(title), _tokens(title), set(urls)
     hits = []
     for o in others:
