@@ -1,61 +1,231 @@
-URL: https://artificialanalysis.ai/evaluations/terminalbench-hard
+URL: https://artificialanalysis.ai/leaderboards/models
 SOURCE: Artificial Analysis (press)
-PUBLISHED: 2026-01-01
+PUBLISHED: 2015-06-01
 
-Terminal-Bench Hard Benchmark
-Terminal-Bench Hard
+LLM Leaderboard - Comparison of AI models from OpenAI, Anthropic, Google, Meta & others
+Comparison and ranking the performance of over 250 AI models (LLMs) across key metrics including intelligence, price, performance and speed (time per task in minutes & latency as time to first answer token), context window & others.
+For more details including relating to our methodology, see our FAQs.
+Intelligence
+Claude Fable 5.2 (max) and Claude Fable 5.2 (xhigh) are the highest intelligence models, followed by Claude Fable 5.2 (high) and Gemini 4 Carbon (high).
+Time per Task
+GPT-6 Luna (low) and GPT-6.1 Terra (low) have the lowest time per task, followed by Gemini 4 Hydrogen (low) and Mistral Small 4.
+Time to First Answer Token
+Tiny Aya Global and Phi-4 Multimodal have the lowest time to first answer token, followed by Celeris-1 and NVIDIA Nemotron Nano 9B V2.
 Cost per Task
-Output Tokens Used
-Score
-Terminal-Bench Hard: Score
-Terminal-Bench Hard: Score vs. Cost per Task
-Token Usage
-Terminal-Bench Hard: Output Tokens per Task
-Cost
-Terminal-Bench Hard: Cost per Task
-Speed
-Terminal-Bench Hard: Time per Task
-Score vs. Release Date
-Terminal-Bench Hard: Score vs. Release Date
-Example Tasks
-Explore Evaluations
-A composite benchmark aggregating nine challenging evaluations to provide a holistic measure of AI capabilities across knowledge work, coding, science, and general knowledge.
-A private evaluation developed by Artificial Analysis for frontier agentic capability in long-horizon knowledge work, testing agents on realistic business workflows that require deliverables such as spreadsheets, presentations, and memos.
-A benchmark developed by Artificial Analysis for how well AI models build interactive 3D experiences. Models work as agents in an offline sandbox via Stirrup to turn a written brief into a three.js scene, with Elo ratings derived from blind pairwise votes.
-Artificial Analysis' implementation of the APEX-Agents benchmark, testing AI agents on long-horizon, cross-application tasks in professional-services environments with realistic application tooling.
-Artificial Analysis' data analysis benchmark, testing AI agents on their ability to work with spreadsheets and documents to answer quantitative questions a Business Analyst or Data Analyst would face day-to-day.
-A benchmark measuring agentic task completion across simulated SaaS application environments, scoring the share of each task's objectives completed without guardrail violations.
-Artificial Analysis' implementation of Harvey's Legal Agent Benchmark (LAB), testing AI agents on real-world legal work from Harvey's dataset of 120 private tasks spanning 24 legal practice areas. v1.1, built in collaboration with Harvey, checks every deliverable against the task's source documents for hallucinations, so work that passes every rubric criterion but contains a material hallucination receives no credit. A panel of three judges grades each deliverable criterion-by-criterion.
-Artificial Analysis' implementation of Surge AI's GDP.pdf benchmark, testing whether language models can reason over long, real-world professional documents and satisfy detailed task-specific criteria.
-Artificial Analysis' independent implementation of ServiceNow's EnterpriseOps-Gym, an agentic benchmark testing whether LLM agents can complete stateful, multi-step enterprise workflows across eight business domains via live tool use, graded on the final state of the underlying databases.
-A harder 66-task benchmark of complex terminal work across software, machine learning, science, operations, security, hardware, and media, with recalibrated compute and time allowances and improved instructions, environments, and verifiers.
-A 70-task benchmark of research workflows authored and reviewed by domain experts across the life, physical, earth, mathematical, and engineering sciences, each completed in a terminal and checked by its own set of tests.
-Artificial Analysis' implementation of Cognition's FrontierCode 2.0, a private agentic coding benchmark of 132 tasks in real open-source repositories, graded on whether a maintainer would merge the agent's change.
-A refined and updated 1,000-question set of Humanity's Last Exam, split evenly between reasoning and knowledge questions, with 272 questions that include an image.
-Measures how models communicate rather than whether they are correct: 30 judged personality traits rolled up into 8 indexes, plus 21 measured communication characteristics.
-A benchmark measuring factual recall and hallucination across various economically relevant domains.
-The most challenging 198 questions from GPQA, where PhD experts achieve 65% accuracy but skilled non-experts only reach 34% despite web access.
-Artificial Analysis' implementation of IBM's ITBench benchmark, testing AI agents on Kubernetes incident root-cause analysis from offline incident snapshots. The agent inspects alerts, events, traces, and topology and identifies the contributing-factor entities (deployments, pods, namespaces, network policies, etc.) responsible for the failure.
-An enhanced MMMU benchmark that eliminates shortcuts and guessing strategies to more rigorously test multimodal models across 30 academic disciplines.
-A benchmark evaluating precise instruction-following generalization on 58 diverse, verifiable out-of-domain constraints that test models' ability to follow specific output requirements.
-An open benchmark from Wisedocs measuring how well models reason over long, fragmented medical records, performing the multi-document synthesis claims professionals rely on when reviewing insurance and healthcare cases.
-Artificial Analysis' implementation of HeyGen's Code2Video Bench, evaluating how well models create short product and brand videos from 114 design briefs using HyperFrames HTML.
-OpenAI's HealthBench: 5,000 health conversations graded against physician-written rubrics, from emergency referrals to global health.
-CritPt v2 is the revised version of CritPt, a benchmark designed to test LLMs on research-level physics reasoning tasks, featuring 70 composite research challenges. Models solve problems with a code-execution tool in an offline Linux sandbox.
-VIALS-AA is Artificial Analysis' implementation of Handshake AI's VIALS benchmark. It tests whether language models can interpret scientific images and answer questions about the evidence they contain.
-Artificial Analysis' implementation of Google DeepMind's Multimodal Knowledge Agent (MKA) benchmark. It tests whether agents can read visually dense project files, such as architectural drawings, engineering schematics and clinical scans, and produce the deliverables a professional would.
-GDPval-AA v2.1 is Artificial Analysis' evaluation framework for OpenAI's GDPval dataset. It tests AI models on real-world tasks across 44 occupations and 9 major industries. Models are given shell access and web browsing capabilities in an agentic loop via Stirrup to solve tasks, with Elo ratings derived from blind pairwise comparisons.
-A fintech customer-support benchmark from the 𝜏-Knowledge framework that tests whether agents can navigate a large unstructured knowledge base and execute multi-step tool calls to resolve realistic banking workflows.
-A verified refresh of Terminal-Bench 2.0: 89 curated tasks across software engineering, system administration, data processing, model training, and security, with environment and instruction fixes so scores reflect agent capability rather than environment gaps.
-Artificial Analysis' implementation of Cognition's FrontierCode 1.1, a private agentic coding benchmark that tests models on completing coding tasks in a way that would actually get merged by maintainers of real-world repositories.
-A challenging benchmark measuring language models' ability to extract, reason about, and synthesize information from long-form documents ranging from 10k to 100k tokens (measured using the cl100k_base tokenizer).
-A scientist-curated coding benchmark featuring 288 test set subproblems from 80 laboratory problems across 16 scientific disciplines.
-A frontier-level benchmark with 2,500 expert-vetted questions across mathematics, sciences, and humanities, designed to be the final closed-ended academic evaluation.
-A benchmark designed to test LLMs on research-level physics reasoning tasks, featuring 71 composite research challenges.
-An agentic benchmark evaluating AI capabilities in terminal environments through software engineering, system administration, and data processing tasks.
-A dual-control conversational AI benchmark simulating technical support scenarios where both agent and user must coordinate actions to resolve telecom service issues.
-An enhanced version of MMLU with 12,000 graduate-level questions across 14 subject areas, featuring ten answer options and deeper reasoning requirements.
-A contamination-free coding benchmark that continuously harvests fresh competitive programming problems from LeetCode, AtCoder, and CodeForces, evaluating code generation, self-repair, and execution.
-A 500-problem subset from the MATH dataset, featuring competition-level mathematics across six domains including algebra, geometry, and number theory.
-All 30 problems from the 2025 American Invitational Mathematics Examination, testing olympiad-level mathematical reasoning with integer answers from 000-999.
-A lightweight, multilingual version of MMLU, designed to evaluate knowledge and reasoning skills across a diverse range of languages and cultural contexts.
+K2 Horizon 375B A23B and Command A+ have the lowest cost per task, followed by North Mini Code and GPT-6 Luna (low).
+Context Window
+Llama 4 Scout and GPT-6 Sol (Daybreak Blue, max) support the largest context windows, followed by Muse Wonder (max) and Muse Wonder (high).
+|  |  |  |  |  |  | Further Analysis | 
+|  | 65 | $26.54 | 44.5 | 262.07 | 1M |  | 
+|  | 60 | $5.48 | 33.8 | 72.06 | 1M |  | 
+|  | 59 | $10.04 | 25.4 | 404.53 | 1M |  | 
+|  | 57 | $6.24 | 21.8 | 230.28 | 1M |  | 
+|  | 55 | $1.27 | 22.9 | 190.80 | 1M |  | 
+|  | 55 | $10.02 | 33.3 | 296.60 | 1M |  | 
+|  | 54 | $3.16 | 14.8 | 46.64 | 1M |  | 
+|  | 51 | $0.96 | 14.1 | 173.08 | 1M |  | 
+|  | 50 | $4.97 | 30.9 | 43.67 | 1M |  | 
+|  | 50 | -- | -- | -- | 1M |  | 
+|  | 46 | $3.68 | 40.1 | 178.90 | 1M |  | 
+|  | 44 | $6.95 | 14.3 | 24.92 | 1M |  | 
+|  | 36 | $0.41 | 14.8 | 184.39 | 1M |  | 
+|  | 36 | $0.14 | 3.3 | 5.17 | 1M |  | 
+|  | 35 | $7.77 | 26.4 | 66.21 | 500k |  | 
+|  | 35 | $1.03 | 14.1 | 115.63 | 1M |  | 
+|  | 34 | $10.02 | 48.2 | 111.02 | 984k |  | 
+|  | 33 | $0.60 | 13.5 | 44.55 | 1M |  | 
+|  | 32 | $5.01 | 23.6 | 63.06 | 1M |  | 
+|  | 31 | $7.77 | 14.9 | 19.58 | 1M |  | 
+|  | 31 | $1.18 | 28.5 | 68.69 | 1M |  | 
+|  | 30 | $0.26 | 36.1 | 43.57 | 1M |  | 
+|  | 30 | $3.19 | -- | -- | 1M |  | 
+|  | 29 | $0.49 | 15.7 | 50.19 | 1M |  | 
+|  | 29 | $0.57 | 31.9 | 87.24 | 256k |  | 
+|  | 29 | $2.35 | 14.8 | 23.76 | 1M |  | 
+|  | 28 | $0.15 | 12.2 | 84.00 | 1M |  | 
+|  | 28 | $0.58 | 45.1 | 102.11 | 1M |  | 
+|  | 27 | $0.13 | 47.8 | 39.29 | 1M |  | 
+|  | 26 | $2.06 | 13.8 | 41.69 | 1M |  | 
+|  | 25 | $2.02 | 6.7 | 10.88 | 1M |  | 
+|  | 24 | $0.57 | 23.5 | 5.83 | 1M |  | 
+|  | 23 | $1.77 | 18.1 | 51.48 | 1M |  | 
+|  | 20 | -- | -- | -- | 524k |  | 
+|  | 20 | $3.53 | 42.8 | 131.56 | 256k |  | 
+|  | 19 | -- | -- | -- | 262k |  | 
+|  | 19 | $1.29 | 13.0 | 79.04 | 1M |  | 
+|  | 18 | $0.00 | 4.3 | 17.71 | 524k |  | 
+|  | 18 | $0.28 | 2.1 | 6.70 | 1M |  | 
+|  | 14 | $0.96 | 66.7 | 31.39 | 512k |  | 
+|  | 14 | $0.76 | 17.2 | 18.94 | 256k |  | 
+|  | 14 | $0.56 | 6.0 | 17.14 | 1M |  | 
+|  | 13 | $0.20 | 5.3 | 15.14 | 1M |  | 
+|  | 12 | $1.35 | 10.7 | 21.00 | 1M |  | 
+|  | 12 | $2.21 | 4.2 | 4.93 | 262k |  | 
+|  | 12 | $0.69 | 1.7 | 4.91 | 1M |  | 
+|  | 8 | -- | -- | -- | 262k |  | 
+|  | 6 | $0.18 | 5.2 | 26.54 | 131k |  | 
+|  | 6 | $0.00 | 3.2 | 18.30 | 192k |  | 
+|  | 6 | $0.31 | 4.0 | 13.34 | 1M |  | 
+|  | 5 | $0.0405 | 13.0 | 62.49 | 131k |  | 
+|  | 5 | -- | -- | -- | 131k |  | 
+|  | 5 | $1.04 | 4.5 | 23.91 | 256k |  | 
+|  | 4 | -- | -- | 52.46 | 256k |  | 
+|  | 4 | $0.0399 | 1.7 | 12.91 | 256k |  | 
+|  | 4 | $0.35 | 7.3 | 16.58 | 131k |  | 
+|  | 3 | $0.00 | 2.9 | 5.46 | 256k |  | 
+|  | 2 | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | 2.81 | 256k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | 4.39 | 262k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 1.14 | 66k |  | 
+|  | -- | -- | -- | 17.38 | 256k |  | 
+|  | -- | -- | -- | 40.13 | 262k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 524k |  | 
+|  | -- | -- | -- | 2.15 | 131k |  | 
+|  | -- | -- | -- | 6.67 | 200k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 1.02 | 262k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 0.86 | 1M |  | 
+|  | -- | -- | -- | 1.30 | 262k |  | 
+|  | -- | -- | -- | 0.39 | 128k |  | 
+|  | -- | -- | -- | 1.25 | 131k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | 1.35 | 262k |  | 
+|  | -- | -- | -- | -- | 524k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | 1.35 | 130k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 8.59 | 256k |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 37k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 11.06 | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | 1.58 | 128k |  | 
+|  | -- | -- | -- | -- | 524k |  | 
+|  | -- | -- | -- | -- | 33k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 44.55 | 400k |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 53.88 | 1M |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 4.08 | 128k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | 20.24 | 1M |  | 
+|  | -- | -- | -- | 90.67 | 1M |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 3.15 | 262k |  | 
+|  | -- | -- | -- | 1.47 | 256k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 25.88 | 256k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 2.84 | 256k |  | 
+|  | -- | -- | -- | 3.30 | 128k |  | 
+|  | -- | -- | -- | 2.73 | 256k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | 2.18 | 260k |  | 
+|  | -- | -- | -- | 47.69 | 1M |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | 11.97 | 262k |  | 
+|  | -- | -- | -- | 0.68 | 131k |  | 
+|  | -- | -- | -- | 0.20 | 8k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 64k |  | 
+|  | -- | -- | -- | 21.98 | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | 45.31 | 256k |  | 
+|  | -- | -- | -- | 119.16 | 262k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | 1.61 | 1M |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | 1.84 | 256k |  | 
+|  | -- | -- | -- | 1.72 | 128k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | 4.56 | 128k |  | 
+|  | -- | -- | -- | -- | 512k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 50.01 | 1M |  | 
+|  | -- | -- | -- | -- | 33k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 54.40 | 1M |  | 
+|  | -- | -- | -- | -- | 32k |  | 
+|  | -- | -- | -- | -- | 66k |  | 
+|  | -- | -- | -- | 1.10 | 10M |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 4k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | 47.80 | 256k |  | 
+|  | -- | -- | -- | -- | 258k |  | 
+|  | -- | -- | -- | -- | 512k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 28.55 | 66k |  | 
+|  | -- | -- | -- | 15.56 | 1M |  | 
+|  | -- | -- | -- | -- | 131k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | 1.90 | 400k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 5.98 | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | -- | 33k |  | 
+|  | -- | -- | -- | -- | 922k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 128k |  | 
+|  | -- | -- | -- | 10.34 | 262k |  | 
+|  | -- | -- | -- | 4.12 | 16k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 262k |  | 
+|  | -- | -- | -- | -- | 1M |  | 
+|  | -- | -- | -- | -- | 33k |  | 
+|  | -- | -- | -- | -- | 256k |  | 
+|  | -- | -- | -- | 1.60 | 256k |  | 
+Key definitions
+Frequently Asked Questions
+Claude Fable 5.2 (Max, Default Fallback) currently ranks #1 on the Artificial Analysis LLM Leaderboard with an Intelligence Index score of 65, out of 113 models ranked.
+The top models by Intelligence Index are: 1. Claude Fable 5.2 (Max, Default Fallback) (65), 2. Claude Fable 5.2 (Xhigh, Default Fallback) (62), 3. Claude Fable 5.2 (High, Default Fallback) (62), 4. Gemini 4 Carbon (High) (60), 5. Claude Opus 5.5 (Max, Default Fallback) (59).
+GPT-6 Luna (Low) is the fastest, with the lowest time per task at 0.6 minutes per Intelligence Index task, followed by GPT-6.1 Terra (Low) (1.2 min) and Gemini 4 Hydrogen (Low) (1.4 min). Lower is better.
+K2 Horizon 375B A23B has the lowest cost per Intelligence Index task at $0.00, followed by Command A+ ($0.00) and North Mini Code ($0.00).
+Kimi K3.1 Pro is the highest-ranked open weights model with an Intelligence Index score of 46. There are 44 open weights models out of 113 total on the leaderboard.
+The top open weights models by Intelligence Index are: 1. Kimi K3.1 Pro (46), 2. DeepSeek V4.1 Flash 1017 (Max) (33), 3. GLM-5.3 (Max) (32).
+Claude Fable 5.2 (Max, Default Fallback) leads among 108 reasoning models with an Intelligence Index score of 65. Reasoning models use extended thinking to solve complex problems before responding.
+The leaderboard includes filters to narrow results by model type (reasoning vs non-reasoning), openness (open weights vs proprietary), and other criteria.
+Click on any model name in the leaderboard to visit its dedicated comparison page with detailed charts covering intelligence, pricing, speed, latency, and more. You can also compare API providers for each model. View all models

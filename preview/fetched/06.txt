@@ -1,62 +1,44 @@
-URL: https://artificialanalysis.ai/evaluations/tau2-bench
-SOURCE: Artificial Analysis (press)
-PUBLISHED: 2026-01-01
+URL: https://epoch.ai/benchmarks
+SOURCE: Epoch AI (press)
+PUBLISHED: 2026-09-03
 
-𝜏²-Bench Telecom Benchmark
-𝜏²-Bench: Evaluating Conversational Agents in a Dual-Control Environment
-𝜏²-Bench Telecom
-Cost per Task
-Output Tokens Used
-Score
-𝜏²-Bench Telecom: Score
-𝜏²-Bench Telecom: Score vs. Cost per Task
-Token Usage
-𝜏²-Bench Telecom: Output Tokens per Task
-Cost
-𝜏²-Bench Telecom: Cost per Task
-Speed
-𝜏²-Bench Telecom: Time per Task
-Score vs. Release Date
-𝜏²-Bench Telecom: Score vs. Release Date
-Example Tasks
-Explore Evaluations
-A composite benchmark aggregating nine challenging evaluations to provide a holistic measure of AI capabilities across knowledge work, coding, science, and general knowledge.
-A private evaluation developed by Artificial Analysis for frontier agentic capability in long-horizon knowledge work, testing agents on realistic business workflows that require deliverables such as spreadsheets, presentations, and memos.
-A benchmark developed by Artificial Analysis for how well AI models build interactive 3D experiences. Models work as agents in an offline sandbox via Stirrup to turn a written brief into a three.js scene, with Elo ratings derived from blind pairwise votes.
-Artificial Analysis' implementation of the APEX-Agents benchmark, testing AI agents on long-horizon, cross-application tasks in professional-services environments with realistic application tooling.
-Artificial Analysis' data analysis benchmark, testing AI agents on their ability to work with spreadsheets and documents to answer quantitative questions a Business Analyst or Data Analyst would face day-to-day.
-A benchmark measuring agentic task completion across simulated SaaS application environments, scoring the share of each task's objectives completed without guardrail violations.
-Artificial Analysis' implementation of Harvey's Legal Agent Benchmark (LAB), testing AI agents on real-world legal work from Harvey's dataset of 120 private tasks spanning 24 legal practice areas. v1.1, built in collaboration with Harvey, checks every deliverable against the task's source documents for hallucinations, so work that passes every rubric criterion but contains a material hallucination receives no credit. A panel of three judges grades each deliverable criterion-by-criterion.
-Artificial Analysis' implementation of Surge AI's GDP.pdf benchmark, testing whether language models can reason over long, real-world professional documents and satisfy detailed task-specific criteria.
-Artificial Analysis' independent implementation of ServiceNow's EnterpriseOps-Gym, an agentic benchmark testing whether LLM agents can complete stateful, multi-step enterprise workflows across eight business domains via live tool use, graded on the final state of the underlying databases.
-A harder 66-task benchmark of complex terminal work across software, machine learning, science, operations, security, hardware, and media, with recalibrated compute and time allowances and improved instructions, environments, and verifiers.
-A 70-task benchmark of research workflows authored and reviewed by domain experts across the life, physical, earth, mathematical, and engineering sciences, each completed in a terminal and checked by its own set of tests.
-Artificial Analysis' implementation of Cognition's FrontierCode 2.0, a private agentic coding benchmark of 132 tasks in real open-source repositories, graded on whether a maintainer would merge the agent's change.
-A refined and updated 1,000-question set of Humanity's Last Exam, split evenly between reasoning and knowledge questions, with 272 questions that include an image.
-Measures how models communicate rather than whether they are correct: 30 judged personality traits rolled up into 8 indexes, plus 21 measured communication characteristics.
-A benchmark measuring factual recall and hallucination across various economically relevant domains.
-The most challenging 198 questions from GPQA, where PhD experts achieve 65% accuracy but skilled non-experts only reach 34% despite web access.
-Artificial Analysis' implementation of IBM's ITBench benchmark, testing AI agents on Kubernetes incident root-cause analysis from offline incident snapshots. The agent inspects alerts, events, traces, and topology and identifies the contributing-factor entities (deployments, pods, namespaces, network policies, etc.) responsible for the failure.
-An enhanced MMMU benchmark that eliminates shortcuts and guessing strategies to more rigorously test multimodal models across 30 academic disciplines.
-A benchmark evaluating precise instruction-following generalization on 58 diverse, verifiable out-of-domain constraints that test models' ability to follow specific output requirements.
-An open benchmark from Wisedocs measuring how well models reason over long, fragmented medical records, performing the multi-document synthesis claims professionals rely on when reviewing insurance and healthcare cases.
-Artificial Analysis' implementation of HeyGen's Code2Video Bench, evaluating how well models create short product and brand videos from 114 design briefs using HyperFrames HTML.
-OpenAI's HealthBench: 5,000 health conversations graded against physician-written rubrics, from emergency referrals to global health.
-CritPt v2 is the revised version of CritPt, a benchmark designed to test LLMs on research-level physics reasoning tasks, featuring 70 composite research challenges. Models solve problems with a code-execution tool in an offline Linux sandbox.
-VIALS-AA is Artificial Analysis' implementation of Handshake AI's VIALS benchmark. It tests whether language models can interpret scientific images and answer questions about the evidence they contain.
-Artificial Analysis' implementation of Google DeepMind's Multimodal Knowledge Agent (MKA) benchmark. It tests whether agents can read visually dense project files, such as architectural drawings, engineering schematics and clinical scans, and produce the deliverables a professional would.
-GDPval-AA v2.1 is Artificial Analysis' evaluation framework for OpenAI's GDPval dataset. It tests AI models on real-world tasks across 44 occupations and 9 major industries. Models are given shell access and web browsing capabilities in an agentic loop via Stirrup to solve tasks, with Elo ratings derived from blind pairwise comparisons.
-A fintech customer-support benchmark from the 𝜏-Knowledge framework that tests whether agents can navigate a large unstructured knowledge base and execute multi-step tool calls to resolve realistic banking workflows.
-A verified refresh of Terminal-Bench 2.0: 89 curated tasks across software engineering, system administration, data processing, model training, and security, with environment and instruction fixes so scores reflect agent capability rather than environment gaps.
-Artificial Analysis' implementation of Cognition's FrontierCode 1.1, a private agentic coding benchmark that tests models on completing coding tasks in a way that would actually get merged by maintainers of real-world repositories.
-A challenging benchmark measuring language models' ability to extract, reason about, and synthesize information from long-form documents ranging from 10k to 100k tokens (measured using the cl100k_base tokenizer).
-A scientist-curated coding benchmark featuring 288 test set subproblems from 80 laboratory problems across 16 scientific disciplines.
-A frontier-level benchmark with 2,500 expert-vetted questions across mathematics, sciences, and humanities, designed to be the final closed-ended academic evaluation.
-A benchmark designed to test LLMs on research-level physics reasoning tasks, featuring 71 composite research challenges.
-An agentic benchmark evaluating AI capabilities in terminal environments through software engineering, system administration, and data processing tasks.
-A dual-control conversational AI benchmark simulating technical support scenarios where both agent and user must coordinate actions to resolve telecom service issues.
-An enhanced version of MMLU with 12,000 graduate-level questions across 14 subject areas, featuring ten answer options and deeper reasoning requirements.
-A contamination-free coding benchmark that continuously harvests fresh competitive programming problems from LeetCode, AtCoder, and CodeForces, evaluating code generation, self-repair, and execution.
-A 500-problem subset from the MATH dataset, featuring competition-level mathematics across six domains including algebra, geometry, and number theory.
-All 30 problems from the 2025 American Invitational Mathematics Examination, testing olympiad-level mathematical reasoning with integer answers from 000-999.
-A lightweight, multilingual version of MMLU, designed to evaluate knowledge and reasoning skills across a diverse range of languages and cultural contexts.
+Our database of benchmark results, featuring the performance of leading AI models on challenging tasks. It includes results from benchmarks administered internally by Epoch AI as well as data collected from external sources. Explore trends in AI capabilities across time, by benchmark, or by model.
+The ECI combines scores from many different AI benchmarks into a single “general capability” scale.
+We track information on pricing, architecture, and training, and show how models compare across benchmarks.
+Featuring both Epoch-created and external evaluations, covering mathematics, coding, and more.
+Claude Fable 5.2 set a new record on the Epoch Capabilities Index. This is based on pre-launch testing using only our own benchmarks, and may change as more results become available.
+We've updated the Epoch Capabilities Index to use a Bayesian model, which gives better-justified uncertainty estimates and lets us compare models directly.
+We've launched FrontierMath Erdős: 68 unsolved Erdős problems, with AI systems tasked with writing solutions in Lean. GPT-6.1 Sol leads so far, solving 3 of 68 problems (4%).
+For the benchmarks that we evaluate ourselves: we started with the GPQA Diamond and MATH Level 5 benchmarks. This is because they were convenient to run, not yet saturated, and frequently used by researchers and practitioners to evaluate models. We then added Mock AIME 2024-2025 since it is a harder benchmark of mathematics problems than MATH Level 5, which is now reaching saturation. We also added FrontierMath, which evaluates models on extremely difficult mathematics problems, as well as SWE-bench Verified to measure models’ ability to resolve realistic GitHub issues. We will add other challenging benchmarks in future iterations, such as SWE-Lancer or SimpleQA.
+For externally-administered benchmarks, we prioritize benchmarks that best capture economically valuable real-world tasks, and that are rigorously evaluated, widely referred to by practitioners and researchers, and would be prohibitively expensive for us to run internally.
+Our top priority is to track state of the art AI performance. For this reason, we prioritize leading model releases from the main AI labs.
+We are also interested in the best models with downloadable weights, from countries other than the US, or where we have training compute estimates. This makes it possible to investigate how performance varies with model accessibility, country of origin, and training compute.
+We only consider the chat/instruct version of each model, rather than the base model (see the model identifier). For example, for Llama 3.1 we obtained results for Llama 3.1 405B Instruct, not for the base model Llama 3.1 405B.
+For Epoch AI-administered benchmarks, we only report results for models where we can run evaluations ourselves. This means that we do not have data for models that are only deployed internally, such as PaLM or Gopher.
+We use the Inspect framework for our evaluations. For GPQA Diamond and MATH Level 5 we built on Inspect Evals with light modifications; for Mock AIME 2024-2025 and FrontierMath we wrote custom Inspect implementations. We publish task definitions for GPQA Diamond, MATH Level 5, Mock AIME 2024-2025, FrontierMath, and SWE-bench Verified. These task definitions are extremely close to the code we used to run the evaluations. In the future, we plan to pin each benchmark run to the exact git revision for full auditability.
+We evaluate chat/instruct model variants (not base models). We use each model’s API-default temperature, zero-shot chain-of-thought prompting for GPQA Diamond, MATH Level 5, and Mock AIME 2024–2025, and an empty system prompt for all models. For OpenAI models we currently use the Chat Completions API.
+Yes, for Epoch AI-administered benchmarks, you can see model outputs by clicking the link in the “log viewer” column.
+We host a log viewer (from the Inspect library) for each run, which lets you see the full details of every LLM interaction, as well as how each answer was scored, token counts, and much more.
+For example, click here for gpt-4-0613’s results on GPQA Diamond.
+To mitigate the risk of accidental leakage into LLM training corpora, bots are prevented from accessing the log viewer, so you will need to solve a CAPTCHA to access it.
+The log viewer is currently not available for MATH Level 5 due to ongoing copyright discussions. For FrontierMath, the log viewer is only available to see model traces on the 10 public questions in frontiermath-2025-02-28-public.
+For Epoch AI-administered benchmarks, we are confident that the evaluation results are accurate as we ran the evaluations ourselves using the settings described in our methodology.
+However, interpreting these results requires caution.
+There are potential issues with contamination and leakage in benchmark results. Models may have been exposed to similar questions or even the exact benchmark questions during their training, which could artificially inflate their performance. This is particularly important to consider when evaluating MATH Level 5 results, as many models have been fine-tuned on mathematical content that may overlap with the benchmark.
+Additionally, small changes in prompts or evaluation settings can sometimes lead to significant differences in results. Therefore, while our data accurately reflects model performance under our specific evaluation conditions, it may not always generalize to other contexts or use cases.
+For externally-administered benchmarks, we do not have as detailed insight into the results and methodology since we did not run the evaluations ourselves. However, when possible we source our data directly from official leaderboards maintained by the benchmark creators themselves, who we rely on to verify the accuracy of submitted results. We cite the provenance of each data point in the Source and Source link columns.
+Sometimes, we obtain different scores than the ones reported by other evaluations. For example, the new Claude 3.5 Sonnet released on 2024-10-22 claims an accuracy of 65% on GPQA Diamond. In contrast, across our 16 runs we obtained a mean score of 0.55 ± 0.03.
+We believe that these different scores are due to differences in evaluation settings. However, benchmark administrators often do not report what prompt and temperature they used, which makes it difficult to determine the exact sources of discrepancy in the results.
+For Epoch AI-administered benchmarks, we run most models multiple times on each benchmark (for most models, 16 times on GPQA Diamond and Mock AIME 2024-2025, 8 times on MATH Level 5). In our main plot visualization, for each model and benchmark we show a confidence interval of plus and minus one standard error around the “true” mean evaluation score, following the methodology described in this paper.
+For Epoch AI-administered benchmarks, you can see the Inspect task definitions we used for GPQA Diamond, MATH Level 5, Mock AIME 2024-2025, FrontierMath, and SWE-Bench Verified. These are the same as or extremely close to the code we used to run the evaluations. In the future, we plan to make each benchmark run fully auditable by providing the exact git revision it was run with.
+For most of the externally-administered benchmarks (for example Aider’s polyglot benchmark), the evaluation code is also made available, in which case we link to it in the methodology section.
+On GPQA Diamond, some models have lower than 25% accuracy: Yi-34B-Chat has a mean accuracy of 15% over 16 runs, Mistral-7B-Instruct-v0.3 of 15% and open-mistral-7b of 13%. This means that they underperform the random guessing baseline.
+This is a consequence of poor formatting. If the model’s output doesn’t follow the required formatting (e.g. for GPQA Diamond, if the answer isn’t provided in the form “Answer: {LETTER}”), the model receives no points for that question. This strict scoring can potentially result in models achieving lower accuracy than randomly guessing an answer, if they format their answers incorrectly.
+Epoch AI’s data is free to use, distribute, and reproduce provided the source and authors are credited under the Creative Commons Attribution license. Complete citations can be found here.
+Benchmark questions and answers are the property of their respective creators.
+This hub also includes data sourced from external projects, which retains its original licensing. Users are responsible for complying with the license terms of the specific data they use, and should credit the original sources as indicated.
+You can download the data in CSV format, explore the data using our interactive tools, or view the data directly in a table format: the "Epoch AI internal runs" base contains data for the benchmarks that we have evaluated ourselves, while the "External runs" base contains data collected from external sources.
+Or, you can use the Epoch AI Python client library (pip install epochai) to access the data via the Airtable API. This fully preserves relationships between entities, unlike the CSV download. The client library comes with some example scripts for common tasks, e.g. tracking the best-performing model for a benchmark over time.
+Epoch AI's benchmarking is primarily funded by the same philanthropic grants and donations that support the rest of our work. Our Transparency page describes this in more detail, including dedicated grants and commissioned work for certain benchmarking projects. This funding enables us to conduct rigorous, independent evaluations of leading AI models on challenging benchmarks and make the results freely available to researchers and the public.
+Need deeper insights? Our team offers custom research and advisory services.
+Book a consultation
