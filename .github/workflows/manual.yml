@@ -1,0 +1,46 @@
+name: 6. 직접 만든 원고 등록 (API 요금 없음)
+
+on:
+  # 새 이슈 제목을 "직접: …" 으로 쓰고 본문에 Claude가 준 원고(JSON)를 붙여 넣으면 자동 실행
+  issues:
+    types: [opened]
+  # 예약 작업이 이슈를 만든 뒤 자동 실행이 안 붙었을 때 직접 실행용
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "원고가 담긴 이슈 번호"
+        required: true
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: insta-custom
+  cancel-in-progress: false
+
+jobs:
+  manual:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (startsWith(github.event.issue.title, '직접') &&
+       contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: 패키지·한글 폰트 설치
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+      - name: 출처 검증 + 카드 만들기
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue }}
+        run: python src/manual.py --issue="$ISSUE_NUMBER"
