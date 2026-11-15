@@ -119,7 +119,7 @@ def main() -> None:
     urls = [u for u in spec.get("sources", []) if isinstance(u, str)]
     articles, missing = [], []
     for u in urls:
-        a = news.fetch_article(cfg, {"url": u})
+        a = news.fetch_article(cfg, {"url": u}, max_chars=60000)  # API를 안 쓰는 경로라 본문 전체로 검증 (순위표 아래쪽 숫자까지)
         (articles.append(a) if a else missing.append(u))
     if missing:
         fail("아래 출처를 가져오지 못했어요(신뢰 목록 밖이거나 접속 차단·본문 부족). Claude에게 다른 출처로 바꿔 달라고 해 주세요.\n"

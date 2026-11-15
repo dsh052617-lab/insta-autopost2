@@ -37,7 +37,10 @@ def visible_text(post: dict) -> str:
         ch = s.get("chart")
         if isinstance(ch, dict):  # 그래프의 숫자도 원문에서 확인한다
             parts += [ch.get("title", ""), ch.get("note", "")]
-            parts += [f"{i.get('label', '')} {i.get('value', '')}{ch.get('unit', '')}" for i in ch.get("items", [])]
+            parts += list(ch.get("axes", []))
+            for i in ch.get("items", []):
+                vals = i.get("values") or [i.get("value", "")]
+                parts += [f"{i.get('label', '')} {v}{ch.get('unit', '')}" for v in vals]
     parts += post.get("takeaways", [])
     return "\n".join(str(p) for p in parts if p).replace("**", "")
 

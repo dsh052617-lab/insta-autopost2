@@ -189,7 +189,72 @@ def cover(post: dict, ctx: dict) -> Image.Image:
     return img
 
 
+RADAR_STYLES = [  # (선 색 섞는 비율, 점선 여부) — 모델마다 다른 선, 우열을 색으로 강조하지 않음
+    (0.0, False), (0.45, True), (0.0, True)]
+
+
+def draw_radar(d, chart: dict, y: int, limit: int, accent) -> int:
+    """오각형 그래프 + 아래 점수표. 축은 0~100, 바깥 꼭짓점이 100."""
+    import math
+    if chart.get("title"):
+        d.text((M, y), chart["title"], font=font(30, True), fill=MUTED)
+        y += 44
+    items, axes = chart["items"], chart["axes"]
+    table_h = 42 * (len(items) + 1) + 60
+    size = max(min(limit - y - table_h, 600), 320)
+    cx, cy, r = W // 2, y + size // 2 + 10, size // 2 - 50
+    def pt(i, v):
+        a = -math.pi / 2 + 2 * math.pi * i / 5
+        return (cx + r * v / 100 * math.cos(a), cy + r * v / 100 * math.sin(a))
+    grid = mix(PAPER, INK, 0.14)
+    for g in (25, 50, 75, 100):
+        d.polygon([pt(i, g) for i in range(5)], outline=grid, width=2)
+    for i in range(5):
+        d.line((cx, cy) + pt(i, 100), fill=grid, width=2)
+        lx, ly = pt(i, 122)
+        f = font(28, True)
+        d.text((lx, ly), axes[i], font=f, fill=BODY, anchor="mm")
+    colors = [accent, mix(accent, PAPER, 0.45), INK]
+    for k, it in enumerate(items):
+        pts = [pt(i, v) for i, v in enumerate(it["nums"])]
+        col = colors[k % 3]
+        if k == 0:
+            d.polygon(pts, fill=mix(accent, PAPER, 0.82))
+        dashed = RADAR_STYLES[k % 3][1]
+        for i in range(5):
+            x0, y0 = pts[i]; x1, y1 = pts[(i + 1) % 5]
+            if not dashed:
+                d.line((x0, y0, x1, y1), fill=col, width=5)
+            else:
+                n = 10
+                for j in range(0, n, 2):
+                    d.line((x0 + (x1 - x0) * j / n, y0 + (y1 - y0) * j / n,
+                            x0 + (x1 - x0) * (j + 1) / n, y0 + (y1 - y0) * (j + 1) / n), fill=col, width=5)
+        for (px, py) in pts:
+            d.ellipse((px - 7, py - 7, px + 7, py + 7), fill=col)
+    y = cy + r + 56
+    # 점수표: 모델 | 축1..축5 (원문 표기 그대로)
+    col_w = (W - 2 * M - 230) // 5
+    hf, cf = font(24, True), font(26)
+    for i, a in enumerate(axes):
+        d.text((M + 230 + col_w * i + col_w // 2, y), a, font=hf, fill=MUTED, anchor="ma")
+    y += 42
+    for k, it in enumerate(items):
+        col = colors[k % 3]
+        d.line((M, y + 16, M + 36, y + 16), fill=col, width=5)
+        d.text((M + 48, y), it["label"], font=font(26, True), fill=INK)
+        for i, v in enumerate(it["values"]):
+            d.text((M + 230 + col_w * i + col_w // 2, y), f"{v}{chart.get('unit', '')}", font=cf, fill=BODY, anchor="ma")
+        y += 42
+    if chart.get("note"):
+        d.text((M, y + 6), chart["note"], font=font(24), fill=MUTED)
+        y += 46
+    return y + 20
+
+
 def draw_chart(d, chart: dict, y: int, limit: int, accent) -> int:
+    if chart.get("type") == "radar":
+        return draw_radar(d, chart, y, limit, accent)
     """가로 막대그래프. 모든 막대는 같은 색(우열을 색으로 강조하지 않음), 값은 원문 표기 그대로."""
     items = chart["items"]
     if chart.get("title"):

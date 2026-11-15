@@ -135,6 +135,8 @@ def _chart(c) -> dict | None:
     """그래프 카드 데이터: {"title","unit","note","items":[{"label","value"}]} — 항목 2~4개, 값은 숫자."""
     if not isinstance(c, dict):
         return None
+    if c.get("type") == "radar":
+        return _radar(c)
     items = []
     for it in _list(c.get("items")):
         if not isinstance(it, dict):
@@ -151,6 +153,28 @@ def _chart(c) -> dict | None:
         return None
     return {"title": _str(c.get("title"))[:24], "unit": _str(c.get("unit"))[:6],
             "note": _str(c.get("note"))[:40], "items": items}
+
+
+def _radar(c: dict) -> dict | None:
+    """오각형(레이더) 그래프: 축 5개(0~100 점수), 모델 2~3개. 같은 평가 기관·같은 조건 점수만."""
+    axes = [_str(a)[:10] for a in _list(c.get("axes")) if _str(a)]
+    if len(axes) != 5:
+        return None
+    items = []
+    for it in _list(c.get("items")):
+        if not isinstance(it, dict) or not _str(it.get("label")):
+            continue
+        raws = [_str(v).replace(",", "") for v in _list(it.get("values"))]
+        try:
+            nums = [float(v) for v in raws]
+        except ValueError:
+            continue
+        if len(nums) == 5 and all(0 <= n <= 100 for n in nums):
+            items.append({"label": _str(it["label"])[:14], "values": raws, "nums": nums})
+    if not 2 <= len(items) <= 3:
+        return None
+    return {"type": "radar", "title": _str(c.get("title"))[:24], "unit": _str(c.get("unit"))[:6],
+            "note": _str(c.get("note"))[:40], "axes": axes, "items": items}
 
 
 def normalize_post(post: dict) -> dict:
@@ -176,7 +200,10 @@ def normalize_post(post: dict) -> dict:
         if chart:
             slide["chart"] = chart
             slide["highlight"] = ""          # 그래프 카드는 강조 박스 대신 그래프
-            slide["points"] = slide["points"][:1]
+            if chart.get("type") == "radar":  # 오각형은 카드 전체를 쓴다 (요점·용어 풀이는 다른 장에)
+                slide["points"], slide["terms"] = [], []
+            else:
+                slide["points"] = slide["points"][:1]
         slides.append(slide)
     out["slides"] = [s for s in slides if s["heading"] or s["points"]][:4]
     out["takeaways"] = [_str(t) for t in _list(out.get("takeaways")) if _str(t)][:3]
