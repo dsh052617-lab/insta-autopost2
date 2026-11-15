@@ -359,6 +359,17 @@ def body(slide: dict, idx: int, ctx: dict) -> Image.Image:
     return img
 
 
+EVALUATORS = {"Artificial Analysis", "Epoch AI", "Vals AI", "SWE-bench"}
+
+
+def _src_kind(s: dict) -> str:
+    if s.get("tier") == "official":
+        return "공식 발표"
+    if s.get("source") in EVALUATORS:
+        return "독립 평가"
+    return "언론 보도"
+
+
 def summary(post: dict, ctx: dict) -> Image.Image:
     """한 줄 정리 + 출처 (마지막 카드)."""
     accent = ctx["accent"]
@@ -381,16 +392,26 @@ def summary(post: dict, ctx: dict) -> Image.Image:
     d.rounded_rectangle((M - 24, box_top, W - M + 24, H - 160), radius=22, fill=bg)
     d.text((M + 8, box_top + 34), "출처", font=font(30, True), fill=accent)
     yy = box_top + 90
-    for s in ctx["sources"][:3]:
-        kind = "공식 발표" if s.get("tier") == "official" else "언론 보도"
-        meta = " · ".join(x for x in (s["source"], kind, str(s.get("published") or "")[:10]) if x)
-        d.text((M + 8, yy), meta, font=font(28, True), fill=INK)
-        title, sf = s.get("title", ""), font(26)
-        line = title
-        while sf.getlength(line) > W - 2 * M - 30 and len(line) > 4:
-            line = line[:-2]
-        d.text((M + 8, yy + 40), line + ("…" if line != title else ""), font=sf, fill=MUTED)
-        yy += 92
+    srcs = ctx["sources"]
+    if len(srcs) <= 3:
+        for s in srcs:
+            meta = " · ".join(x for x in (s["source"], _src_kind(s), str(s.get("published") or "")[:10]) if x)
+            d.text((M + 8, yy), meta, font=font(28, True), fill=INK)
+            title, sf = s.get("title", ""), font(26)
+            line = title
+            while sf.getlength(line) > W - 2 * M - 30 and len(line) > 4:
+                line = line[:-2]
+            d.text((M + 8, yy + 40), line + ("…" if line != title else ""), font=sf, fill=MUTED)
+            yy += 92
+    else:
+        # 출처가 많으면 기관별로 묶어 한 줄씩 (제목 생략)
+        groups: dict[str, list] = {}
+        for s in srcs:
+            groups.setdefault(s["source"], []).append(s)
+        for name, ss in list(groups.items())[:5]:
+            n = f" {len(ss)}건" if len(ss) > 1 else ""
+            d.text((M + 8, yy), f"{name} · {_src_kind(ss[0])}{n}", font=font(28, True), fill=INK)
+            yy += 50
     footer(d, ctx["handle"], f"{ctx['page']} / {ctx['total']}", MUTED, rule)
     return img
 

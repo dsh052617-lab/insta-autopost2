@@ -148,7 +148,7 @@ def _chart(c) -> dict | None:
             continue
         label = _str(it.get("label"))
         if label and num >= 0:
-            items.append({"label": label[:20], "value": raw, "num": num})
+            items.append({"label": label[:24], "value": raw, "num": num})
     if not 2 <= len(items) <= 4:
         return None
     return {"title": _str(c.get("title"))[:24], "unit": _str(c.get("unit"))[:6],
@@ -170,7 +170,7 @@ def _radar(c: dict) -> dict | None:
         except ValueError:
             continue
         if len(nums) == 5 and all(0 <= n <= 100 for n in nums):
-            items.append({"label": _str(it["label"])[:20], "values": raws, "nums": nums})
+            items.append({"label": _str(it["label"])[:24], "values": raws, "nums": nums})
     if not 2 <= len(items) <= 3:
         return None
     return {"type": "radar", "title": _str(c.get("title"))[:24], "unit": _str(c.get("unit"))[:6],
