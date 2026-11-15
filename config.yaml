@@ -90,6 +90,7 @@ sources:
   # AI 기업·연구기관 공식 발표
   openai.com:           { name: "OpenAI", tier: official }
   anthropic.com:        { name: "Anthropic", tier: official }
+  claude.com:           { name: "Anthropic(Claude)", tier: official }
   deepmind.google:      { name: "Google DeepMind", tier: official }
   research.google:      { name: "Google Research", tier: official }
   blog.google:          { name: "Google", tier: official }
