@@ -169,7 +169,7 @@ def main() -> None:
         draft_dir = DRAFTS / f"{post_date}-{topic}-{stamp[-4:]}"  # 예전에 취소된 같은 날짜 초안과 겹치지 않게
     draft_dir.mkdir(parents=True, exist_ok=True)
     category = spec.get("category", "")
-    kind = spec.get("kind") if spec.get("kind") in ("news", "term", "history") else "news"
+    kind = spec.get("kind") if spec.get("kind") in ("news", "term", "history", "compare") else "news"
     data = {"date": post_date, "topic": topic, "version": 1, "post": post, "kind": kind,
             "custom": not scheduled,
             "request": spec.get("request", "") or post.get("cover_title", "").replace("\n", " "),

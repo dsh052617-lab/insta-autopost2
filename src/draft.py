@@ -150,6 +150,10 @@ def main() -> None:
     if topic not in cfg["topics"]:
         sys.exit(f"알 수 없는 주제: {topic} (config.yaml의 topics 확인)")
     print(f"▶ 게시 예정: {date} / 주제: {topic}")
+    skip_file = ROOT / "data" / "skip" / f"{date.isoformat()}-{topic}.txt"
+    if skip_file.exists() and not args.force:  # 아침 예약 작업이 '오늘은 올리지 않음'으로 정한 날 → 예비 초안도 만들지 않음
+        print(f"오늘은 건너뛰기로 정한 날이에요: {skip_file.read_text(encoding='utf-8').strip()[:200]}")
+        return
 
     same_day: list[dict] = []
     if not args.local:
