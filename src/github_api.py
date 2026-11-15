@@ -71,6 +71,13 @@ def comment(number: int, text: str) -> None:
     _req("POST", f"/issues/{number}/comments", json={"body": text[:60000]})
 
 
+def dispatch_publish() -> None:
+    """'인스타 게시' 작업을 바로 한 번 실행 (오늘 승인된 초안 중 예정 시각이 지난 것을 올림).
+    예약 게시와 같은 실행 그룹이라 동시에 두 번 올라가는 일이 없다."""
+    from common import branch
+    _req("POST", "/actions/workflows/publish.yml/dispatches", json={"ref": branch()})
+
+
 def list_comments(number: int) -> list[dict]:
     return _req("GET", f"/issues/{number}/comments", params={"per_page": 100})
 

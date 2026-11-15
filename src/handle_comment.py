@@ -48,8 +48,19 @@ def main() -> None:
             gh.comment(number, "✅ 승인됐어요. 지금 인스타에 올릴게요…")
             publish_issue(cfg, issue)
             return
+        from common import now, post_datetime
+        slot = post_datetime(cfg, dt.date.fromisoformat(marker["date"]), marker.get("topic"))
+        current = now(cfg)
+        if slot.date() < current.date():  # 게시일이 이미 지난 초안
+            gh.comment(number, f"📅 게시일({when})이 지나서 승인하지 않았어요. "
+                               "`날짜: 11/20`처럼 새 날짜를 정한 뒤 다시 `승인`해 주세요.")
+            return
         gh.add_labels(number, ["approved"])
-        gh.comment(number, f"✅ 승인됐어요. {when}에 인스타에 올라가요.")
+        if current > slot:  # 오늘 예정 시각이 이미 지남 → 게시 작업을 바로 한 번 더 돌린다
+            gh.comment(number, f"✅ 승인됐어요. 예정 시각({when})이 지나서 곧바로 올릴게요 (2~5분).")
+            gh.dispatch_publish()
+        else:
+            gh.comment(number, f"✅ 승인됐어요. {when}에 인스타에 올라가요.")
 
     elif first.replace(" ", "").startswith("지금게시"):
         if not passed:
