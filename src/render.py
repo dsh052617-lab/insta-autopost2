@@ -181,10 +181,17 @@ def cover(post: dict, ctx: dict) -> Image.Image:
     d.line((M, y + 40, M + 120, y + 40), fill=soft, width=4)
     sf, slines, slh = fit(post["cover_subtitle"], W - 2 * M, 140, 40, 32, False, 1.5)
     draw_lines(d, (M, y + 80), slines, sf, slh, mix(accent, WHITE, 0.85))
+    notes = []
+    if ctx.get("cover_note"):  # 카드 종류별 안내 (예: 모델 비교 = 유료 프로모션 없음)
+        notes.append("※ " + ctx["cover_note"])
     if post.get("needs_disclaimer"):  # 특정 기업·투자 관련 글에만 표시
-        note = "※ 특정 기업·상품에 대한 투자 권유가 아닌 정보 제공 목적의 글이에요"
+        notes.append("※ 특정 기업·상품에 대한 투자 권유가 아닌 정보 제공 목적의 글이에요")
+    ny = H - 175
+    for note in reversed(notes):
         nf, nl, nlh = fit(note, W - 2 * M, 80, 26, 20, False, 1.5)
-        draw_lines(d, (M, H - 175 - nlh * len(nl)), nl, nf, nlh, soft)
+        ny -= nlh * len(nl)
+        draw_lines(d, (M, ny), nl, nf, nlh, soft)
+        ny -= 6
     footer(d, ctx["handle"], "넘겨서 보기  →", soft, line)
     return img
 
@@ -242,7 +249,8 @@ def draw_radar(d, chart: dict, y: int, limit: int, accent) -> int:
     for k, it in enumerate(items):
         col = colors[k % 3]
         d.line((M, y + 16, M + 36, y + 16), fill=col, width=5)
-        d.text((M + 48, y), it["label"], font=font(26, True), fill=INK)
+        lf, ll, _ = fit(it["label"], 180, 40, 26, 18, True, 1.2)
+        d.text((M + 48, y + (26 - lf.size) // 2), ll[0] if len(ll) == 1 else " ".join(ll), font=lf, fill=INK)
         for i, v in enumerate(it["values"]):
             d.text((M + 230 + col_w * i + col_w // 2, y), f"{v}{chart.get('unit', '')}", font=cf, fill=BODY, anchor="ma")
         y += 42
@@ -398,6 +406,7 @@ def render_all(post: dict, cfg: dict, topic_key: str, out_dir: Path,
         "handle": cfg["account"]["handle"],
         "project": cfg["account"].get("project", ""),
         "category": kind_cfg.get("label") or cfg["topics"][topic_key]["label"] + " 이슈",
+        "cover_note": kind_cfg.get("cover_note", ""),
         "date": date_text,
         "sources": sources,
         "total": total,

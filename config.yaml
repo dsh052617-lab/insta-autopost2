@@ -149,7 +149,10 @@ sources:
 kinds:
   history: { label: "경제사", color: "#7A4E2D" }   # 오래된 기록 느낌의 짙은 갈색
   term:    { label: "경제 용어" }                    # 색은 주제색 그대로
-  compare: { label: "AI 모델 비교", color: "#5A3E6E" }  # 짙은 자주색 · AI 이슈 없는 날, 주 1회까지
+  compare:                                           # AI 이슈 없는 날, 주 1회까지
+    label: "AI 모델 비교"
+    color: "#5A3E6E"                                 # 짙은 자주색
+    cover_note: "유료 프로모션을 일절 받지 않은 정보 공유 게시물이에요"
 topics:
   ai:
     label: "AI"
