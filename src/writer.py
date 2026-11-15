@@ -223,7 +223,8 @@ def select_story(cfg: dict, topic_key: str, items: list[dict], recent_titles: li
         "최후의 선택: 새 AI 도구·제품·모델 출시 소식은 위 기준에 맞는 다른 이슈가 정말 하나도 없을 때만 고른다. "
         "그 경우 reason에 '다른 이슈가 없어 신제품 소식을 골랐다'고 밝혀.\n"
         "가장 최근 기사를 우선해. 같은 비중이면 더 최신 것을 골라.\n"
-        "최근에 이미 다룬 주제와 겹치지 않게 해줘.\n"
+        "아래 '최근 다룬 주제'(운영자가 직접 올린 '내 주제' 게시물 포함)와 같은 사건·같은 소식은 절대 고르지 말 것. "
+        "같은 회사·같은 정책이라도 새로운 사건이면 괜찮아.\n"
         "출처 조건: '공식' 표시 기사 1건 이상을 포함하거나, 서로 다른 언론사 2곳 이상이 같은 사건을 다룬 경우만 고를 수 있어. "
         "indices에는 같은 사건을 다룬 기사만 넣어.\n\n"
         f"분야 목록(category는 이 중 하나): {json.dumps(CATEGORIES[topic_key], ensure_ascii=False)}\n"
@@ -244,6 +245,23 @@ def select_story(cfg: dict, topic_key: str, items: list[dict], recent_titles: li
     result["angle"] = _str(result.get("angle"))
     result["reason"] = _str(result.get("reason"))
     return result
+
+
+def classify_category(cfg: dict, topic_key: str, title: str, summary: str = "") -> str:
+    """내 주제 게시물도 분야(금리·통화 등)를 기록해, 자동 업로드가 같은 분야를 연달아 고르지 않게 한다."""
+    options = CATEGORIES.get(topic_key, [])
+    tool = {"name": "pick_category", "description": "글의 분야를 하나 고른다.",
+            "input_schema": {"type": "object", "properties": {"category": {"type": "string", "enum": options}},
+                             "required": ["category"]}}
+    cheap = dict(cfg, claude={**cfg["claude"], "model": cfg["claude"].get("research_model") or cfg["claude"]["model"]})
+    try:
+        r = _call_tool(cheap, "너는 기사 분류 담당이야.", f"제목: {title}\n요약: {summary}\n\n분야를 하나 골라줘.",
+                       tool, max_tokens=300)
+        cat = _str(r.get("category"))
+        return cat if cat in options else ""
+    except Exception as e:  # 분류는 부가 기능이라 실패해도 진행
+        print(f"   (분야 분류 생략: {e})")
+        return ""
 
 
 # ── 2단계: 카드뉴스 원고 ───────────────────────────────────

@@ -20,7 +20,7 @@ import render  # noqa: E402
 import verify  # noqa: E402
 import writer  # noqa: E402
 from common import (DRAFTS, ROOT, date_label, git_commit_push, load_config,  # noqa: E402
-                    load_history, next_post_slot, raw_url)
+                    load_history, next_post_slot, raw_url, slot_time)
 
 SOURCE_KEYS = ("title", "url", "source", "published", "tier")
 
@@ -88,7 +88,7 @@ def issue_body(cfg: dict, data: dict, image_paths: list[Path], draft_dir: Path) 
         head = f"## ✍️ 내 주제 카드뉴스 · {label}\n요청 주제: {data.get('request', '')}"
         approve = "> - `승인` → 바로 인스타에 올라가요 (출처 검증을 통과한 초안만 가능)"
     else:
-        head = f"## 📮 {date_label(date)} {cfg['schedule']['post_time']} 게시 예정 · {label}"
+        head = f"## 📮 {date_label(date)} {slot_time(cfg, data['topic'])} 게시 예정 · {label}"
         approve = "> - `승인` → 예정 시각에 인스타에 올라가요 (출처 검증을 통과한 초안만 가능)"
     return f"""{head}
 
@@ -141,11 +141,11 @@ def main() -> None:
     args = ap.parse_args()
 
     cfg = load_config()
-    date, topic = next_post_slot(cfg)
+    if args.topic and args.topic not in cfg["topics"]:
+        sys.exit(f"알 수 없는 주제: {args.topic} (config.yaml의 topics 확인)")
+    date, topic = next_post_slot(cfg, args.topic or None)
     if args.date:
         date = dt.date.fromisoformat(args.date)
-    if args.topic:
-        topic = args.topic
     if topic not in cfg["topics"]:
         sys.exit(f"알 수 없는 주제: {topic} (config.yaml의 topics 확인)")
     print(f"▶ 게시 예정: {date} / 주제: {topic}")
@@ -155,7 +155,8 @@ def main() -> None:
         import github_api as gh
         gh.ensure_labels()
         same_day = [i for i in gh.recent_drafts()
-                    if (m := gh.read_marker(i)) and not m.get("custom") and m.get("date") == date.isoformat()]
+                    if (m := gh.read_marker(i)) and not m.get("custom") and m.get("date") == date.isoformat()
+                    and m.get("topic") == topic]
         if same_day and not args.force:
             print(f"이 날짜 초안이 이미 있어요(열림·게시·취소 포함): #{same_day[0]['number']} — 건너뜀 "
                   "(새로 만들려면 Run workflow에서 force 체크)")
@@ -163,8 +164,18 @@ def main() -> None:
         same_day = [i for i in same_day if i["state"] == "open"]
 
     history = load_history()
+    # 아직 게시 전인 다른 초안(특히 '내 주제')도 이미 다룬 것으로 보고 피한다
+    pending = []
+    if not args.local:
+        try:
+            pending = [p for p in gh.pending_posts(ROOT)
+                       if p["custom"] or p["date"] != date.isoformat() or p["topic"] != topic]
+        except Exception as e:
+            print(f"   (대기 중 초안 확인 실패: {e})")
+    history = history + pending
     used_urls = {u for h in history for u in h.get("urls", [])}
-    recent_titles = [h["title"] for h in history if h.get("topic") == topic]
+    # AI·경제를 가리지 않고 최근 다룬 주제 전체를 알려줘 겹치지 않게
+    recent_titles = [h["title"] for h in history if h.get("title")][-12:]
     # 분야 반복 방지: 같은 주제의 최근 2개 + 전체 최근 2개(취업·고용 같은 이야기가 AI·경제에 걸쳐 반복되는 것 방지)
     recent_categories = list(dict.fromkeys(
         [h.get("category", "") for h in history if h.get("topic") == topic][-2:]

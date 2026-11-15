@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import github_api as gh  # noqa: E402
 import writer  # noqa: E402
-from common import ROOT, date_label, git_commit_push, load_config  # noqa: E402
+from common import ROOT, date_label, git_commit_push, load_config, slot_time  # noqa: E402
 from draft import SOURCE_KEYS, fetch_articles, issue_body, issue_title, render_version  # noqa: E402
 
 BLOCKED = ("❌ 출처 검증을 통과하지 못한 초안이라 승인·게시할 수 없어요.\n"
@@ -27,7 +27,7 @@ def main() -> None:
     marker = gh.read_marker(issue)
     if not marker or not marker.get("dir"):
         return
-    if not first.startswith(("승인", "취소", "수정")) and not first.replace(" ", "").startswith("지금게시"):
+    if not first.startswith(("승인", "취소", "수정", "날짜")) and not first.replace(" ", "").startswith("지금게시"):
         return  # 명령이 아닌 일반 댓글은 무시
     draft_dir = ROOT / marker["dir"]
     post_file = draft_dir / "post.json"
@@ -37,7 +37,7 @@ def main() -> None:
         return
     data = json.loads(post_file.read_text(encoding="utf-8"))
     passed = data.get("verification", {}).get("passed", False)
-    when = f"{date_label(dt.date.fromisoformat(marker['date']))} {cfg['schedule']['post_time']}"
+    when = f"{date_label(dt.date.fromisoformat(marker['date']))} {slot_time(cfg, marker.get('topic'))}"
 
     if first.startswith("승인"):
         if not passed:
@@ -63,6 +63,27 @@ def main() -> None:
         gh.add_labels(number, ["skipped"])
         gh.update_issue(number, state="closed")
         gh.comment(number, "이번 회차는 건너뛸게요.")
+
+    elif first.startswith("날짜"):  # 게시 날짜만 바꾸기 (예: `날짜: 11/16`) — 내용은 그대로, API 요금 없음
+        import re
+        m = re.search(r"(\d{4})-(\d{1,2})-(\d{1,2})|(\d{1,2})[/.](\d{1,2})", first)
+        if not m:
+            gh.comment(number, "날짜를 `날짜: 11/16` 또는 `날짜: 2026-11-16`처럼 적어주세요.")
+            return
+        today = dt.date.today()
+        new = (dt.date(int(m[1]), int(m[2]), int(m[3])) if m[1]
+               else dt.date(today.year, int(m[4]), int(m[5])))
+        if new < today - dt.timedelta(days=1):
+            new = dt.date(new.year + 1, new.month, new.day)
+        data.update(date=new.isoformat(), version=data["version"] + 1)
+        paths = render_version(cfg, data, draft_dir)  # 표지 날짜도 새로 그림
+        (draft_dir / "post.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        git_commit_push(f"reschedule: {marker['dir']} → {new}", [draft_dir])
+        body = issue_body(cfg, data, paths, draft_dir).replace(
+            f'"date": "{marker["date"]}"', f'"date": "{new.isoformat()}"')
+        gh.update_issue(number, title=issue_title(cfg, data), body=body)
+        state = "승인 상태는 그대로예요." if "approved" in gh.label_names(issue) else "확인 후 `승인`해 주세요."
+        gh.comment(number, f"📅 게시 날짜를 {date_label(new)} {slot_time(cfg, data['topic'])}로 바꿨어요. {state}")
 
     elif first.startswith("수정"):
         feedback = text[len("수정"):].lstrip(" :：").strip()

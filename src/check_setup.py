@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import requests  # noqa: E402
 
-from common import ROOT, load_config, next_post_slot, raw_url  # noqa: E402
+from common import ROOT, load_config, next_post_slot, raw_url, slot_time  # noqa: E402
 
 results: list[tuple[str, bool, str]] = []
 
@@ -42,7 +42,7 @@ def main() -> None:
     @check("설정 파일(config.yaml)")
     def _():
         date, topic = next_post_slot(cfg)
-        return True, f"다음 게시: {date} {cfg['schedule']['post_time']} ({cfg['topics'][topic]['label']})"
+        return True, f"다음 게시: {date} {slot_time(cfg, topic)} ({cfg['topics'][topic]['label']})"
 
     @check("한글 폰트")
     def _():

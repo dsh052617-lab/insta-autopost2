@@ -19,8 +19,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import github_api as gh  # noqa: E402
 import instagram  # noqa: E402
-from common import (HISTORY, ROOT, git_commit_push, load_config, load_history,  # noqa: E402
-                    now, post_datetime, raw_url, save_history)
+from common import (ROOT, append_history_and_push, load_config, now, post_datetime,  # noqa: E402
+                    raw_url)
 from draft import build_caption  # noqa: E402
 
 
@@ -61,19 +61,26 @@ def publish_issue(cfg: dict, issue: dict) -> str:
         user_id, token, urls, caption,
         ai_label=cfg["instagram"].get("ai_label", True))
 
-    history = load_history()
-    history.append({"date": data["date"], "topic": data["topic"],
-                    "category": data.get("story", {}).get("category", ""),
-                    "title": data["post"]["cover_title"].replace("\\n", " ").replace("\n", " "),
-                    "urls": [s["url"] for s in data["sources"]],
-                    "media_id": result["media_id"], "permalink": result["permalink"]})
-    save_history(history)
-    git_commit_push(f"published: {marker['dir']}", [HISTORY])
-
+    # 게시 성공 직후 가장 먼저 '게시됨' 표시 → 이후 단계가 실패해도 예비 실행이 다시 올리는 일(중복 게시)이 없게
     link = result["permalink"] or "(링크를 가져오지 못했어요 — 인스타 앱에서 확인해주세요)"
-    gh.comment(issue["number"], f"🎉 인스타에 게시했어요!\n{link}")
-    gh.add_labels(issue["number"], ["published"])
-    gh.update_issue(issue["number"], state="closed")
+    for step in (lambda: gh.add_labels(issue["number"], ["published"]),
+                 lambda: gh.comment(issue["number"], f"🎉 인스타에 게시했어요!\n{link}"),
+                 lambda: gh.update_issue(issue["number"], state="closed")):
+        try:
+            step()
+        except Exception as e:
+            print(f"⚠️  게시 후 이슈 정리 실패(게시는 완료): {e}")
+
+    entry = {"date": data["date"], "topic": data["topic"],
+             "category": data.get("story", {}).get("category", ""),
+             "title": data["post"]["cover_title"].replace("\\n", " ").replace("\n", " "),
+             "urls": [s["url"] for s in data["sources"]],
+             "media_id": result["media_id"], "permalink": result["permalink"]}
+    try:  # 다른 작업(내 주제·자동)과 동시에 기록해도 충돌 없이 합쳐서 저장
+        append_history_and_push(entry, f"published: {marker['dir']}")
+    except Exception as e:
+        print(f"⚠️  게시 기록 저장 실패(게시는 완료): {e}")
+        gh.comment(issue["number"], f"ℹ️ 게시는 됐지만 기록 파일 저장에 실패했어요. 다음 주제 고를 때 이 글을 모를 수 있어요.\n`{str(e)[:200]}`")
     return link
 
 
@@ -116,21 +123,26 @@ def main() -> None:
     close_stale_drafts(cfg)
 
     today = now(cfg).date()
-    target = post_datetime(cfg, today)
-    todays = [i for i in gh.open_drafts()
-              if (m := gh.read_marker(i) or {}).get("date") == today.isoformat() and not m.get("custom")]
+    todays = []
+    for i in gh.open_drafts():
+        m = gh.read_marker(i) or {}
+        if m.get("date") == today.isoformat() and not m.get("custom"):
+            todays.append((post_datetime(cfg, today, m.get("topic")), i))
+    todays.sort(key=lambda x: x[0])
     if not todays:
         print("오늘 게시 예정인 초안이 없어요.")
         return
 
-    # GitHub 예약 실행은 몇 분씩 늦거나 이를 수 있어서, 이르면 예정 시각까지 기다린다
-    wait = (target - now(cfg)).total_seconds()
-    if 0 < wait <= 40 * 60:
-        print(f"예정 시각까지 {int(wait // 60)}분 대기")
-        time.sleep(wait)
-
     failed = False
-    for issue in todays:
+    for target, issue in todays:
+        wait = (target - now(cfg)).total_seconds()
+        if wait > 40 * 60:  # 이 회차는 다음 실행이 맡음 (주제마다 게시 시각이 달라요)
+            print(f"#{issue['number']}은 {target:%H:%M} 예정 — 이번 실행에서는 건너뜀")
+            continue
+        # GitHub 예약 실행은 몇 분씩 늦거나 이를 수 있어서, 이르면 예정 시각까지 기다린다
+        if wait > 0:
+            print(f"#{issue['number']} 예정 시각({target:%H:%M})까지 {int(wait // 60)}분 대기")
+            time.sleep(wait)
         issue = gh.get_issue(issue["number"])  # 기다리는 동안 달린 승인 반영
         if issue["state"] != "open":
             continue

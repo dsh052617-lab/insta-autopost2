@@ -31,20 +31,42 @@ def now(cfg: dict) -> dt.datetime:
     return dt.datetime.now(tz(cfg))
 
 
-def post_datetime(cfg: dict, date: dt.date) -> dt.datetime:
-    hh, mm = map(int, cfg["schedule"]["post_time"].split(":"))
+def slot_time(cfg: dict, topic: str | None = None) -> str:
+    """주제별 게시 시각 'HH:MM' (slots가 없으면 post_time)."""
+    return (cfg["schedule"].get("slots") or {}).get(topic or "", cfg["schedule"].get("post_time", "20:00"))
+
+
+def post_datetime(cfg: dict, date: dt.date, topic: str | None = None) -> dt.datetime:
+    hh, mm = map(int, slot_time(cfg, topic).split(":"))
     return dt.datetime(date.year, date.month, date.day, hh, mm, tzinfo=tz(cfg))
 
 
-def next_post_slot(cfg: dict) -> tuple[dt.date, str]:
-    """지금 이후 가장 가까운 게시 예정일과 주제."""
-    days = {WEEKDAYS.index(k.lower()): v for k, v in cfg["schedule"]["days"].items()}
+def _slots(cfg: dict) -> list[tuple[int, str]]:
+    """(요일 0=월…6=일, 주제) 목록. slots가 있으면 매일, 없으면 days 설정."""
+    if cfg["schedule"].get("slots"):
+        return [(wd, t) for wd in range(7) for t in cfg["schedule"]["slots"]]
+    return [(WEEKDAYS.index(k.lower()), v) for k, v in cfg["schedule"]["days"].items()]
+
+
+def next_post_slot(cfg: dict, topic: str | None = None) -> tuple[dt.date, str]:
+    """지금 이후 가장 가까운 게시 예정 (날짜, 주제). topic을 주면 그 주제의 다음 회차."""
     current = now(cfg)
-    for offset in range(0, 8):
+    start = cfg["schedule"].get("start_date")
+    start = dt.date.fromisoformat(str(start)) if start else None
+    best = None
+    for offset in range(0, 40):
         d = (current + dt.timedelta(days=offset)).date()
-        if d.weekday() in days and post_datetime(cfg, d) > current:
-            return d, days[d.weekday()]
-    raise RuntimeError("config.yaml의 schedule.days를 확인해주세요.")
+        if start and d < start:
+            continue
+        for wd, t in _slots(cfg):
+            if wd != d.weekday() or (topic and t != topic):
+                continue
+            when = post_datetime(cfg, d, t)
+            if when > current and (best is None or when < best[0]):
+                best = (when, d, t)
+        if best:
+            return best[1], best[2]
+    raise RuntimeError("config.yaml의 schedule을 확인해주세요.")
 
 
 def date_label(date: dt.date) -> str:
@@ -91,3 +113,29 @@ def git_commit_push(message: str, paths: list[Path | str]) -> None:
             return
         subprocess.run(["git", "pull", "--rebase"], check=True, cwd=ROOT)
     raise RuntimeError("git push 실패")
+
+
+def append_history_and_push(entry: dict, message: str) -> None:
+    """게시 기록 한 줄 추가. 여러 작업이 동시에 기록해도 서로 덮어쓰지 않게:
+    최신본을 받아 → 추가 → 푸시, 충돌하면 내 커밋을 되돌리고 처음부터 다시 (최대 5번)."""
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        save_history(load_history() + [entry])
+        print(f"[local] git 커밋 생략: {message}")
+        return
+    run = lambda *a, **k: subprocess.run(list(a), cwd=ROOT, **k)  # noqa: E731
+    run("git", "config", "user.name", "github-actions[bot]", check=True)
+    run("git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com", check=True)
+    for attempt in range(5):
+        run("git", "fetch", "origin", branch())
+        run("git", "reset", "--hard", f"origin/{branch()}", check=True)
+        items = load_history()
+        if entry.get("media_id") and any(h.get("media_id") == entry["media_id"] for h in items):
+            return  # 이미 기록됨
+        save_history(items + [entry])
+        run("git", "add", str(HISTORY), check=True)
+        run("git", "commit", "-m", message, check=True)
+        if run("git", "push", "origin", f"HEAD:{branch()}").returncode == 0:
+            return
+        import time
+        time.sleep(3 * (attempt + 1))
+    raise RuntimeError("게시 기록 푸시 실패 (5번 시도)")

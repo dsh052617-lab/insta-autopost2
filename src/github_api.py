@@ -144,3 +144,23 @@ def make_marker(data: dict) -> str:
 
 def label_names(issue: dict) -> set[str]:
     return {l["name"] for l in issue.get("labels", [])}
+
+
+def pending_posts(root) -> list[dict]:
+    """아직 게시 전인 초안(자동·내 주제 모두)의 제목·출처·분야 — 서로 같은 이야기를 다루지 않게 하는 데 쓴다."""
+    out = []
+    for issue in open_drafts():
+        m = read_marker(issue) or {}
+        f = root / m.get("dir", "") / "post.json"
+        if not m.get("dir") or not f.exists():
+            continue
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        out.append({"number": issue["number"], "date": d.get("date", ""), "topic": d.get("topic", ""),
+                    "custom": bool(d.get("custom")),
+                    "title": d.get("post", {}).get("cover_title", "").replace("\\n", " ").replace("\n", " "),
+                    "urls": [s.get("url", "") for s in d.get("sources", [])],
+                    "category": d.get("story", {}).get("category", "")})
+    return out

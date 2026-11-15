@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import news  # noqa: E402
 import verify  # noqa: E402
 import writer  # noqa: E402
-from common import DRAFTS, ROOT, git_commit_push, load_config, now  # noqa: E402
+from common import DRAFTS, ROOT, git_commit_push, load_config, load_history, now  # noqa: E402
 from draft import SOURCE_KEYS, issue_body, issue_title, render_version  # noqa: E402
 
 URL_RE = re.compile(r"https?://[^\s)>\]]+")
@@ -102,13 +102,25 @@ def main() -> None:
     post, result = writer.write_verified(cfg, category, articles, angle)
     print("   " + ("✅ 검증 통과" if result["passed"] else f"❌ 검증 실패: {result['problems']}"))
 
+    # 자동 업로드(게시됨·예정)와 같은 기사를 쓰는지 확인 → 겹치면 이슈에 알림
+    others = load_history()
+    if gh:
+        try:
+            others += [p for p in gh.pending_posts(ROOT) if p.get("number") != args.issue]
+        except Exception as e:
+            print(f"   (대기 중 초안 확인 실패: {e})")
+    mine = {a["url"] for a in articles}
+    overlaps = [o for o in others if mine & set(o.get("urls", []))]
+    category_detail = writer.classify_category(cfg, category, post.get("cover_title", "").replace("\n", " "),
+                                               post.get("cover_subtitle", ""))
+
     stamp = now(cfg).strftime("%Y%m%d-%H%M")
     draft_dir = (ROOT / "preview" / f"custom-{stamp}") if args.local else (DRAFTS / f"custom-{stamp}")
     draft_dir.mkdir(parents=True, exist_ok=True)
     data = {"date": now(cfg).date().isoformat(), "topic": category, "version": 1, "post": post,
             "custom": True, "request": topic,
             "sources": [{k: a[k] for k in SOURCE_KEYS} for a in articles],
-            "story": {"reason": "운영자가 요청한 주제", "angle": angle},
+            "story": {"reason": "운영자가 요청한 주제", "angle": angle, "category": category_detail},
             "verification": result}
 
     print("③ 이미지 만들기")
@@ -124,9 +136,16 @@ def main() -> None:
         gh.update_issue(args.issue, title=title, body=body)
         gh.add_labels(args.issue, ["draft"])
         gh.comment(args.issue, "🆕 초안을 본문에 올렸어요. 확인하고 `승인`하면 바로 게시돼요.")
+        target = args.issue
     else:
         issue = gh.create_issue(title, body, ["draft"])
         print(f"✅ 검토 요청 이슈: {issue['html_url']}")
+        target = issue["number"]
+    if overlaps:
+        lines = "\n".join(f"- {o.get('date', '')} {o.get('title', '')}"
+                          + (f" (#{o['number']}, 게시 전)" if o.get("number") else " (게시됨)") for o in overlaps[:3])
+        gh.comment(target, "⚠️ 이 초안은 아래 게시물과 같은 기사를 출처로 써요. 내용이 겹치지 않는지 확인해 주세요.\n"
+                           f"{lines}\n겹친다면 `취소`하거나 `수정: 다른 관점으로`처럼 바꿔 주세요.")
 
 
 if __name__ == "__main__":
