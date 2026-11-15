@@ -15,10 +15,13 @@ claude:
 
 schedule:
   timezone: "Asia/Seoul"
-  post_time: "20:00"               # 게시 시각 (바꾸면 .github/workflows/publish.yml의 cron도 같이 바꿔주세요)
-  days:                            # 게시 요일: 주제  (요일을 바꾸면 draft.yml / publish.yml cron도 같이)
-    tuesday: ai
-    thursday: economy
+  post_time: "20:00"               # 기본 게시 시각
+  # 매일 게시: 주제별 시각 (바꾸면 .github/workflows/publish.yml의 cron도 같이 바꿔주세요)
+  # 초안은 매일 오전 Claude 예약 작업이 만들고(API 요금 없음), 낮 12시 53분까지 없으면 API로 예비 초안을 만들어요.
+  start_date: "2026-11-16"         # 매일 게시 시작일 (이전 날짜는 초안·게시를 만들지 않음)
+  slots:
+    economy: "20:00"
+    ai: "21:00"
 
 instagram:
   ai_label: true                   # 인스타의 'AI 정보' 라벨 표시 (AI로 만든 콘텐츠임을 밝힘)
@@ -37,6 +40,39 @@ news:
 #  - 출처가 부족하면 이 목록 안에서만 웹 검색해 같은 사건을 다룬 기사를 자동 보충
 # ─────────────────────────────────────────────
 sources:
+  # ── 픽스(비서 앱) 브리핑과 같은 출처 목록으로 맞춘 추가분 ──
+  moef.go.kr:           { name: "기획재정부", tier: official }
+  krx.co.kr:            { name: "한국거래소", tier: official }
+  molit.go.kr:          { name: "국토교통부", tier: official }
+  motie.go.kr:          { name: "산업통상자원부", tier: official }
+  kif.re.kr:            { name: "한국금융연구원", tier: official }
+  kcmi.re.kr:           { name: "자본시장연구원", tier: official }
+  kiep.go.kr:           { name: "대외경제정책연구원", tier: official }
+  kiet.re.kr:           { name: "산업연구원", tier: official }
+  bis.org:              { name: "국제결제은행(BIS)", tier: official }
+  bls.gov:              { name: "미 노동통계국", tier: official }
+  sec.gov:              { name: "미 SEC 공시", tier: official }
+  whitehouse.gov:       { name: "미 백악관", tier: official }
+  commerce.gov:         { name: "미 상무부", tier: official }
+  bis.gov:              { name: "미 상무부 산업안보국", tier: official }
+  ftc.gov:              { name: "미 연방거래위원회", tier: official }
+  nist.gov:             { name: "미 NIST", tier: official }
+  meta.com:             { name: "Meta", tier: official }
+  fb.com:               { name: "Meta", tier: official }
+  apple.com:            { name: "Apple", tier: official }
+  aboutamazon.com:      { name: "Amazon", tier: official }
+  x.ai:                 { name: "xAI", tier: official }
+  einfomax.co.kr:       { name: "연합인포맥스", tier: press }
+  cnbc.com:             { name: "CNBC", tier: press }
+  axios.com:            { name: "Axios", tier: press }
+  arstechnica.com:      { name: "Ars Technica", tier: press }
+  wired.com:            { name: "Wired", tier: press }
+  afp.com:              { name: "AFP", tier: press }
+  nytimes.com:          { name: "New York Times", tier: press }
+  wsj.com:              { name: "Wall Street Journal", tier: press }
+  ft.com:               { name: "Financial Times", tier: press }
+  bloomberg.com:        { name: "Bloomberg", tier: press }
+  nikkei.com:           { name: "Nikkei", tier: press }
   # 정부·공공기관·국제기구
   bok.or.kr:            { name: "한국은행", tier: official }
   korea.kr:             { name: "대한민국 정책브리핑", tier: official }
