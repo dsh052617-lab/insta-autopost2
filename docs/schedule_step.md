@@ -2,7 +2,7 @@ Step 3 — 인스타 카드뉴스 초안 (@agi.economy.kr, 프로젝트 "AGI시�
 
 TOPIC = "{TOPIC}"  (ai 또는 economy), POST_DATE = TODAY(Asia/Seoul, `TZ=Asia/Seoul date +%Y-%m-%d`).
 
-0) 저장소 연결: add_repo(owner "dsh052617-lab", repo "insta-autopost2", access "push") 후 안내대로 clone. 실패하면 Step 3 전체를 건너뛰고, 마지막 메시지 끝에 "⚠️ 인스타 초안: GitHub 연결이 필요해요 (claude.ai 설정에서 GitHub 연결)" 한 줄만 덧붙인다. (낮 12시 53분에 예비 초안이 자동으로 만들어진다.)
+0) 저장소 연결: add_repo(owner "dsh052617-lab", repo "insta-autopost2", access "push") 후 안내대로 clone. 실패하면 Step 3 전체를 건너뛰고, 마지막 메시지 끝에 "⚠️ 인스타 초안: GitHub 연결이 필요해요 (claude.ai 설정에서 GitHub 연결)" 한 줄만 덧붙인다. (이날 그 주제 카드는 쉰다.)
 1) 중복 확인: `gh issue list -R dsh052617-lab/insta-autopost2 --label draft --state all --limit 30 --json number,title,body` 에서 본문 마커 `<!-- insta-draft: {...} -->`의 date == POST_DATE, topic == TOPIC, custom == false 인 것이 있으면 Step 3 종료. 제목이 "직접:"으로 시작하고 같은 날짜·주제인 열린 이슈가 있어도 종료.
 2) 이미 다룬 것 피하기: 저장소의 data/history.json 과 열린 draft 이슈의 제목·출처 URL을 읽는다. 같은 사건·같은 기사는 고르지 않는다. 최근 2개 게시물의 분야(category)와 같은 분야도 피한다. 특히 취업·고용·일자리 이야기는 연달아 고르지 않는다.
 3) 고르기: 방금 픽스에 저장한 이 브리핑의 items 중에서 카드뉴스 1개를 고른다. 기준(중요한 순서):
