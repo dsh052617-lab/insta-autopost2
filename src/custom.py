@@ -110,7 +110,8 @@ def main() -> None:
         except Exception as e:
             print(f"   (대기 중 초안 확인 실패: {e})")
     mine = {a["url"] for a in articles}
-    overlaps = [o for o in others if mine & set(o.get("urls", []))]
+    from common import recent_overlap
+    overlaps = recent_overlap(cfg, post.get("cover_title", ""), list(mine), others)
     category_detail = writer.classify_category(cfg, category, post.get("cover_title", "").replace("\n", " "),
                                                post.get("cover_subtitle", ""))
 

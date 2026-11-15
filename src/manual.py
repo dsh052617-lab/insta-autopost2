@@ -26,7 +26,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import news  # noqa: E402
 import verify  # noqa: E402
 import writer  # noqa: E402  (원고 정리 함수만 사용, Claude 호출 없음)
-from common import DRAFTS, ROOT, git_commit_push, load_config, load_history, now, slot_time  # noqa: E402
+from common import (DRAFTS, ROOT, git_commit_push, load_config, load_history, now,  # noqa: E402
+                    recent_overlap, slot_time)
 from draft import SOURCE_KEYS, issue_body, issue_title, render_version  # noqa: E402
 
 JSON_RE = re.compile(r"```(?:json)?\s*(\{.*\})\s*```", re.S)
@@ -144,7 +145,11 @@ def main() -> None:
             others += [p for p in gh.pending_posts(ROOT) if p.get("number") != args.issue]
         except Exception as e:
             print(f"   (대기 중 초안 확인 실패: {e})")
-    overlaps = [o for o in others if {a["url"] for a in articles} & set(o.get("urls", []))]
+    overlaps = recent_overlap(cfg, post.get("cover_title", ""), [a["url"] for a in articles], others)
+    if overlaps and scheduled:  # 자동 초안은 최근 7일 글과 겹치면 절대 등록하지 않는다
+        fail("최근 7일 안에 게시했거나 게시 예정인 글과 내용이 겹쳐서 등록하지 않았어요.\n"
+             + "\n".join(f"- {o.get('date', '')} {o.get('title', '')} ({o['why']})" for o in overlaps[:3])
+             + "\n다른 이슈로 원고를 다시 만들어 주세요.")
 
     stamp = now(cfg).strftime("%Y%m%d-%H%M")
     name = f"{post_date}-{topic}" if scheduled else f"manual-{stamp}"
@@ -183,8 +188,8 @@ def main() -> None:
     if notes:
         msg += "\n\n" + "\n".join(f"- {n}" for n in notes)
     if overlaps:
-        msg += "\n\n⚠️ 아래 게시물과 같은 기사를 출처로 써요. 내용이 겹치지 않는지 확인해 주세요.\n" + "\n".join(
-            f"- {o.get('date', '')} {o.get('title', '')}" for o in overlaps[:3])
+        msg += ("\n\n⚠️ 최근 7일 안의 글과 내용이 겹쳐요. 겹치면 올리지 말고 `취소`해 주세요.\n" + "\n".join(
+            f"- {o.get('date', '')} {o.get('title', '')} ({o['why']})" for o in overlaps[:3]))
     gh.comment(args.issue, msg)
 
 

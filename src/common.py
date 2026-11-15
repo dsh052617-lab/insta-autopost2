@@ -139,3 +139,33 @@ def append_history_and_push(entry: dict, message: str) -> None:
         import time
         time.sleep(3 * (attempt + 1))
     raise RuntimeError("게시 기록 푸시 실패 (5번 시도)")
+
+
+# ── 최근 7일 내용 겹침 검사 (AI·경제·내 주제 모두) ──
+def _norm_title(t: str) -> str:
+    import re as _re
+    return _re.sub(r"[^0-9A-Za-z가-힣]", "", (t or "").replace("\\n", "").replace("\n", "")).lower()
+
+
+def _tokens(t: str) -> set:
+    import re as _re
+    return {w for w in _re.findall(r"[0-9A-Za-z가-힣]{2,}", (t or "").replace("\\n", " ").replace("\n", " ").lower())}
+
+
+def recent_overlap(cfg: dict, title: str, urls: list[str], others: list[dict], days: int = 7) -> list[dict]:
+    """최근 days일 안에 게시됐거나 게시 예정인 글 중, 같은 출처 기사를 쓰거나 제목이 비슷한 것을 돌려준다."""
+    import difflib
+    cutoff = (now(cfg).date() - dt.timedelta(days=days)).isoformat()
+    mine_t, mine_k, mine_u = _norm_title(title), _tokens(title), set(urls)
+    hits = []
+    for o in others:
+        if (o.get("date") or "9999") < cutoff:
+            continue
+        ot = o.get("title", "")
+        same_url = bool(mine_u & set(o.get("urls", [])))
+        ratio = difflib.SequenceMatcher(None, mine_t, _norm_title(ot)).ratio() if mine_t and ot else 0
+        ok = _tokens(ot)
+        jac = len(mine_k & ok) / max(1, len(mine_k | ok))
+        if same_url or ratio >= 0.55 or jac >= 0.5:
+            hits.append({**o, "why": "같은 출처 기사" if same_url else "제목·소재가 비슷함"})
+    return hits

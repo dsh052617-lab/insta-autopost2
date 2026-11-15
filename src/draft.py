@@ -20,7 +20,7 @@ import render  # noqa: E402
 import verify  # noqa: E402
 import writer  # noqa: E402
 from common import (DRAFTS, ROOT, date_label, git_commit_push, load_config,  # noqa: E402
-                    load_history, next_post_slot, raw_url, slot_time)
+                    load_history, next_post_slot, raw_url, recent_overlap, slot_time)
 
 SOURCE_KEYS = ("title", "url", "source", "published", "tier")
 
@@ -195,6 +195,13 @@ def main() -> None:
         chosen = [items[i] for i in story["indices"]]
         if _repeats(story.get("category", ""), recent_categories):
             print(f"   ✗ 최근 다룬 분야와 겹침({story.get('category')}) → 다른 이야기 선택")
+            avoid += [c["title"] for c in chosen]
+            articles = []
+            continue
+        # 최근 7일 게시·예정 글(AI·경제·내 주제 모두)과 같은 소재면 절대 쓰지 않는다
+        dup = [h for c in chosen for h in recent_overlap(cfg, c.get("title", ""), [c.get("url", "")], history)]
+        if dup:
+            print(f"   ✗ 최근 7일 글과 겹침({dup[0].get('title', '')[:30]}) → 다른 이야기 선택")
             avoid += [c["title"] for c in chosen]
             articles = []
             continue
