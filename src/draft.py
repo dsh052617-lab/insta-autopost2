@@ -47,7 +47,8 @@ def fetch_articles(cfg: dict, sources: list[dict]) -> list[dict]:
 def render_version(cfg: dict, data: dict, draft_dir: Path) -> list[Path]:
     date = dt.date.fromisoformat(data["date"])
     return render.render_all(data["post"], cfg, data["topic"], draft_dir / f"v{data['version']}",
-                             date.strftime("%Y.%m.%d"), data["sources"])
+                             date.strftime("%Y.%m.%d"), data["sources"],
+                             kind=data.get("kind", "news"))
 
 
 def issue_title(cfg: dict, data: dict) -> str:

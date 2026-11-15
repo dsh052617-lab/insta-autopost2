@@ -291,15 +291,16 @@ def summary(post: dict, ctx: dict) -> Image.Image:
 
 
 def render_all(post: dict, cfg: dict, topic_key: str, out_dir: Path,
-               date_text: str, sources: list[dict]) -> list[Path]:
+               date_text: str, sources: list[dict], kind: str = "news") -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     slides = post["slides"][:4]
     total = 1 + len(slides) + 1
+    kind_cfg = (cfg.get("kinds") or {}).get(kind) or {}
     ctx = {
-        "accent": hex_rgb(cfg["topics"][topic_key]["color"]),
+        "accent": hex_rgb(kind_cfg.get("color") or cfg["topics"][topic_key]["color"]),
         "handle": cfg["account"]["handle"],
         "project": cfg["account"].get("project", ""),
-        "category": cfg["topics"][topic_key]["label"] + " 이슈",
+        "category": kind_cfg.get("label") or cfg["topics"][topic_key]["label"] + " 이슈",
         "date": date_text,
         "sources": sources,
         "total": total,
