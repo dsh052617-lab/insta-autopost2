@@ -154,9 +154,18 @@ def main() -> None:
     if not args.local:
         import github_api as gh
         gh.ensure_labels()
+        def _early_published(i: dict) -> bool:
+            # 예정일보다 먼저 '지금 게시'로 올라간 초안은 그날 자리를 막지 않는다
+            labels = {lb.get("name") for lb in i.get("labels", [])}
+            closed = (i.get("closed_at") or "")
+            if "published" not in labels or not closed:
+                return False
+            kst = (dt.datetime.fromisoformat(closed.replace("Z", "+00:00")) + dt.timedelta(hours=9)).date()
+            return kst < date
+
         same_day = [i for i in gh.recent_drafts()
                     if (m := gh.read_marker(i)) and not m.get("custom") and m.get("date") == date.isoformat()
-                    and m.get("topic") == topic]
+                    and m.get("topic") == topic and not _early_published(i)]
         if same_day and not args.force:
             print(f"이 날짜 초안이 이미 있어요(열림·게시·취소 포함): #{same_day[0]['number']} — 건너뜀 "
                   "(새로 만들려면 Run workflow에서 force 체크)")
