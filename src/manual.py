@@ -114,7 +114,12 @@ def main() -> None:
     # scheduled: 매일 예약 작업이 만든 정기 초안 (게시 예정 시각에 올라감). 아니면 '내 주제'(승인 즉시 게시)
     scheduled = spec.get("mode") == "scheduled"
     state["scheduled"] = scheduled
-    post_date = spec.get("date") or now(cfg).date().isoformat()
+    post_date = str(spec.get("date") or "").strip()
+    import datetime as _dt
+    try:  # 준비 카드의 "TODAY"나 잘못된 값이면 오늘(한국 시간)로
+        _dt.date.fromisoformat(post_date)
+    except ValueError:
+        post_date = now(cfg).date().isoformat()
     kind = spec.get("kind") if spec.get("kind") in ("news", "term", "history", "compare") else "news"
     if scheduled and gh:
         dup = [i for i in gh.open_drafts() if (m := gh.read_marker(i)) and not m.get("custom")
