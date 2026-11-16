@@ -7,7 +7,7 @@
 - TOPIC: 지시문이 정해 준 값 (`economy` 또는 `ai`)
 - POST_DATE: 오늘 (`TZ=Asia/Seoul date +%Y-%m-%d`)
 - 게시 시각: economy 20:00, ai 21:00 (승인해야만 게시됨)
-- R = `repos/dsh052617-lab/insta-autopost2`. GitHub 작업은 반드시 `gh api`(REST)로만 한다. `gh issue`, `gh run`은 GraphQL이라 막혀 있다.
+- R = `repos/dsh052617-lab/insta-autopost2`. GitHub 읽기·쓰기 방법은 `docs/insta_connect.md`를 따른다(gh api가 막히면 GitHub MCP 도구로 같은 일을 한다).
 
 ## 안전 규칙 (가장 중요)
 - 이슈를 만들고, 확인하고, 실패한 내 원고 이슈를 닫는 것 외에는 GitHub 이슈에 아무것도 하지 않는다.
