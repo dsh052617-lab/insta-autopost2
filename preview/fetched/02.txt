@@ -1,26 +1,14 @@
-URL: https://support.claude.com/en/articles/8325606-what-is-the-pro-plan
-SOURCE: Anthropic(Claude) (official)
-PUBLISHED: 2026-10-30
+URL: https://www.fnnews.com/news/202611160501318928
+SOURCE: 파이낸셜뉴스 (press)
+PUBLISHED: 2026-11-16
 
-The Pro plan is a paid plan for our Claude chat experience. It is currently available in certain supported locations.
-Key benefits
-The benefits of the Pro plan are:
-- More usage per session than the Free plan.
-- Priority access to Claude during high-traffic periods.
-- Early access to new features that help you get the most out of Claude.
-How much does the Pro plan cost?
-The Pro plan is available for $20 per month (US), with pricing in your local currency where supported. Monthly pricing varies by region, and some regions include applicable taxes in the displayed price while others add tax at checkout.
-You can choose to save with an annual subscription plan. Annual subscriptions are billed once yearly at a discounted rate.
-Price and plans are subject to change at Anthropic's discretion.
-How can I get a free or discounted Pro plan?
-We don’t offer standard discounted pricing for individual plans (Pro, Max, and Ultra), but anyone in a supported location can access the free version of Claude by navigating to claude.ai and signing up using an email address.
-We occasionally run limited-time promotions, but we don't have any standing discounts available upon request. These promotional offers are typically announced through our official channels when available. If you're interested in potential future promotions, we recommend following our official social media accounts or signing up for our newsletter to be notified of any special offers. Our Support team cannot issue one-off discounts or coupons.
-Eligible nonprofit organizations can get discounted pricing on Team and Enterprise plans. Learn more about Claude for Nonprofits.
-Does the Pro plan have any usage limits?
-Yes. The Pro plan offers more usage per session than the Free plan. The number of messages you can send will vary based on message length, including the length of files you attach, the length of your current conversation, and the model or feature you use.
-Pro plans have a five-hour limit and a weekly usage limit that applies across all models. Weekly limits reset at a fixed time each week that is assigned to your account. Your reset day and time stay the same regardless of when you start using Claude or when your subscription begins, and you receive your full weekly allowance each cycle. You can see your next reset time in Settings > Usage.
-Additional usage limits may apply to manage capacity and ensure fair access to all users. For example, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. We don't guarantee uninterrupted service.
-For more information about usage and length limits, refer to Understanding usage and length limits. For guidance on using your Pro capacity efficiently, we also have Usage limit best practices.
-How do I increase my Pro plan usage limits?
-Our Max and Ultra plans offer more usage for individuals than Pro plans. For additional information, see What is the Max plan? and What is the Ultra plan?
-Pro subscribers can also enable usage credits to continue working with Claude beyond the plan’s included usage limits. For more information and instructions for enabling this feature, see Manage usage credits for paid Claude plans.
+청와대 긴급대책회의 이어 총리 주재 관계부처 차관회의 국회 교육위, 최교진 교육부 장관에 현안 보고 받을 예정
+[서울=뉴시스] 김지은 기자 = 세무사 시험 수석 합격자가 인공지능(AI)을 이용한 부정행위를 시인한 가운데 정부가 대학수학능력시험을 앞두고 AI 활용 부정행위를 방지하기 위한 범정부 대응에 나선다.
+한성숙 국무총리는 16일 교육부와 고용노동부, 행정안전부 등 관계 부처 차관회의를 열고 AI 활용 부정행위 대응 방안을 추가로 논의한다.
+청와대가 전날 'AI 활용 부정시험 확산 방지 긴급대책회의'를 소집한 데 이은 후속 조치다.
+청와대는 전날 회의에서 국가자격시험 전체를 대상으로 AI 활용 부정행위 의심 사례를 전수조사하고 재발 방지 대책을 마련하기로 했다
+사흘 앞으로 다가온 수능과 관련해서는 AI를 이용한 부정행위를 차단하기 위해 시험장 관리·감독을 강화한다. 전체 수험생을 대상으로 AI 기기 점검 절차를 마련하고, 시험장마다 AI 기기 여부를 판단할 전담인력을 배치한다.
+회의를 주재한 하준경 청와대 정책실장은 "수능에서 AI 부정행위가 발생하지 않도록 열감지카메라 등 현재 활용할 수 있는 수단을 총동원하라"고 지시했다.
+경찰 등 수사기관은 부정시험 관련 사건이 접수되면 신속하고 엄정하게 수사할 계획이다. 특히 새로운 수법을 이용하거나 조직적으로 이뤄진 부정행위 등 중대한 범죄에 대해서는 전담팀을 꾸려 배후까지 수사하기로 했다.
+정치권도 이번 주 수능을 앞두고 정부의 대응 체계를 점검한다. 국회 교육위원회는 이날 전체회의를 열고 최교진 교육부 장관으로부터 현안 보고를 받는다. AI 안경을 사용한 부정행위를 방지하기 위해 정부가 어떤 대책을 마련했는지 등을 살필 것으로 보인다.
+☞공감언론 뉴시스 [email protected] <저작권자ⓒ 공감언론 뉴시스통신사. 무단전재-재배포 금지.>
