@@ -24,6 +24,7 @@ schedule:
     ai: "21:00"
 
 instagram:
+  user_id: "17841454174005348"     # @agi.economy.kr 비즈니스 계정 ID (공개 값). 계정 찾기 API가 막혀도 바로 게시
   ai_label: true                   # 인스타의 'AI 정보' 라벨 표시 (AI로 만든 콘텐츠임을 밝힘)
 
 news:

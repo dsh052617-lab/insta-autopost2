@@ -132,7 +132,16 @@ def publish_carousel(ig_user_id: str, token: str, image_urls: list[str], caption
 
 
 def my_user_id(token: str) -> str:
-    """토큰으로 연결된 인스타 프로페셔널 계정 ID를 찾는다 (IG_USER_ID 시크릿이 없을 때)."""
+    """토큰으로 연결된 인스타 프로페셔널 계정 ID를 찾는다 (IG_USER_ID 시크릿이 없을 때).
+    config.yaml의 instagram.user_id가 있으면 그것을 쓴다(계정 찾기 API가 막혀도 게시는 되도록)."""
+    try:
+        from common import load_config
+        cid = str((load_config().get("instagram") or {}).get("user_id") or "").strip()
+    except Exception:
+        cid = ""
+    if cid:
+        print(f"   계정 ID: {cid} (config.yaml)")
+        return cid
     if is_instagram_login_token(token):
         me = _get("me", token, fields="user_id,username")
         print(f"   계정: @{me.get('username')}")
