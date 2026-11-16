@@ -91,10 +91,17 @@ def main() -> None:
         gh.ensure_labels()
     body = Path(args.file).read_text(encoding="utf-8") if args.file else (gh.get_issue(args.issue)["body"] or "")
 
+    state = {"scheduled": False}
+
     def fail(msg: str) -> None:
         print("❌ " + msg)
         if gh and args.issue:
             gh.comment(args.issue, "❌ " + msg)
+            if state["scheduled"]:  # 정기 초안은 실패한 원고 이슈를 닫아 둔다 (열린 채 남으면 같은 날 다시 만들 때 걸림)
+                try:
+                    gh.update_issue(args.issue, state="closed")
+                except Exception as e:
+                    print(f"(이슈 닫기 실패: {e})")
         sys.exit(1)
 
     try:
@@ -106,7 +113,9 @@ def main() -> None:
         topic = "economy"
     # scheduled: 매일 예약 작업이 만든 정기 초안 (게시 예정 시각에 올라감). 아니면 '내 주제'(승인 즉시 게시)
     scheduled = spec.get("mode") == "scheduled"
+    state["scheduled"] = scheduled
     post_date = spec.get("date") or now(cfg).date().isoformat()
+    kind = spec.get("kind") if spec.get("kind") in ("news", "term", "history", "compare") else "news"
     if scheduled and gh:
         dup = [i for i in gh.open_drafts() if (m := gh.read_marker(i)) and not m.get("custom")
                and m.get("date") == post_date and m.get("topic") == topic and i["number"] != args.issue]
@@ -146,6 +155,15 @@ def main() -> None:
         except Exception as e:
             print(f"   (대기 중 초안 확인 실패: {e})")
     overlaps = recent_overlap(cfg, post.get("cover_title", ""), [a["url"] for a in articles], others)
+    if kind == "compare":
+        # 모델 비교 카드는 매번 같은 평가 기관 페이지를 쓰고 제목도 비슷하다 → 예전 비교 카드와의 겹침은 허용하되 주 1회로 제한
+        import datetime as _dt
+        week_ago = (_dt.date.fromisoformat(post_date) - _dt.timedelta(days=6)).isoformat()
+        recent_cmp = [o for o in others if o.get("kind") == "compare" and (o.get("date") or "") >= week_ago]
+        if recent_cmp and scheduled:
+            fail("AI 모델 비교 카드는 일주일에 한 번만 올려요. 최근 비교 카드: "
+                 + ", ".join(f"{o.get('date', '')} {o.get('title', '')}" for o in recent_cmp[:2]))
+        overlaps = [o for o in overlaps if o.get("kind") != "compare"]
     followup = spec.get("followup") if isinstance(spec.get("followup"), dict) else None
     if overlaps and followup:
         # 후속 보도: 이전 글 이후에 나온 새 기사가 있어야만 허용 (같은 내용 반복 금지)
@@ -169,7 +187,6 @@ def main() -> None:
         draft_dir = DRAFTS / f"{post_date}-{topic}-{stamp[-4:]}"  # 예전에 취소된 같은 날짜 초안과 겹치지 않게
     draft_dir.mkdir(parents=True, exist_ok=True)
     category = spec.get("category", "")
-    kind = spec.get("kind") if spec.get("kind") in ("news", "term", "history", "compare") else "news"
     data = {"date": post_date, "topic": topic, "version": 1, "post": post, "kind": kind,
             "custom": not scheduled,
             "request": spec.get("request", "") or post.get("cover_title", "").replace("\n", " "),

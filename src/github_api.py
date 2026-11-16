@@ -166,7 +166,7 @@ def pending_posts(root) -> list[dict]:
         except ValueError:
             continue
         out.append({"number": issue["number"], "date": d.get("date", ""), "topic": d.get("topic", ""),
-                    "custom": bool(d.get("custom")),
+                    "custom": bool(d.get("custom")), "kind": d.get("kind", "news"),
                     "title": d.get("post", {}).get("cover_title", "").replace("\\n", " ").replace("\n", " "),
                     "urls": [s.get("url", "") for s in d.get("sources", [])],
                     "category": d.get("story", {}).get("category", "")})

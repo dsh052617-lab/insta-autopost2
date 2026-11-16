@@ -61,6 +61,13 @@ def main() -> None:
             gh.dispatch_publish()
         else:
             gh.comment(number, f"✅ 승인됐어요. {when}에 인스타에 올라가요.")
+            if (slot - current).total_seconds() <= 40 * 60:
+                # 게시 시각이 가까우면 게시 작업을 직접 시작해 둔다 (예정 시각까지 기다렸다 올림).
+                # GitHub 예약 실행이 늦거나 빠져도 제시간에 올라가게 하는 안전장치.
+                try:
+                    gh.dispatch_publish()
+                except Exception as e:
+                    print(f"(게시 작업 시작 실패 — 예약 실행이 맡아요: {e})")
 
     elif first.replace(" ", "").startswith("지금게시"):
         if not passed:

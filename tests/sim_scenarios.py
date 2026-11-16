@@ -65,6 +65,17 @@ for m in (manual, publish, draft): m.now = fake_now
 publish.requests.head = lambda url, **k: type("H", (), {"status_code": 200})()
 def sleep(sec): CLOCK[0] += dt.timedelta(seconds=sec)
 publish.time.sleep = sleep
+import shutil
+_HIST0 = common.HISTORY.read_text(encoding="utf-8") if common.HISTORY.exists() else None
+_DIRS0 = {d.name for d in common.DRAFTS.iterdir()} if common.DRAFTS.exists() else set()
+_FILES0 = {f: f.read_bytes() for f in common.DRAFTS.rglob("*") if f.is_file()} if common.DRAFTS.exists() else {}
+def _restore():  # 시뮬레이션이 만든 파일을 지우고 저장소를 원래대로
+    if _HIST0 is not None: common.HISTORY.write_text(_HIST0, encoding="utf-8")
+    for d in common.DRAFTS.iterdir():
+        if d.name not in _DIRS0: shutil.rmtree(d, ignore_errors=True)
+    for f, b in _FILES0.items():
+        f.parent.mkdir(parents=True, exist_ok=True); f.write_bytes(b)
+import atexit; atexit.register(_restore)
 common.save_history([])
 
 def at(h, m, day=15): CLOCK[0] = dt.datetime(2026, 11, day, h, m, tzinfo=KST)
@@ -156,5 +167,60 @@ at(20, 0, day=17); say(g, "승인") if ok else None
 at(20, 35, day=17); run_publish()
 check("실패 시 오류 댓글·게시 안 함", any("게시에 실패" in c for c in COMMENTS[g]) and ISS[g]["state"] == "open")
 
+
+print("⑪ 승인이 게시 40분 전 이내면 게시 작업을 바로 시작 (GitHub 예약이 빠져도 제시간 게시)")
+publish.requests.head = lambda url, **k: type("H", (), {"status_code": 200})()
+h_spec = copy.deepcopy(eco_spec); h_spec["date"] = "2026-11-18"; h_spec["kind"] = "history"
+h_spec["post"]["cover_title"] = "외환위기\n그해 겨울 무슨 일이"; h_spec["post"]["cover_kicker"] = "경제사 한 장면"
+h_spec["sources"] = ["https://www.newsis.com/h1", "https://www.mt.co.kr/h2"]
+TEXT.update({u: page_text(eco_spec["sources"][i], eco_spec) for i, u in enumerate(h_spec["sources"])})
+at(12, 20, day=18); h, ok = register(h_spec, "직접: [11/18 경제·역사] 1997 외환위기")
+check("경제사 카드(오후 대체) 등록", ok and "draft" in gh.label_names(ISS[h]))
+hd = json.loads((ROOT / gh.read_marker(ISS[h])["dir"] / "post.json").read_text(encoding="utf-8"))
+check("kind=history 저장", hd.get("kind") == "history")
+n0 = len(DISPATCH); at(19, 50, day=18); say(h, "승인")
+check("19:50 승인 → 게시 작업 시작 요청", len(DISPATCH) == n0 + 1)
+n1 = len(PUB); run_publish()
+check("20:00 정각 게시", len(PUB) == n1 + 1 and PUB[-1][0].strftime("%H:%M") == "20:00", str(PUB[-1:]))
+check("게시 기록에 kind", common.load_history()[-1].get("kind") == "history")
+
+print("⑫ 19:43 게시 보완 작업이 먼저 시작 → 기다리는 동안 승인해도 20:00 게시")
+k_spec = copy.deepcopy(eco_spec); k_spec["date"] = "2026-11-19"; k_spec["kind"] = "term"
+k_spec["post"]["cover_title"] = "가산금리\n내 대출이자의 숨은 절반"
+k_spec["sources"] = ["https://www.newsis.com/k1", "https://www.mt.co.kr/k2"]
+TEXT.update({u: page_text(eco_spec["sources"][i], eco_spec) for i, u in enumerate(k_spec["sources"])})
+at(12, 20, day=19); k, ok = register(k_spec, "직접: [11/19 경제·용어] 가산금리"); check("용어 카드 등록", ok)
+at(19, 43, day=19)
+_orig_get = gh.get_issue
+def late_approve(n):  # 게시 작업이 20:00까지 기다리는 사이(19:55) 승인된 상황
+    if n == k and CLOCK[0].strftime("%H:%M") == "20:00" and "approved" not in gh.label_names(ISS[k]):
+        gh.add_labels(k, ["approved"])
+    return ISS[n]
+gh.get_issue = late_approve
+n1 = len(PUB); run_publish(); gh.get_issue = _orig_get
+check("대기 중 승인분 20:00 게시", len(PUB) == n1 + 1 and PUB[-1][0].strftime("%H:%M") == "20:00")
+
+print("⑬ AI 모델 비교 카드: 주 1회 제한, 다음 주에는 같은 평가 페이지를 써도 등록")
+c_spec = copy.deepcopy(ai_spec); c_spec["date"] = "2026-11-20"; c_spec["kind"] = "compare"; c_spec["category"] = "기술·모델"
+c_spec["post"]["cover_title"] = "유료 AI 3대 모델\n점수로 비교해보니"
+c_spec["sources"] = ["https://artificialanalysis.ai/models/m1", "https://claude.com/pricing"]
+TEXT.update({u: page_text(eco_spec["sources"][i], eco_spec) for i, u in enumerate(c_spec["sources"])})
+at(12, 20, day=20); c1, ok = register(c_spec, "직접: [11/20 AI·비교] 유료 AI 3대 모델")
+check("비교 카드 등록", ok, COMMENTS[c1][-1] if not ok else "")
+if ok:
+    at(20, 30, day=20); say(c1, "승인"); run_publish()
+    check("비교 카드 21:00 게시", ISS[c1]["state"] == "closed" and common.load_history()[-1].get("kind") == "compare")
+c2 = copy.deepcopy(c_spec); c2["date"] = "2026-11-23"
+at(12, 20, day=23); x2, ok = register(c2, "직접: [11/23 AI·비교] 또 비교")
+check("3일 뒤 비교 카드는 거절(주 1회)", not ok and "일주일에 한 번" in COMMENTS[x2][-1])
+check("거절된 원고 이슈는 자동으로 닫힘", ISS[x2]["state"] == "closed")
+c3 = copy.deepcopy(c_spec); c3["date"] = "2026-11-27"
+at(12, 20, day=27); x3, ok = register(c3, "직접: [11/27 AI·비교] 다음 주 비교")
+check("일주일 뒤 비교 카드는 등록(같은 평가 페이지·비슷한 제목 허용)", ok, COMMENTS[x3][-1] if not ok else "")
+
+print("⑭ 경제·AI 초안이 같은 날 함께 있어도 서로 막지 않음")
+check("주제가 다르면 같은 날짜 초안 허용", ok)
+
 print("\n결과:", "모두 통과" if not FAILS else f"실패 {len(FAILS)}개: {FAILS}")
 print("게시 기록:", [(t.strftime('%m/%d %H:%M'), c) for t, c in PUB])
+sys.exit(1 if FAILS else 0)
