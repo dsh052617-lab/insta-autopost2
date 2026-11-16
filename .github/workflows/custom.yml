@@ -23,7 +23,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: insta-custom
+  group: insta-custom-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: false
 
 jobs:

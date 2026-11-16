@@ -15,8 +15,9 @@ permissions:
   contents: write
   issues: write
 
+# 이슈마다 따로 줄을 세운다. (한 줄로 세우면 경제·AI 초안이 거의 동시에 올라올 때 뒤에 선 실행이 취소될 수 있어요)
 concurrency:
-  group: insta-custom
+  group: insta-manual-${{ github.event.issue.number || inputs.issue }}
   cancel-in-progress: false
 
 jobs:
