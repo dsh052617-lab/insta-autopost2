@@ -138,18 +138,23 @@ def my_user_id(token: str) -> str:
         print(f"   계정: @{me.get('username')}")
         return str(me.get("user_id") or me["id"])
     # 통합 로그인(시스템 사용자) 토큰: 할당된 인스타 계정 → 없으면 페이지에 연결된 계정
+    errors = []
     for path, fields in (("me/accounts", "instagram_business_account{id,username}"),
                          ("me/assigned_instagram_accounts", "id,username")):
         try:
             data = _get(path, token, fields=fields).get("data", [])
-        except RuntimeError:
+        except RuntimeError as e:
+            errors.append(f"{path}: {str(e)[:200]}")
             continue
+        if not data:
+            errors.append(f"{path}: 빈 목록")
         for row in data:
             acct = row.get("instagram_business_account", row)
             if acct.get("id"):
                 print(f"   계정: @{acct.get('username', '?')} (ID {acct['id']})")
                 return str(acct["id"])
-    raise RuntimeError("토큰에 연결된 인스타 계정을 찾지 못했어요. GitHub Secrets에 IG_USER_ID를 넣어주세요.")
+    raise RuntimeError("토큰에 연결된 인스타 계정을 찾지 못했어요. GitHub Secrets에 IG_USER_ID를 넣어주세요."
+                       + (" (Meta 응답: " + " / ".join(errors) + ")" if errors else ""))
 
 
 def refresh_token(token: str) -> dict:
