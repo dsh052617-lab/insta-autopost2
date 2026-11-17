@@ -1,20 +1,74 @@
-URL: https://biz.heraldcorp.com/article/10933308
-SOURCE: 헤럴드경제 (press)
+URL: https://www.korea.kr/briefing/policyBriefingView.do?newsId=156788701
+SOURCE: 대한민국 정책브리핑 (official)
 PUBLISHED: 2026-11-11
 
-Exports hit record $33.5 billion in first 10 days of November; semiconductors account for half
-Semiconductor exports reach $16.6 billion, up 331% on-year
-Energy imports jump 86.3% as crude oil, gas and coal purchases surge
-Semiconductor exports more than tripled compared with a year earlier in the first 10 days of November, driving overall exports to more than double and setting an all-time record for the period.
-South Korea's cumulative exports this year have reached $963.7 billion, leaving just $36.3 billion to go before the country hits the $1 trillion mark — a milestone it is on track to reach next week, which would make it only the fourth country in the world to do so, after the United States, China and Germany.
-According to the Korea Customs Service, exports from Nov. 1 to 10 came to $33.5 billion on a customs-clearance basis, up 111.9 percent from the same period a year ago.
-The figure is the largest ever recorded for the first 10 days of any November. Among all early-month periods, it ranks second only to September's $35.1 billion. The number of working days in the period was 7.5, half a day more than the 7 days logged in the same period last year. Adjusting for working days, the daily average export value came to $4.46 billion, up 97.7 percent year on year.
-Cumulative exports from January through Nov. 10 stand at $963.7 billion. With $36.3 billion remaining to reach $1 trillion, South Korea is expected to achieve its first-ever annual export total of $1 trillion around Nov. 20 — late next week — if the current daily average is maintained.
-South Korea's exports crossed $100 billion in 1995, then surpassed $200 billion in 2004, $300 billion in 2006, $400 billion in 2008, $500 billion in 2011 and $600 billion in 2018. Last year, exports reached a then-record $709.3 billion, crossing the $700 billion threshold for the first time. This year, the country has already surpassed both $800 billion and $900 billion in succession.
-Semiconductors led the export surge. Semiconductor exports from Nov. 1 to 10 reached $16.6 billion, up 331.2 percent from the same period a year ago — the largest figure ever for that period and the highest growth rate among all major export categories. Semiconductors accounted for 49.7 percent of total exports, a share 25.3 percentage points wider than a year earlier.
-Petroleum products (up 100.7 percent) and computer peripherals (up 237.7 percent) also contributed to export growth. Passenger car exports, however, fell 4.3 percent.
-By destination, exports grew broadly across major markets: China (up 148.0 percent), the United States (up 163.6 percent), Vietnam (up 113.3 percent), Taiwan (up 182.5 percent) and the EU (up 20.0 percent). The top three destinations — China, the United States and Vietnam — together accounted for 57.3 percent of total exports.
-Imports came to $24.7 billion, up 45.0 percent from a year earlier. By category, semiconductors (up 101.3 percent), crude oil (up 75.8 percent), gas (up 192.1 percent) and machinery (up 16.5 percent) all posted increases. Energy imports — covering crude oil, gas and coal — rose 86.3 percent.
-By country of origin, imports increased from China (up 63.8 percent), the United States (up 35.3 percent), the EU (up 9.0 percent), Taiwan (up 77.8 percent), Japan (up 28.0 percent) and Russia (up 20.3 percent).
-With exports outpacing imports, the trade balance posted an $8.8 billion surplus — the largest ever for the same period. The cumulative trade surplus for this year also reached a record high. Notably, South Korea's trade surplus with the United States exceeded $100 billion for the first time in history, raising concerns that the Donald Trump administration could use the trade imbalance as grounds to intensify tariff and investment pressure following the US midterm elections.
-oskymoon@heraldcorp.com
+안녕하십니까? 국가데이터처 사회통계국장입니다. 
+   지금부터 2026년 10월 고용동향에 대해 설명드리겠습니다. 
+   먼저, 15~64세 고용률은 70.4%로 전년동월대비 0.3%p 상승했으나, 청년층 고용률은 42.9%로 1.7%p 하락했습니다. 
+   실업률은 2.0%로 전년동월대비 0.2%p 하락했고, 청년층 실업률은 5.2%로 0.1%p 하락했습니다. 
+   취업자는 2,917만 9,000명으로 전년동월대비 13만 9,000명 증가했습니다. 
+   15~64세 고용률은 50대와 30대 등에서 상승해 전년동월대비 0.3%p 상승했습니다. 
+   실업률은 30대와 50대 등에서 하락해 전년동월대비 0.2%p 하락했습니다. 
+   취업자의 경우 산업별로는 보건업 및 사회복지서비스업 24만 9,000명, 운수 및 창고업 4만 8,000명, 사업시설관리·사업지원 및 임대서비스업 3만 7,000명 등에서 증가했으나, 숙박 및 음식점업 -13만 7,000명, 농림어업 -10만 1,000명, 건설업 -4만 2,000명 등에서 감소했습니다. 
+   임금근로자 중 상용근로자는 28만 7,000명 증가했으나, 임시근로자는 10만 7,000명, 일용근로자는 5만 3,000명 각각 감소했습니다. 
+   비임금근로자 중 고용원 있는 자영업자는 1만 5,000명, 고용원 없는 자영업자는 4만 2,000명 각각 증가했으나, 무급가족종사자는 4만 5,000명 감소했습니다. 
+   실업자는 50대와 30대 등에서 감소해 전년동월대비 5만 6,000명 감소했습니다. 
+   비경제활동인구는 쉬었음 -6만 9,000명 등에서 감소했으나, 재학·수강 13만 1,000명, 연로 6만 8,000명 등에서 증가해 전년동월대비 17만 9,000명 증가했습니다. 
+   구직단념자는 34만 명으로 전년동월대비 2만 7,000명 감소했습니다. 
+   다음은 7쪽, 본문입니다. 
+   2026년 10월 15세 이상 인구는 4,608만 명으로 전년동월대비 26만 1,000명 증가했습니다. 
+   경제활동인구는 2,978만 1,000명으로 전년동월대비 8만 3,000명 증가했습니다. 
+   경제활동참가율은 64.6%로 전년동월대비 0.2%p 하락했습니다. 
+   다음은 취업자 동향입니다. 
+   2026년 10월 15세 이상 취업자는 2,917만 9,000명으로 전년동월대비 13만 9,000명 증가했고, 고용률은 63.3%로 0.1%p 하락했습니다. 
+   성별로 보면 남자는 1,615만 4,000명으로 전년동월대비 14만 9,000명 증가했으나, 여자는 1,302만 5,000명으로 1만 명 감소했습니다. 
+   연령계층별 취업자의 전년동월대비 증감을 살펴보면 20대에서 20만 3,000명, 40대에서 3만 2,000명 각각 감소했으나, 60세 이상에서 19만 6,000명, 30대에서 12만 8,000명, 50대에서 4만 2,000명 각각 증가했습니다. 
+   고용률은 20대와 60세 이상에서 하락했습니다. 
+   직업별 취업자의 전년동월대비 증감을 살펴보면 사무종사자 20만 7,000명, 전문가 및 관련종사자 19만 4,000명, 단순노무종사자 6만 3,000명에서 증가했으나, 판매종사자 -9만 5,000명, 농림어업숙련종사자 -9만 3,000명, 장치·기계조작 및 조립종사자 -9만 3,000명 등에서 감소했습니다. 
+   취업시간대별 취업자의 전년동월대비 증감을 살펴보면 36시간 미만 취업자는 669만 1,000명으로 2만 8,000명 증가했고, 36시간 이상 취업자는 2,207만 3,000명으로 12만 4,000명 증가했습니다. 
+   주당 평균 취업시간은 38.4시간으로 전년동월대비 0.1시간 감소했습니다. 
+   다음은 실업자 동향입니다. 
+   2026년 10월 실업자는 60만 2,000명으로 전년동월대비 5만 6,000명 감소했습니다. 
+   실업률은 2.0%로 전년동월대비 0.2%p 하락했습니다. 
+   연령계층별 실업자 및 실업률의 전년동월대비 증감을 살펴보면 실업자는 50대 -2만 4,000명, 30대 -2만 2,000명 등에서 감소했습니다. 
+   실업률은 30대와 50대 등에서 하락했습니다. 
+   과거 취업경험 유무별 실업자의 전년동월대비 증감을 살펴보면 취업 무경험 실업자는 2만 1,000명으로 1만 8,000명 감소했고, 취업 유경험 실업자는 58만 2,000명으로 3만 8,000명 감소했습니다. 
+   다음은 비경제활동인구입니다. 
+   2026년 10월 비경제활동인구는 1,629만 9,000명으로 전년동월대비 17만 9,000명 증가했습니다. 
+   취업준비자는 61만 9,000명으로 전년동월대비 2만 1,000명 증가했습니다. 
+   비경제활동인구 중 연령계층별 쉬었음 인구는 전년동월대비 20대 -4만 9,000명, 50대 -4만 8,000명 등에서 감소했습니다. 
+   다음은 고용보조지표입니다. 
+   2026년 10월 전체 고용보조지표3은 7.3%로 전년동월대비 0.5%p 하락했습니다. 청년층 고용보조지표3은 15.1%로 0.4%p 상승했습니다. 
+   이상으로 설명을 마치겠습니다. 질문 있으면 질문해 주십시오. 
+(06:06)
+[질문·답변]
+※마이크 미사용으로 확인되지 않는 내용은 별표(***)로 표기하였으니 양해 바랍니다. 
+<질문> 표를 봤을 때 취업자가 늘었더라고요. 그런데 15~29세 청년 취업자 감소 폭은 전월보다 확대됐어요. 그런데 정부는 이를 인구 감소로 보시는지 아니면 기업의 신규 채용 부진이 심한 것으로 판단하시는지 궁금합니다. 
+<답변> 말씀하신 대로 전체 취업자는 13만 9,000명 증가했습니다만 청년층 같은 경우 현재 19만 6,000명으로 감소 폭이 좀 커졌는데요. 청년층 같은 경우는 현재 산업별로는 금융·보험업이라든지 운수·창고업 등에서 일부 증가는 있었습니다만 정보통신이라든지 보건복지, 특히 청년층의 취업 비중이 높았던 숙박·음식점업에서 감소가 컸던 것으로 나타났습니다. 
+   이런 현재 산업별로의 어떤 특징과 함께 지금 저희 채용 문화 같은 데 있어서 신규 채용 시 아무래도 경력직을 선호하는 문화와 함께 또 대규모 공채보다는 수시 채용을 하는 문화 이런 것들이 확산되다 보니까 상대적으로 청년층 취업자의 감소가 지속되고 있고, 지금 말씀하신 대로 청년층 취업자 감소가 지금 현재 48개월 정도 이어지고 있고 고용률 하락은 30개월 정도 하락 추세를 현재 나타내고 있습니다. 아마 이런 것들이 복합적으로 나... 원인에 의해서 청년층 고용 상황이 현재 좋지 않은 것으로 보여집니다. 
+<질문> 도소매, 숙박·음식점업이 이게 줄어든 거는 내수 부진의 영향으로 해석을 해야 할까요? 
+<답변> 지금 숙박·음식점업 같은 경우 13만 7,000명 현재 감소했는데 특히 작년에 소비쿠폰을 발행함으로 인해서 작년에 숙박·음식점업에서 취업자 증가 폭이 상당히 컸었습니다. 올해는 그런 것들이 없다 보니까 상대적으로 어떤 기저효과에 의해서 취업자 증가... 취업자 감소가 있었던 것 같고요. 
+   그다음에 숙박·음식점업 분야에서 생산지수나 이런 것들도 현재 감소세를 나타내고 있는 것으로 보여지는데 이런 영향들로 인해서 현재 숙박·음식점업에서 한 3개월 연속 현재 취업자 감소가 일어나고 있는 것으로 보여집니다. 
+<질문> *** 
+<답변> 아무래도 숙박·음식점업의 특징상 아르바이트를 한다, 라든지 단기 채용에 의해서 짧게 일하는 경우들이 많은데 아무래도 숙박·음식 자체가 부진하다 보면 상대적으로 그런 인력들을 덜 쓰게 되고, 아무래도 숙박·음식점업에서 또 최근에 자동화라든지 무인화, 키오스크라든지 이런 것들의 영향에 의해서 아무래... 청년들이 상대적으로 갈 영향이 좀 적은 것 같기도 하고요. 
+   그러다 보니까 실제 저희 지표에서는, 그러니까 만약에 대학생이나 이런 사람들이 아르바이트를 하다가 그만두게 되면 학생 신분으로 다시 돌아가게 되지 않습니까? 그러다 보니까 상대적으로 저희 지표에서도 재학·수강하는 사람들이 좀 늘어나고 있는 모습들이 지금 아마 같이 일어나고 있지 않은가 싶습니다. 
+<질문> 하나 더 여쭤보면, 정부가 4월에 청년뉴딜 정책이라고 발표를 해서 이제 시행 중이고, 그리고 8월에 또 일자리 대책을 발표했는데 그게 지표상으로 청년 고용 현황에서 보이는 부분이 있을지. 
+<답변> 저희 지표상으로, 물론 지금 말씀하셨던 그런 정책들로 인해서, 예를 들어서 저희가 국세체납관리단이라든지 그밖에 정부에서 청년들을 채용하기 위해서 여러 정책들을 펼친 부분들이 어떻게 보면 일부 영향을 준 것으로는 보여집니다. 
+   다만, 아까 말씀드렸던 민간 부문에서의 어떤 고용 상황이나 이런 것들이 워낙 좋지 않다 보니까 그런 효과들에 의해서 일부 어느 정도 상쇄된 부분이 있겠습니다만 전체 고용 상황의 큰 흐름이나 이런 데 있어서는 아직 여전히 좋지 않은 모습으로 나타나고 있는 것으로 현재 보여집니다. 
+<질문> 하나만 더 여쭤... 
+<질문> ***
+<답변> 말씀하신 대로 반도체 부문은 워낙 경기가 좋긴 한데 반도체 산업의 특징상 워낙 대규모 장치산업이고 자본이 많이 되는, 투입이 되는 산업이다 보니까 취업유발계수라고 하는 고용 창출 효과 같은 것들이 다른 산업에 비해서 약간 낮아 보입니다. 그 결과, 실제로 산업 생산이라든지 이런 부분의 성장세에 비해 그로 인해서 발생하는 취업의 어떤 효과나 이런 것들은 상대적으로 좀 부진한 게 아닌가 싶고요. 
+   말씀하신 대로 취업자의 증가가 오히려 많이 써야 되는 숙박·음식점이라든지 보건복지라든지 이렇게 상대적으로 취업 유발 효과가 큰 그런 산업에서는 생산성이나 이런 것들이 좋지 않다 보니까 고용에는 조금 더 반도체 경기에 비해서 상대적으로 고용의 영향은 조금 더 그렇게까지는 나타나고 있지 않지 않나 싶습니다. 
+<질문> ***
+<답변> 그런데 기자님 말씀하신 후행성이라고 하는 것이 그 영향이 3개월, 1개월 이렇게 나타날 수도 있고 아까 말씀드린 대로 이게 실제로 투자가 되어서 그로 인해서 생산시설이 만들어지고 인력 채용이 이루어지는 것까지 장기간이 걸리는 산업들이 있지 않습니까? 그러다 보니까 말씀하신 대로 어떤 경기적인 측면에서 나타나는 그 지수의 흐름과 그게 실제로 채용으로 이루어지는 흐름까지는 상당히 괴리가 있어 보이고, 그게 지금 말씀하셨던 반도체 경기의 효과가 현재 우리 고용에까지 영향을 미칠 때까지 어느 정도까지 후행성이 있는지는 사실 알 수는 없지만 지금 아직 단기간에 그렇게 바로 나타난다, 또 지금 나타나지 않아서 완전 괴리가 됐다, 이렇게 단정짓기는 어렵지 않을까, 라고 생각이 됩니다. 
+<질문> 재경부에서는 저번달에도 제조업 일자리가 이전에도 거의, 이란전쟁 직전에도 거의 피크, 0이 거의 다 됐다, 마이너스가. 그래서 이란전쟁이 어느 정도 마무리되면서 본격적으로 상승 추세를 기대할 수 있다, 이렇게 얘기를 했는데 그에 대해서 어떻게 보셨는지와요. 
+   또 재경부에서는 쉬었음 인구가, 청년 쉬었음 인구가 계속 줄어들고 있다는 데 많이 강조를 하는데 그게 어떤 의미인지, 데이터처에서 어떻게 보는지 궁금합니다. 
+<답변> 제조업 같은 경우 지난달에 27개월 만에 증가로 전환됐었습니다. 그런데 이번 달 같은 경우는 섬유제품이라든지 자동차 등에서 취업자가 다시 감소하면서 0.7만 명, 7,000명 정도의 감소가 있었고 약보합 정도의 수준인데 이게 일시적인, 그러니까 아까 말씀... 지난달의 어떤 현상이 일시적이었는지는 좀 더 지켜봐야 될 부분이 있는 것 같긴 한데요. 
+   다만, 저희가 판단컨대 산업생산지수나 이런 쪽에서 봤을 때 6월부터 9월까지, 8월을 제외하고는 현재 생산지수의 흐름이나 이런 것들이 증가세를 나타내고 있어서 경제지표상으로는 그렇게 제조업 부분이 완전 나빠 보이지는 않기 때문에 향후 이대로 계속 마이너스가 될지 아니면 조금 더 좋아질지에 대해서는 조금 더 지켜봐야 될 것 같지 않나 생각이 들고요. 
+   그다음에 지금 청년층 쉬었음 인구에 대해서 말씀을 해주셨는데 청년층의 전체 비... 아까 말씀드린 청년층 고용 상황이 워낙 좋지 않다 보니까 비경제활동인구 자체는 현재 증가하고 있는 모습입니다. 그런데 다만, 비경제활동인구 중에서도 과거에는 청년층 쉬었음 인구들이 많이 늘었다면 지금은 오히려 취업을 준비하는 취업준비생이라든지 그다음에 좀 전에 말씀드렸지만 숙박·음식점업 같은 데서 일을 하다가 그 분야에 워낙 취업 상황이 좋지 않다 보니까, 고용 상황이 좋지 않다 보니까 그걸 그만두게 되면 학생으로 다시 돌아오게 되는 경우들이 많습니다. 그러다 보니까 청년층에서 재학·수강 등이 늘어나고 있어서 상대적으로 비경은 증가하고 있지만 그 안에서의 구성 요소들이나 이런 것들이 쉬었음을 감소시키고 다른 쪽으로 증가하고 있는 그런 모습을 나타내고 있습니다. 
+   더 이상 질문이 없으시면 총평으로 마무리하도록 하겠습니다. 
+   2026년 10월 고용동향 총평입니다. 취업자 증가세가 지속되면서 취업자 증가 폭은 지난달에 비해 확대됐고, 실업자는 감소했으며, 비경제활동인구는 증가했습니다. 
+   취업자는 전년동월대비 13만 9,000명 증가했는데 산업별로는 보건복지업, 운수·창고업, 사업시설업 등에서, 지위별로는 상용직, 고용원 없는 자영업자, 고용원 있는 자영업자에서, 연령별로는 60세 이상, 30대와 50대에서 증가했습니다. 계절조정취업자는 전월대비 5만 명 감소했습니다. 
+   실업자는 50대와 30대, 청년층과 40대에서 감소해 전년동월대비 5만 6,000명 감소했고, 비경제활동인구는 60세 이상과 청년층에서 증가해 전년동월대비 17만 9,000명 증가했습니다. 
+   이상으로 2026년 10월 고용동향에 대한 브리핑을 마치겠습니다. 감사합니다. 
+<끝>
