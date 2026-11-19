@@ -1,19 +1,41 @@
-## 앤트로픽 상장 공모
-sedaily.com  https://www.sedaily.com/article/20116283?ref=naver
-hankyung.com  https://magazine.hankyung.com/business/article/202611196654b
+## 금리
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4445486
+## 환율
+sedaily.com  https://www.sedaily.com/article/20116281?ref=naver
+news1.kr  https://www.news1.kr/finance/general-stock/6359138
 einfomax.co.kr  https://news.einfomax.co.kr/
 einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4445484
-hankyung.com  https://magazine.hankyung.com/job-joy
-hankyung.com  https://magazine.hankyung.com/job-joy/article/202611196608d
-## 앤트로픽 나스닥 ANT
+## 부동산
+hankyung.com  https://www.hankyung.com/article/202611172913i
+mk.co.kr  https://www.mk.co.kr/article/12213314
+## 물가
+sedaily.com  https://www.sedaily.com/article/20116280?ref=naver
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4445486
+imbc.com  https://imnews.imbc.com/news/2026/world/article/6866851_36925.html
+## 대출
+hankyung.com  https://www.hankyung.com/article/202611172913i
+mk.co.kr  https://www.mk.co.kr/article/12212289
+## 정부 발표
+seoul.co.kr  https://www.seoul.co.kr/news/international/2026/11/19/20261119500045?wlog_tag3=naver
+heraldcorp.com  https://biz.heraldcorp.com/article/10942367?ref=naver
+edaily.co.kr  https://www.edaily.co.kr/News/Read?newsId=02312406645647360&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article
+## 수출
+sbs.co.kr  https://biz.sbs.co.kr/article_hub/20000347472?division=NAVER
 sedaily.com  https://www.sedaily.com/article/20116283?ref=naver
-hankyung.com  https://magazine.hankyung.com/job-joy
-hankyung.com  https://magazine.hankyung.com/job-joy/article/202611196608d
-joongang.co.kr  https://www.joongang.co.kr/article/25480049
-## Anthropic IPO Nasdaq debut
-nytimes.com  http://www.nytimes.com
-nytimes.com  https://www.nytimes.com/2026/11/18/technology/anthropic-ipo-pricing.html?partner=naver
-nytimes.com  https://www.nytimes.com/2026/11/18/business/dealbook/dealbook-summit-lineup-vance-musk.html?partner=naver
-yna.co.kr  https://en.yna.co.kr/view/AEN20261117001551320?input=2106m
-yna.co.kr  https://en.yna.co.kr/view/AEN20261117001500320?input=2106m
-nytimes.com  https://www.nytimes.com/2026/11/13/technology/anthropic-ipo-spending-plans.html?partner=naver
+sedaily.com  https://www.sedaily.com/article/20116280?ref=naver
+sbs.co.kr  https://biz.sbs.co.kr/article_hub/20000347494?division=NAVER
+## 세금
+hankyung.com  https://www.hankyung.com/article/202611196508O
+## 금융위원회
+chosun.com  https://biz.chosun.com/stock/finance/2026/11/19/SEUIHKWK2ZBFFNFUKY5F2DM6PU/?utm_source=naver&utm_medium=original&utm_campaign=biz
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4445482
+etnews.com  https://www.etnews.com/20261119000072
+## 한국은행
+mk.co.kr  https://www.mk.co.kr/article/12212271
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4445484
+etnews.com  https://www.etnews.com/20261119000072
+fnnews.com  https://www.fnnews.com/news/202611182006258573
