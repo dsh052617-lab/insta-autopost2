@@ -1,0 +1,240 @@
+{
+  "date": "2026-11-21",
+  "topic": "economy",
+  "version": 1,
+  "post": {
+    "cover_kicker": "美 연준 의사록",
+    "cover_title": "연준 \"추가 인상\n필요하다\" 판단",
+    "cover_subtitle": "10월 FOMC 의사록, 12월 빅스텝 가능성도",
+    "slides": [
+      {
+        "heading": "무슨 일이 있었나",
+        "highlight": "3.75~4.00%",
+        "points": [
+          "연준이 10월 회의에서 기준금리를 **동결**했어요",
+          "찬성 10표, 반대 **2표**로 결정됐어요",
+          "반대 2명은 **0.25%포인트** 인상을 주장했어요"
+        ],
+        "terms": [
+          {
+            "term": "FOMC",
+            "meaning": "미국 기준금리를 정하는 연준의 회의"
+          },
+          {
+            "term": "의사록",
+            "meaning": "회의에서 오간 논의를 정리해 공개한 기록"
+          }
+        ]
+      },
+      {
+        "heading": "의사록에 담긴 신호",
+        "highlight": "추가 인상",
+        "points": [
+          "거의 모든 위원이 **추가 인상** 필요성에 동의",
+          "목표는 물가를 **2%**로 제때 되돌리는 것",
+          "물가가 나쁘면 **0.5%포인트** 인상도 거론"
+        ],
+        "terms": [
+          {
+            "term": "빅스텝",
+            "meaning": "기준금리를 한 번에 0.5%포인트 올리는 것"
+          }
+        ]
+      },
+      {
+        "heading": "물가가 왜 안 잡히나",
+        "highlight": "",
+        "points": [
+          "관세 영향은 줄었지만 물가 압력은 **광범위**",
+          "높은 **에너지 가격**도 물가를 밀어 올려요",
+          "AI 인프라 수요가 **소비재 가격**까지 자극"
+        ],
+        "terms": []
+      },
+      {
+        "heading": "나에게는?",
+        "highlight": "",
+        "points": [
+          "시장 관심은 12월 **인상 폭**으로 옮겨갔어요",
+          "금리차가 벌어지면 **달러 강세** 압력이 커져요",
+          "변동금리 대출이라면 **금리 흐름**을 확인하세요"
+        ],
+        "terms": []
+      }
+    ],
+    "takeaways": [
+      "연준, 3.75~4.00%로 금리 동결",
+      "거의 전원 추가 인상 필요 판단",
+      "12월 인상 폭에 시장 관심"
+    ],
+    "question": "미국 금리 인상, 여러분의 환율·대출 계획에 영향이 있을까요?",
+    "caption": "미국 연준이 10월 회의에서 기준금리를 연 3.75~4.00%로 동결했지만, 18일 공개된 의사록에서 거의 모든 위원이 앞으로 수개월 안에 추가 인상이 필요할 것으로 판단했어요.\n위원 2명은 물가 지표가 나빠지면 12월 회의에서 0.25%포인트보다 큰 인상도 검토해야 한다고 봤어요.\n관세 영향은 줄었지만 에너지 가격과 AI 인프라 수요가 물가를 밀어 올리고 있다는 평가예요.\n미국 금리 흐름은 달러 가치와 환율에 영향을 주는 만큼 12월 결정을 지켜볼 필요가 있어요.",
+    "hashtags": [
+      "AGI시대경제",
+      "미국연준",
+      "FOMC",
+      "기준금리",
+      "금리인상",
+      "환율",
+      "경제뉴스",
+      "의사록"
+    ],
+    "needs_disclaimer": false,
+    "claims": [
+      {
+        "claim": "10월 기준금리 3.75~4.00% 동결",
+        "source": 1,
+        "evidence": "10 members agreed to maintain the target range for the federal funds rate at 3-3/4 to 4 percent"
+      },
+      {
+        "claim": "찬성 10표 반대 2표, 3.75~4.00% 동결",
+        "source": 2,
+        "evidence": "찬성 10표, 반대 2표로 기준금리를 연 3.75~4.00%로 동결했다"
+      },
+      {
+        "claim": "반대 2명은 0.25%포인트 인상 주장",
+        "source": 1,
+        "evidence": "Lisa D. Cook and Beth M. Hammack, who preferred to raise the target range for the federal funds rate by 1/4 percentage point"
+      },
+      {
+        "claim": "거의 모든 위원 추가 인상 필요 판단",
+        "source": 1,
+        "evidence": "almost all participants judged that, under their baseline outlooks for inflation and the labor market, further action to raise the target range"
+      },
+      {
+        "claim": "물가 2%로 제때 복귀 목표",
+        "source": 2,
+        "evidence": "이는 물가상승률이 연준의 목표치인 2%로 적시에 복귀하도록 하기 위한 조치다."
+      },
+      {
+        "claim": "물가 악화 시 0.25%포인트 초과 인상 검토",
+        "source": 1,
+        "evidence": "an increase of more than 25 basis points could warrant consideration at the next meeting if incoming inflation data were unfavorable"
+      },
+      {
+        "claim": "0.5%포인트 이상 인상 가능성",
+        "source": 2,
+        "evidence": "0.5%포인트 이상의 인상 가능성까지 열어둔 것이다"
+      },
+      {
+        "claim": "18일 의사록 공개",
+        "source": 2,
+        "evidence": "18일(현지시간) 블룸버그통신에 따르면 연준이 이날 공개한 10월 27~28일 연방공개시장위원회(FOMC) 의사록"
+      },
+      {
+        "claim": "관세 영향 줄었지만 물가 압력 광범위",
+        "source": 1,
+        "evidence": "tariff-related effects on prices appeared to be waning; however, most remarked that inflation pressures in the economy were broad based"
+      },
+      {
+        "claim": "높은 에너지 가격이 물가 압력",
+        "source": 1,
+        "evidence": "The vast majority noted that high energy prices continued to contribute to current inflation pressures."
+      },
+      {
+        "claim": "AI 인프라 수요가 소비재 가격 자극",
+        "source": 3,
+        "evidence": "demand for AI infrastructure is straining supply chains and pushing up consumer goods prices"
+      },
+      {
+        "claim": "시장 관심은 인상 폭·속도로",
+        "source": 3,
+        "evidence": "attention has shifted to the size and pace of further tightening"
+      },
+      {
+        "claim": "금리차 확대로 달러 강세",
+        "source": 1,
+        "evidence": "The broad dollar appreciated, reflecting the widening of U.S.–AFE yield differentials"
+      }
+    ]
+  },
+  "kind": "news",
+  "custom": false,
+  "request": "연준 \"추가 인상 필요하다\" 판단",
+  "sources": [
+    {
+      "title": "FOMC Minutes, October 27-28, 2026",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+      "source": "미국 연방준비제도",
+      "published": "2026-11-18",
+      "tier": "official"
+    },
+    {
+      "title": "연준 위원 거의 전원 “수개월 내 추가 금리 인상 필요”…12월 빅스텝 가능성도",
+      "url": "https://www.etoday.co.kr/news/view/2650058",
+      "source": "이투데이",
+      "published": "2026-11-19",
+      "tier": "press"
+    },
+    {
+      "title": "Fed minutes show broad support for further rate hikes, with some open to bigger move - The Herald Business",
+      "url": "https://mbiz.heraldcorp.com/article/10942070",
+      "source": "헤럴드경제",
+      "published": "2026-11-19",
+      "tier": "press"
+    }
+  ],
+  "story": {
+    "reason": "18일 공개된 10월 FOMC 의사록에서 거의 모든 위원이 추가 인상 필요성에 동의해, 12월 인상과 환율·국내 금리에 미칠 영향이 이번 주 가장 큰 글로벌 경제 이슈였어요.",
+    "angle": "동결 결정 뒤에 숨은 '추가 인상' 신호와 그 배경(물가 압력), 독자의 환율·대출에 주는 의미",
+    "category": "금리·통화"
+  },
+  "verification": {
+    "passed": true,
+    "problems": [],
+    "verified": [
+      {
+        "claim": "10월 기준금리 3.75~4.00% 동결",
+        "source": 1
+      },
+      {
+        "claim": "찬성 10표 반대 2표, 3.75~4.00% 동결",
+        "source": 2
+      },
+      {
+        "claim": "반대 2명은 0.25%포인트 인상 주장",
+        "source": 1
+      },
+      {
+        "claim": "거의 모든 위원 추가 인상 필요 판단",
+        "source": 1
+      },
+      {
+        "claim": "물가 2%로 제때 복귀 목표",
+        "source": 2
+      },
+      {
+        "claim": "물가 악화 시 0.25%포인트 초과 인상 검토",
+        "source": 1
+      },
+      {
+        "claim": "0.5%포인트 이상 인상 가능성",
+        "source": 2
+      },
+      {
+        "claim": "18일 의사록 공개",
+        "source": 2
+      },
+      {
+        "claim": "관세 영향 줄었지만 물가 압력 광범위",
+        "source": 1
+      },
+      {
+        "claim": "높은 에너지 가격이 물가 압력",
+        "source": 1
+      },
+      {
+        "claim": "AI 인프라 수요가 소비재 가격 자극",
+        "source": 3
+      },
+      {
+        "claim": "시장 관심은 인상 폭·속도로",
+        "source": 3
+      },
+      {
+        "claim": "금리차 확대로 달러 강세",
+        "source": 1
+      }
+    ]
+  }
+}
