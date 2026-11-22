@@ -1,243 +1,59 @@
-URL: https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027
-SOURCE: NVIDIA (official)
-PUBLISHED: 2026-11-17
+URL: https://www.mt.co.kr/world/2026/11/22/2026111910091626923
+SOURCE: 머니투데이 (press)
+PUBLISHED: 2026-11-22
 
-- Revenue of $115.8 billion, up 103% from a year ago
-- Data Center revenue of $107.6 billion, up 110% from a year ago
-- Vera Rubin NVL72, the most versatile and advanced computing platform ever built, has shipped
-NVIDIA (NASDAQ: NVDA) today reported revenue for the third quarter ended October 25, 2026, of $115.8 billion, up 20% from the previous quarter and up 103% from a year ago. For the quarter, GAAP and non-GAAP gross margins were 74.8% and 74.9%, respectively. GAAP and non-GAAP earnings per diluted share were $2.70 and $2.68, respectively.
-“Our momentum is real. NVIDIA is an exceptional technology leader, powered by the relentless innovation of our people,” said Colette Kress, interim CEO and executive vice president and chief financial officer of NVIDIA. “Vera Rubin is off to an explosive start, our roadmap is on track and our ambition has never been greater.”
-In September 2026, NVIDIA’s Board of Directors approved an increase of $150 billion to the company’s share repurchase authorization, without expiration. During the third quarter of fiscal 2027, NVIDIA returned $28.1 billion to shareholders in the form of shares repurchased and cash dividends. As of the end of the third quarter, the company had approximately $227.3 billion remaining under its share repurchase authorization.
-NVIDIA will pay its next quarterly cash dividend of $0.25 per share on December 23, 2026, to all shareholders of record on December 2, 2026.
-Q3 Fiscal 2027 Summary
-| GAAP |  |  |  |  |  |  |  |  |  |  |  | 
-| ($ in billions, except earnings per share) | Q3 FY27 |  |  | Q2 FY27 |  |  | Q3 FY26 |  |  | Q/Q* | Y/Y* | 
-| Revenue | $115.8 |  |  | $96.2 |  |  | $57.0 |  |  | 20 % | 103 % | 
-| Gross margin | 74.8 % |  |  | 75.0 % |  |  | 73.4 % |  |  | (0.2) pts | 1.4 pts | 
-| Operating expenses | $9.2 |  |  | $8.4 |  |  | $5.8 |  |  | 9 % | 57 % | 
-| Operating income | $77.5 |  |  | $63.7 |  |  | $36.0 |  |  | 22 % | 115 % | 
-| Net income | $65.3 |  |  | $59.7 |  |  | $31.9 |  |  | 9 % | 105 % | 
-| Diluted earnings per share | $2.70 |  |  | $2.46 |  |  | $1.30 |  |  | 10 % | 108 % | 
-| *Q/Q and Y/Y calculated based on $ in millions |  |  |  |  |  |  |  |  |  |  |  | 
-| Non-GAAP |  |  |  |  |  | 
-| ($ in billions, except earnings per share) | Q3 FY27 | Q2 FY27 | Q3 FY26 | Q/Q* | Y/Y* | 
-| Revenue | $115.8 | $96.2 | $57.0 | 20 % | 103 % | 
-| Gross margin | 74.9 % | 75.0 % | 73.5 % | (0.1) pts | 1.4 pts | 
-| Operating expenses | $8.8 | $8.2 | $5.8 | 7 % | 52 % | 
-| Operating income | $77.9 | $64.0 | $36.1 | 22 % | 116 % | 
-| Net income | $64.9 | $54.0 | $31.0 | 20 % | 109 % | 
-| Diluted earnings per share | $2.68 | $2.22 | $1.27 | 21 % | 111 % | 
-| *Q/Q and Y/Y calculated based on $ in millions |  |  |  |  |  | 
-Outlook
-NVIDIA’s outlook for the fourth quarter of fiscal 2027, which includes an additional week, is as follows:
-- Revenue is expected to be $130.0 billion, plus or minus 3%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook.
-- GAAP and non-GAAP gross margins are expected to be between 71.0% and 72.0%.
-- GAAP and non-GAAP operating expenses are expected to be approximately $11.0 billion and $10.7 billion, respectively.
-- For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.
-Highlights
-Data Center
-- Third-quarter revenue was $107.6 billion, up 21% from the previous quarter and up 110% from a year ago.
-- Ramped production and began shipping NVIDIA Vera Rubin NVL72 — the fastest product ramp in the company’s history — with racks running at partners including CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure and Nebius, and coming online soon at SpaceXSI.
-- Expanded the Vera Rubin cloud ecosystem, announcing general availability of Vera Rubin NVL72 systems and Vera CPUs on Oracle Cloud Infrastructure, general availability of Google Cloud’s Vera Rubin-powered A5X instances and the continued buildout of SpaceXSI’s infrastructure.
-- Announced Vera Rubin open architecture advances to help the industry scale faster, and revealed that Cisco, Google, Meta, Microsoft and Visionbay are joining many technology leaders advancing infrastructure for Vera Rubin.
-- Revealed that leading AI natives, cloud providers and neoclouds, including CoreWeave, Meta, Nebius, Nscale, OpenAI and Verda, are building with NVIDIA Vera CPUs to support the growing computing needs of businesses and developers, joining AWS, Oracle Cloud Infrastructure and SpaceXSI.
-- Expanded Anthropic’s access to NVIDIA Grace Blackwell and Vera Rubin capacity through cloud providers, and continued to collaborate on design and engineering to optimize future NVIDIA architectures for Anthropic’s workloads.
-- Announced the NVIDIA Vera CPU rack-scale platform for high-performance computing — combining NVIDIA’s first fully custom data center CPU with the gold standard for HPC networking to drive extreme efficiency and throughput for scientific modeling, simulation and agentic science.
-- Introduced NVIDIA Rubin HPC, a new GPU in the Vera Rubin platform designed to accelerate simulation and data processing for science, engineering and analytics workflows.
-- Expanded collaboration with Meta on AI agent Muse and its family of models, with Meta planning expanded deployment of Vera Rubin, Vera CPUs, NVIDIA Spectrum-X™ networking and NVIDIA BlueField®-4 to scale training, inference and agents.
-- Introduced DSX POD, a reference design for complete Vera Rubin AI factories built by partners inside modular containers, integrated and validated before delivery to accelerate infrastructure deployment.
-- Announced European ecosystem adoption of NVIDIA DSX™ to reduce AI factory power requirements and enable near-zero facility cooling water consumption.
-- Announced that NVIDIA swept every MLPerf Training and Endpoints benchmark, and Vera Rubin NVL72 demonstrated leading inference performance in its MLPerf Inference preview debut.
-- Launched NVIDIA Open Agent Safety Platform and introduced the NVIDIA OpenShell Reference Architecture, combining open source OpenShell software, Vera Rubin for model inference, Vera CPUs for agent execution and BlueField-4 DPUs running NVIDIA Sentry to independently monitor agent behavior and enforce security policies in silicon.
-- Announced an agreement to acquire Hugging Face to scale its platform and make intelligence more open, capable and accessible.
-- Announced plans with global supply chain partners, including Amkor Technology, IBIDEN, King Yuan Electronics, Samsung Electro-Mechanics, Siliconware Precision Industries and Unimicron Technology Corporation, to scale critical manufacturing capabilities to meet demand for NVIDIA infrastructure.
-- Deepened partnership with MediaTek across cloud infrastructure, local computing and automotive, extending NVIDIA’s rack-scale platform to custom XPUs through NVIDIA NVLink Fusion™.
-- Announced plans with Cisco for USFP, a new optical-module form factor designed to increase bandwidth density and power efficiency for next-generation AI factory networks.
-- Announced collaboration with Australia’s data center ecosystem on infrastructure supporting a planned buildout of up to 2 gigawatts by 2027 for NVIDIA DSX AI factories.
-- Introduced NVIDIA Nemotron for Science to help researchers build specialized agents for scientific discovery, and collaborated with global healthcare and life sciences organizations to advance protein design, accelerate drug discovery and expand precision patient care.
-- Partnered with Palantir to bring sovereign AI intelligence and NVIDIA Nemotron™ open models to critical supply chains.
-- Partnered with Firebird to scale the company’s total potential AI infrastructure capacity.
-- Expanded the open source NVIDIA CUDA-Q™ platform with CUDA-Q Logical for fault-tolerant quantum computing development, and ran a record simulation of a fault-tolerant quantum processor on JUPITER at the Jülich Supercomputing Centre.
-Edge Computing
-- Third-quarter Edge Computing revenue was $8.2 billion, up 14% from the previous quarter and up 42% from a year ago.
-- Reinvented Windows PCs with NVIDIA RTX Spark™ laptops, now shipping from ASUS, Dell, HP, Lenovo, Microsoft Surface and MSI.
-- Launched NVIDIA DLSS 5 in NBA 2K27 and Hogwarts Legacy, bringing AI-powered, photorealistic lighting and materials to GeForce RTX 50 Series GPUs, GeForce NOW and RTX Spark, and coming soon to Where Winds Meet.
-- Expanded the NVIDIA local AI lineup with a new NVIDIA DGX Spark™ 64GB model, bringing near-frontier AI capabilities to desktops at a more accessible price point, and accelerated leading AI models from NVIDIA Nemotron, Black Forest Labs, Liquid AI and Qwen for running AI agents locally, with expanded support for Hermes, OpenClaw and Perplexity.
-- Introduced new NVIDIA Alpamayo™ development tools and the NVIDIA Halos™ SAFE framework to help developers build and evaluate autonomous-driving systems.
-- Expanded partnerships with Mercedes-Benz and Volvo Cars to advance safe automated driving.
-- Announced European mobility leaders — including Bolt with Lucid, Mercedes-Benz, Volkswagen Commercial Vehicles and Einride — are showcasing NVIDIA Hyperion™ use cases for automated vehicles and future robotaxi fleets.
-- Advanced the NVIDIA Isaac™ robotics platform with new development tools, datasets and runtime, alongside Agile Robots’ introduction of a reference humanoid powered by NVIDIA Jetson Thor™ and built on Isaac GR00T.
-- Expanded NVIDIA Cosmos™ with tools to train, evaluate and deploy world models for robotics, autonomous vehicles and industrial applications.
-- Advanced AI-RAN with Nokia and global telecom operators, including T-Mobile’s first AI-RAN call on a commercial network, bringing NVIDIA accelerated computing deeper into wireless networks.
-CFO Commentary
-Commentary on the quarter by Colette Kress, NVIDIA’s interim CEO and executive vice president and chief financial officer, is available at https://investor.nvidia.com.
-Conference Call and Webcast Information
-NVIDIA will conduct a conference call with analysts and investors to discuss its third quarter fiscal 2027 financial results and current financial prospects today at 2 p.m. Pacific time (5 p.m. Eastern time). A live webcast (listen-only mode) of the conference call will be accessible at NVIDIA’s investor relations website, https://investor.nvidia.com. The webcast will be recorded and available for replay until NVIDIA’s conference call to discuss its financial results for its fourth quarter and full fiscal 2027.
-Non-GAAP Measures
-To supplement NVIDIA’s condensed consolidated financial statements presented in accordance with GAAP, the company uses non-GAAP measures of certain components of financial performance. These non-GAAP measures include non-GAAP gross profit, non-GAAP gross margin, non-GAAP operating expenses, non-GAAP operating income, non-GAAP other income (expense), net, non-GAAP net income, non-GAAP net income, or earnings, per diluted share, and free cash flow. For NVIDIA’s investors to be better able to compare its current results with those of previous periods, the company has shown a reconciliation of GAAP to non-GAAP financial measures. These reconciliations adjust the related GAAP financial measures to exclude acquisition-related and other costs, other, legal settlement costs, gains/losses from equity securities, net, certain other income and expense, and the associated tax impact of these items where applicable. Beginning in the first quarter of fiscal 2027, NVIDIA’s non-GAAP financial measures no longer exclude stock-based compensation expense. The historical non-GAAP financial information presented has been updated to include stock-based compensation expense. Free cash flow is calculated as GAAP net cash provided by operating activities less both purchases related to property and equipment and intangible assets and principal payments on property and equipment and intangible assets. NVIDIA believes the presentation of its non-GAAP financial measures enhances the users’ overall understanding of the company’s historical financial performance. The presentation of the company’s non-GAAP financial measures is not meant to be considered in isolation or as a substitute for the company’s financial results prepared in accordance with GAAP, and the company’s non-GAAP measures may be different from non-GAAP measures used by other companies.
-| NVIDIA CORPORATION |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| CONDENSED CONSOLIDATED STATEMENTS OF INCOME |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (In millions, except per share data) |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (Unaudited) |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  |  |  | Three Months Ended |  |  |  |  |  | Nine Months Ended |  |  |  |  | 
-|  |  |  | October 25, |  |  | October 26, |  |  | October 25, |  |  | October 26, |  | 
-|  |  |  | 2026 |  |  | 2025 |  |  | 2026 |  |  | 2025 |  | 
-| Revenue |  |  | $ | 115,844 |  | $ | 57,006 |  | $ | 293,681 |  | $ | 147,811 | 
-| Cost of revenue |  |  |  | 29,168 |  |  | 15,157 |  |  | 73,705 |  |  | 45,441 | 
-| Gross profit |  |  |  | 86,676 |  |  | 41,849 |  |  | 219,976 |  |  | 102,370 | 
-| Operating expenses |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Research and development |  |  | 7,454 |  |  | 4,705 |  |  | 20,829 |  |  | 12,985 | 
-|  | Sales, general and administrative |  |  | 1,702 |  |  | 1,134 |  |  | 4,356 |  |  | 3,297 | 
-|  |  | Total operating expenses |  | 9,156 |  |  | 5,839 |  |  | 25,185 |  |  | 16,282 | 
-| Operating income |  |  |  | 77,520 |  |  | 36,010 |  |  | 194,791 |  |  | 86,088 | 
-| Other income, net |  |  |  | 1,497 |  |  | 1,926 |  |  | 25,636 |  |  | 4,964 | 
-| Income before income tax |  |  |  | 79,017 |  |  | 37,936 |  |  | 220,427 |  |  | 91,052 | 
-| Income tax expense |  |  |  | 13,730 |  |  | 6,026 |  |  | 37,130 |  |  | 13,945 | 
-| Net income |  |  | $ | 65,287 |  | $ | 31,910 |  | $ | 183,297 |  | $ | 77,107 | 
-| Net income per share: |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Basic |  | $ | 2.71 |  | $ | 1.31 |  | $ | 7.58 |  | $ | 3.16 | 
-|  | Diluted |  | $ | 2.70 |  | $ | 1.30 |  | $ | 7.55 |  | $ | 3.14 | 
-| Weighted average shares used in per share computation: |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Basic |  |  | 24,106 |  |  | 24,327 |  |  | 24,194 |  |  | 24,378 | 
-|  | Diluted |  |  | 24,186 |  |  | 24,483 |  |  | 24,287 |  |  | 24,542 | 
-| NVIDIA CORPORATION |  |  |  |  |  |  |  |  | 
-| CONDENSED CONSOLIDATED BALANCE SHEETS |  |  |  |  |  |  |  |  | 
-| (In millions) |  |  |  |  |  |  |  |  | 
-| (Unaudited) |  |  |  |  |  |  |  |  | 
-|  |  |  |  | October 25, |  |  | January 25, |  | 
-|  |  |  |  | 2026 |  |  | 2026 |  | 
-| ASSETS |  |  |  |  |  |  |  |  | 
-| Current assets: |  |  |  |  |  |  |  |  | 
-|  | Cash and cash equivalents |  |  | $ | 29,089 |  | $ | 10,605 | 
-|  | Marketable debt securities |  |  |  | 24,423 |  |  | 39,065 | 
-|  | Marketable equity securities |  |  |  | 44,219 |  |  | 12,886 | 
-|  | Accounts receivable, net |  |  |  | 81,033 |  |  | 38,466 | 
-|  | Inventories |  |  |  | 39,724 |  |  | 21,403 | 
-|  | Prepaid expenses and other current assets |  |  |  | 3,506 |  |  | 3,180 | 
-|  |  | Total current assets |  |  | 221,994 |  |  | 125,605 | 
-| Property and equipment, net |  |  |  |  | 19,227 |  |  | 10,383 | 
-| Operating lease assets |  |  |  |  | 6,383 |  |  | 2,867 | 
-| Goodwill |  |  |  |  | 26,451 |  |  | 20,832 | 
-| Intangible assets, net |  |  |  |  | 4,056 |  |  | 3,306 | 
-| Deferred income tax assets |  |  |  |  | 11,383 |  |  | 13,258 | 
-| Non-marketable securities |  |  |  |  | 65,528 |  |  | 22,251 | 
-| Other assets |  |  |  |  | 17,166 |  |  | 8,301 | 
-|  |  | Total assets |  | $ | 372,188 |  | $ | 206,803 | 
-| LIABILITIES AND SHAREHOLDERS' EQUITY |  |  |  |  |  |  |  |  | 
-| Current liabilities: |  |  |  |  |  |  |  |  | 
-|  | Accounts payable |  |  | $ | 21,074 |  | $ | 9,812 | 
-|  | Accrued and other current liabilities |  |  |  | 33,287 |  |  | 21,352 | 
-|  | Short-term debt |  |  |  | - |  |  | 999 | 
-|  |  | Total current liabilities |  |  | 54,361 |  |  | 32,163 | 
-| Long-term debt |  |  |  |  | 32,371 |  |  | 7,469 | 
-| Long-term operating lease liabilities |  |  |  |  | 5,777 |  |  | 2,572 | 
-| Other long-term liabilities |  |  |  |  | 13,013 |  |  | 7,306 | 
-|  |  | Total liabilities |  |  | 105,522 |  |  | 49,510 | 
-| Shareholders' equity |  |  |  |  | 266,666 |  |  | 157,293 | 
-|  |  | Total liabilities and shareholders' equity |  | $ | 372,188 |  | $ | 206,803 | 
-| NVIDIA CORPORATION |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (In millions) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (Unaudited) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  |  |  | Three Months Ended |  |  |  |  |  |  |  | Nine Months Ended |  |  |  |  |  |  | 
-|  |  |  | October 25, |  |  |  | October 26, |  |  |  | October 25, |  |  |  | October 26, |  |  | 
-|  |  |  |  | 2026 |  |  |  | 2025 |  |  |  | 2026 |  |  |  | 2025 |  | 
-| Cash flows from operating activities: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| Net income |  |  | $ | 65,287 |  |  | $ | 31,910 |  |  | $ | 183,297 |  |  | $ | 77,107 |  | 
-| Adjustments to reconcile net income to net cash |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| provided by operating activities: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Stock-based compensation expense |  |  | 2,088 |  |  |  | 1,655 |  |  |  | 6,042 |  |  |  | 4,753 |  | 
-|  | Depreciation and amortization |  |  | 1,254 |  |  |  | 752 |  |  |  | 3,378 |  |  |  | 2,031 |  | 
-|  | Deferred income taxes |  |  | 676 |  |  |  | 124 |  |  |  | 1,658 |  |  |  | (2,035 | ) | 
-|  | Losses from derivatives, net |  |  | 492 |  |  |  | - |  |  |  | 829 |  |  |  | - |  | 
-|  | Gains from equity securities, net |  |  | (1,767 | ) |  |  | (1,354 | ) |  |  | (25,474 | ) |  |  | (3,426 | ) | 
-|  | Other |  |  | (183 | ) |  |  | (80 | ) |  |  | (298 | ) |  |  | (276 | ) | 
-| Changes in operating assets and liabilities, net of acquisitions: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Accounts receivable |  |  | (18,052 | ) |  |  | (5,583 | ) |  |  | (42,642 | ) |  |  | (10,325 | ) | 
-|  | Inventories |  |  | (8,148 | ) |  |  | (4,823 | ) |  |  | (18,352 | ) |  |  | (9,703 | ) | 
-|  | Prepaid expenses and other assets |  |  | (1,366 | ) |  |  | (89 | ) |  |  | (7,846 | ) |  |  | 857 |  | 
-|  | Accounts payable |  |  | 4,424 |  |  |  | (223 | ) |  |  | 8,550 |  |  |  | 2,032 |  | 
-|  | Accrued and other current liabilities |  |  | 1,651 |  |  |  | 1,129 |  |  |  | 9,666 |  |  |  | 4,204 |  | 
-|  | Other long-term liabilities |  |  | 1,897 |  |  |  | 332 |  |  |  | 3,867 |  |  |  | 1,311 |  | 
-| Net cash provided by operating activities |  |  |  | 48,253 |  |  |  | 23,750 |  |  |  | 122,675 |  |  |  | 66,530 |  | 
-| Cash flows from investing activities: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Proceeds from sales and maturities of debt securities |  |  | 21,258 |  |  |  | 2,728 |  |  |  | 47,821 |  |  |  | 9,467 |  | 
-|  | Proceeds from sales of equity securities |  |  | 2,253 |  |  |  | 2 |  |  |  | 9,493 |  |  |  | 72 |  | 
-|  | Purchases of equity securities |  |  | (15,696 | ) |  |  | (3,706 | ) |  |  | (58,100 | ) |  |  | (4,952 | ) | 
-|  | Purchases of debt securities |  |  | (11,414 | ) |  |  | (5,718 | ) |  |  | (33,191 | ) |  |  | (19,826 | ) | 
-|  | Purchases related to property and equipment and intangible assets |  |  | (4,422 | ) |  |  | (1,637 | ) |  |  | (8,856 | ) |  |  | (4,758 | ) | 
-|  | Acquisitions, net of cash acquired and other |  |  | (2,718 | ) |  |  | (694 | ) |  |  | (3,031 | ) |  |  | (1,370 | ) | 
-| Net cash used in investing activities |  |  |  | (10,739 | ) |  |  | (9,025 | ) |  |  | (45,864 | ) |  |  | (21,367 | ) | 
-| Cash flows from financing activities: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | Proceeds related to issuance of debt, net of costs |  |  | - |  |  |  | - |  |  |  | 24,896 |  |  |  | - |  | 
-|  | Proceeds related to employee stock plans |  |  | 279 |  |  |  | 274 |  |  |  | 795 |  |  |  | 643 |  | 
-|  | Payments related to repurchases of common stock |  |  | (22,122 | ) |  |  | (12,456 | ) |  |  | (61,166 | ) |  |  | (36,271 | ) | 
-|  | Dividends paid |  |  | (6,026 | ) |  |  | (243 | ) |  |  | (12,316 | ) |  |  | (732 | ) | 
-|  | Payments related to employee stock plan taxes |  |  | (1,707 | ) |  |  | (2,429 | ) |  |  | (6,238 | ) |  |  | (5,809 | ) | 
-|  | Groq, Inc. |  |  | - |  |  |  | - |  |  |  | (2,944 | ) |  |  | - |  | 
-|  | Repayment of debt |  |  | (1,000 | ) |  |  | - |  |  |  | (1,000 | ) |  |  | - |  | 
-|  | Principal payments on property and equipment and intangible assets |  |  | (54 | ) |  |  | (24 | ) |  |  | (147 | ) |  |  | (97 | ) | 
-|  | Other |  |  | (238 | ) |  |  | - |  |  |  | (207 | ) |  |  | - |  | 
-| Net cash used in financing activities |  |  |  | (30,868 | ) |  |  | (14,878 | ) |  |  | (58,327 | ) |  |  | (42,266 | ) | 
-| Change in cash and cash equivalents |  |  |  | 6,646 |  |  |  | (153 | ) |  |  | 18,484 |  |  |  | 2,897 |  | 
-| Cash and cash equivalents at beginning of period |  |  |  | 22,443 |  |  |  | 11,639 |  |  |  | 10,605 |  |  |  | 8,589 |  | 
-| Cash and cash equivalents at end of period |  |  | $ | 29,089 |  |  | $ | 11,486 |  |  | $ | 29,089 |  |  | $ | 11,486 |  | 
-| NVIDIA CORPORATION |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| RECONCILIATION OF GAAP TO NON-GAAP FINANCIAL MEASURES |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| ($ in millions, except per share data) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (Unaudited) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  |  |  | Three Months Ended |  |  |  |  |  |  |  |  |  |  |  | Nine Months Ended |  |  |  |  |  |  | 
-|  |  |  | October 25, |  |  |  | July 26, |  |  |  | October 26, |  |  |  | October 25, |  |  |  | October 26, |  |  | 
-|  |  |  |  | 2026 |  |  |  | 2026 |  |  |  | 2025 |  |  |  | 2026 |  |  |  | 2025 |  | 
-| GAAP cost of revenue |  |  | $ | 29,168 |  |  | $ | 24,079 |  |  | $ | 15,157 |  |  | $ | 73,705 |  |  | $ | 45,441 |  | 
-| GAAP gross profit |  |  | $ | 86,676 |  |  | $ | 72,142 |  |  | $ | 41,849 |  |  | $ | 219,976 |  |  | $ | 102,370 |  | 
-| GAAP gross margin |  |  |  | 74.8 | % |  |  | 75.0 | % |  |  | 73.4 | % |  |  | 74.9 | % |  |  | 69.3 | % | 
-|  | Acquisition-related and other costs (A) |  |  | 47 |  |  |  | 46 |  |  |  | 48 |  |  |  | 140 |  |  |  | 219 |  | 
-|  | Other |  |  | 1 |  |  |  | - |  |  |  | - |  |  |  | 29 |  |  |  | 4 |  | 
-| Non-GAAP cost of revenue |  |  | $ | 29,120 |  |  | $ | 24,033 |  |  | $ | 15,109 |  |  | $ | 73,536 |  |  | $ | 45,218 |  | 
-| Non-GAAP gross profit |  |  | $ | 86,724 |  |  | $ | 72,188 |  |  | $ | 41,897 |  |  | $ | 220,145 |  |  | $ | 102,593 |  | 
-| Non-GAAP gross margin* |  |  |  | 74.9 | % |  |  | 75.0 | % |  |  | 73.5 | % |  |  | 75.0 | % |  |  | 69.4 | % | 
-| GAAP operating expenses |  |  | $ | 9,156 |  |  | $ | 8,408 |  |  | $ | 5,839 |  |  | $ | 25,185 |  |  | $ | 16,282 |  | 
-|  | Acquisition-related and other costs (A) |  |  | (208 | ) |  |  | (176 | ) |  |  | (39 | ) |  |  | (556 | ) |  |  | (113 | ) | 
-|  | Legal settlement costs |  |  | (107 | ) |  |  | - |  |  |  | - |  |  |  | (107 | ) |  |  | (15 | ) | 
-| Non-GAAP operating expenses |  |  | $ | 8,841 |  |  | $ | 8,232 |  |  | $ | 5,800 |  |  | $ | 24,522 |  |  | $ | 16,154 |  | 
-| GAAP operating income |  |  | $ | 77,520 |  |  | $ | 63,734 |  |  | $ | 36,010 |  |  | $ | 194,791 |  |  | $ | 86,088 |  | 
-|  | Total impact of non-GAAP adjustments to operating income |  |  | 363 |  |  |  | 222 |  |  |  | 87 |  |  |  | 832 |  |  |  | 351 |  | 
-| Non-GAAP operating income* |  |  | $ | 77,883 |  |  | $ | 63,956 |  |  | $ | 36,097 |  |  | $ | 195,623 |  |  | $ | 86,439 |  | 
-| GAAP other income, net |  |  | $ | 1,497 |  |  | $ | 7,773 |  |  | $ | 1,926 |  |  | $ | 25,636 |  |  | $ | 4,964 |  | 
-|  | Gains from equity securities, net |  |  | (1,767 | ) |  |  | (7,771 | ) |  |  | (1,354 | ) |  |  | (25,474 | ) |  |  | (3,426 | ) | 
-|  | Other (B) |  |  | 523 |  |  |  | 298 |  |  |  | 1 |  |  |  | 848 |  |  |  | 3 |  | 
-| Non-GAAP other income, net |  |  | $ | 253 |  |  | $ | 300 |  |  | $ | 573 |  |  | $ | 1,010 |  |  | $ | 1,541 |  | 
-| GAAP net income |  |  | $ | 65,287 |  |  | $ | 59,688 |  |  | $ | 31,910 |  |  | $ | 183,297 |  |  | $ | 77,107 |  | 
-|  | Total pre-tax impact of non-GAAP adjustments |  |  | (881 | ) |  |  | (7,251 | ) |  |  | (1,266 | ) |  |  | (23,794 | ) |  |  | (3,072 | ) | 
-|  | Income tax impact of non-GAAP adjustments |  |  | 464 |  |  |  | 1,517 |  |  |  | 335 |  |  |  | 4,871 |  |  |  | 753 |  | 
-|  | Tax expense from OBBBA** |  |  | - |  |  |  | - |  |  |  | - |  |  |  | - |  |  |  | 48 |  | 
-| Non-GAAP net income* |  |  | $ | 64,870 |  |  | $ | 53,954 |  |  | $ | 30,979 |  |  | $ | 164,374 |  |  | $ | 74,836 |  | 
-| Diluted net income per share |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  | GAAP |  | $ | 2.70 |  |  | $ | 2.46 |  |  | $ | 1.30 |  |  | $ | 7.55 |  |  | $ | 3.14 |  | 
-|  | Non-GAAP* |  | $ | 2.68 |  |  | $ | 2.22 |  |  | $ | 1.27 |  |  | $ | 6.77 |  |  | $ | 3.05 |  | 
-| Weighted average shares used in diluted net income per share computation |  |  |  | 24,186 |  |  |  | 24,285 |  |  |  | 24,483 |  |  |  | 24,287 |  |  |  | 24,542 |  | 
-| GAAP net cash provided by operating activities |  |  | $ | 48,253 |  |  | $ | 24,077 |  |  | $ | 23,750 |  |  | $ | 122,675 |  |  | $ | 66,530 |  | 
-|  | Purchases related to property and equipment and intangible assets |  |  | (4,422 | ) |  |  | (2,677 | ) |  |  | (1,637 | ) |  |  | (8,856 | ) |  |  | (4,758 | ) | 
-|  | Principal payments on property and equipment and intangible assets |  |  | (54 | ) |  |  | (59 | ) |  |  | (24 | ) |  |  | (147 | ) |  |  | (97 | ) | 
-| Free cash flow |  |  | $ | 43,777 |  |  | $ | 21,341 |  |  | $ | 22,089 |  |  | $ | 113,672 |  |  | $ | 61,675 |  | 
-| *Includes H20 charges/(releases), net, which were $4.3 billion and insignificant for the first nine months of fiscal years 2026 and 2027, respectively. For all quarters presented above, the impact was insignificant. |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| **Tax expense included represents impact from OBBBA (One Big Beautiful Bill Act). |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| (A) Acquisition-related and other costs are comprised of amortization of intangible assets, transaction costs, and certain compensation charges and are included in the following line items: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-|  |  |  | Three Months Ended |  |  |  |  |  |  |  |  |  |  |  | Nine Months Ended |  |  |  |  |  |  | 
-|  |  |  | October 25, |  |  |  | July 26, |  |  |  | October 26, |  |  |  | October 25, |  |  |  | October 26, |  |  | 
-|  |  |  |  | 2026 |  |  |  | 2026 |  |  |  | 2025 |  |  |  | 2026 |  |  |  | 2025 |  | 
-|  | Cost of revenue |  | $ | 47 |  |  | $ | 46 |  |  | $ | 48 |  |  | $ | 140 |  |  | $ | 219 |  | 
-|  | Research and development |  | $ | 193 |  |  | $ | 170 |  |  | $ | 35 |  |  | $ | 529 |  |  | $ | 93 |  | 
-|  | Sales, general and administrative |  | $ | 15 |  |  | $ | 6 |  |  | $ | 4 |  |  | $ | 27 |  |  | $ | 20 |  | 
-| (B) Comprised of impact related to equity derivatives, equity method investments, convertible debt, dividend income, and interest expense related to accrued purchase consideration. |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-| NVIDIA CORPORATION |  |  |  |  | 
-| RECONCILIATION OF GAAP TO NON-GAAP OUTLOOK |  |  |  |  | 
-|  |  | Q4 FY27 Outlook |  |  | 
-|  |  | ($ in billions) |  |  | 
-| GAAP gross margin |  | 71.0% - 72.0% |  |  | 
-|  | Impact of acquisition-related costs and other costs |  | - |  | 
-| Non-GAAP gross margin |  | 71.0% - 72.0% |  |  | 
-| GAAP operating expenses |  | $ | 11.0 |  | 
-|  | Acquisition-related costs and other costs |  | (0.3 | ) | 
-| Non-GAAP operating expenses |  | $ | 10.7 |  |
+[선데이 모닝 인사이트]
+2023년 생성형 AI 붐 이후 젠슨 황 전 최고경영자(CEO)가 구축한 엔비디아의 인공지능(AI) 확장 금융 모델이 전환점을 맞았다. 엔비디아는 고객사의 데이터센터 건설과 AI 인프라 투자를 지분투자, 장기 구매약정, 보증 성격의 계약으로 떠받치며 AI 반도체 수요를 키워 왔다. 이른바 '벤더 금융(vendor financing)'이다. 이 모델로 엔비디아는 AI 시대 최대 수혜주가 됐다. 스스로 만든 수요에 얼마나 기대고 있느냐는 의문도 함께 커졌다.
+황이 스캔들로 물러난 뒤 임시 CEO를 맡은 콜레트 크레스는 17일(현지시간) 첫 실적 발표에서 네오클라우드 지원은 "규율 있고 선별적으로" 이어가겠다면서도 "향후 투자·약정·보증을 엄격하게 평가하고 있다"고 밝혔다. 칩을 누가 먼저 받느냐보다 칩값을 감당할 수 있느냐를 따지겠다는 의미다. 황 재임 말기 내부에서 시작된 재검토가 새 경영진의 공식 규칙이 됐다. 기존 약속은 지키되 앞으로 나갈 돈의 조건을 바꾸겠다는 것이다.
+칩 수요는 여전히 공급을 웃돌지만, 흔들리는 쪽은 그 칩을 사는 고객의 지갑이다. AI 붐의 균열이 칩 부족보다 금융 지원 축소에서 먼저 나타날 수 있다는 우려가 월가에서 나오는 이유다.
+[선데이 모닝 인사이트]에서는 젠슨 황 퇴진 이후 엔비디아의 투자·금융지원 기준 변화가 글로벌 AI 붐의 자금 흐름과 한국의 AI 인프라 전략에 어떤 영향을 미칠지 분석한다.
+① 33년 만의 퇴진…떠난 황, 남은 약속
+엔비디아 공동 창업자 젠슨 황은 지난 12일 사장·CEO·이사직에서 물러났다. 1993년 회사를 세운 지 33년 만이다. 13년째 최고재무책임자(CFO)를 맡아 온 콜레트 크레스가 CFO를 겸하며 임시 CEO에 올랐고, 하비 존스 이사가 회사 역사상 첫 이사회 의장이 됐다.
+시장이 주목한 것은 황이 3년 동안 쌓아 올린 AI 금융망의 행방이다. 엔비디아는 칩을 파는 회사인 동시에 칩을 살 돈을 대 주는 회사였다. 주된 상대는 엔비디아 GPU를 대량으로 사들여 AI 연구소와 기업에 빌려주는 네오클라우드다. 코어위브·네비우스·아이렌 같은 신생 클라우드 사업자들은 데이터센터와 칩을 먼저 사야 해 선투자 부담이 크고, 빌린 돈을 계속 차환해야 한다. 엔비디아는 이 빈틈을 지분투자와 보증, 용량 구매계약으로 메웠다.
+12일 AP에 따르면 엔비디아의 코어위브 지분은 약 13%다. 엔비디아의 지분과 보증을 등에 업은 고객이 돈을 빌려 다시 엔비디아 칩을 사는 고리, 시장이 '순환금융'이라 부르는 구조다. 엔비디아가 17일 공개한 2027회계연도 3분기(8~10월) 실적 자료에 따르면 회사가 보유한 지분 투자는 약 1100억달러로 불었다. 이 가운데 상장 지분은 보호예수가 걸린 장기분을 포함해 489억달러, 비상장 지분은 617억달러다. 비상장 지분은 올해 들어서만 222억달러에서 2.8배로 늘었다.
+JP모간이 지난 14일 발간한 '엔비디아와 AI의 다음 수순은(What's next for Nvidia and AI)' 보고서에 따르면 엔비디아는 젠슨 황 체제에서 네오클라우드를 비롯한 AI 기업에 부채·지분 자본을 대는 선두 주자가 됐다. 이들 상당수는 엔비디아 GPU의 충성 고객이다. 최근 3개 분기 엔비디아는 영업현금흐름의 58%를 지분 투자와 인수합병에 썼다. 2026년 1분기에서 2분기 사이 엔비디아의 장부 외 장기 부채와 리스 부채는 2140억달러에서 4220억달러로 늘었고, 부지·전력·건물 보증을 더하면 5300억달러에 이른다. AI 벤더 금융·투자 흐름이 워낙 두드러져 국제결제은행(BIS)은 올해 10월 '순환적 AI 기업 관계(Circular Relationships Among AI Firms)'라는 특별 보고서를 냈다. 2021~2025년 AI 기업에 대한 전체 투자 가운데 순환형을 포함한 AI→AI 거래가 50%를 넘었다.
+이번 회계연도 첫 9개월(2~10월) 동안 지분 매입에 쓴 현금만 581억달러로, 전년 같은 기간(50억달러)의 약 12배다. 여기에 신용지원을 포함한 보증 1180억달러, 네오클라우드 용량 구매계약 320억달러, 미집행 투자 약정 200억달러가 장부 밖에 걸려 있다. 이를 합하면 엔비디아 몫만 약 2800억달러다.
+이 돈이 닿는 수요층은 넓다. 17일 엔비디아가 공개한 CFO 코멘터리에 따르면 네오클라우드·산업·기업 고객을 묶은 'AI 클라우드·산업·엔터프라이즈(ACIE)' 부문 매출은 3분기 475억달러로 1년 전의 세 배 가까이로 늘었다. 데이터센터 매출에서 차지하는 비중도 같은 기간 31%에서 44%로 높아졌다. 크레스는 같은 날 실적 발표 콘퍼런스콜에서 오픈AI·앤트로픽 같은 프런티어 랩이 올해 엔비디아 데이터센터 매출의 약 15%를 차지할 것으로 내다봤다.
+앞선 13일, 피치북은 엔비디아가 2023년 이후 벤처캐피털 투자 296건에 참여했고, 그 3분의 1 이상이 올해 이뤄졌다고 분석했다. 2023년 이후 탄생한 AI 유니콘 153곳 가운데 49곳(32%)이 엔비디아의 투자를 받았고, 기업가치로는 9030억달러 중 5450억달러(60%)에 이른다.
+고객 쏠림 현상으로도 읽힌다. 8월 제출된 2분기(5~7월) 분기보고서(10-Q)에 따르면 2분기 엔비디아 매출의 16%가 고객 한 곳에서 나왔다. 매출채권의 70%는 고객 다섯 곳에 몰려 있었다. 일부 투자등급 고객에게 대금 지급 기한을 최대 1년까지 늘려 주면서 매출채권 회수 기간(DSO)은 60일로 길어졌다. 칩을 외상으로 넉넉히 내주는 것 역시 고객의 구매를 돕는 금융이다. 다만 그 위험은 고스란히 엔비디아 장부로 옮겨 온다.
+제임스 슈나이더 골드만삭스 애널리스트는 12일 보고서에서 "기존 약속은 모두 이행되겠지만, 앞으로 지금과 같은 규모의 다자간 투자를 새로 협상하기는 더 어려워질 수 있다"고 내다봤다. 시장조사업체 IDC도 13일 보고서에서 보증·지분투자는 대부분 최고경영진이 주도해 왔다며, 새 CEO가 이를 유지할지 축소할지 재편할지를 중기 리스크로 꼽았다.
+② 묶인 돈과 남은 재량…새 경영진이 손댈 수 있는 네 가지
+CEO가 바뀌어도 사라지지 않는 계약상 '익스포저(위험노출액)'가 있다.
+3분기 말 기준 신용지원을 포함한 보증 최대 익스포저 금액은 1180억달러다. 이 가운데 1050억달러는 오픈AI가 20년 동안 임차할 오하이오 포츠파이크(PORTS-Pike) 캠퍼스의 부지·전력·건물 신용지원이다. 네오클라우드 부지 보증 35억달러와 새로 생긴 전력·시스템 신용지원 95억달러도 포함된다.
+크레스 CEO는 17일 실적 발표에서 데이터센터 구축이 지연되거나 무산되면 "보증은 더 이상 존재하지 않는다"고 설명했다. 2분기에 'AI 클라우드 계약'으로 공시된 용량 구매계약(360억달러)은 3분기에 '네오클라우드 계약' 320억달러로 이름과 표시가 바뀌었다. 항목이 재편돼 두 수치를 단순 증감으로 비교하기는 어렵다. 네오클라우드 계약은 상대방의 자금 조달, 설비 가동, 엔비디아의 인수 승인 등이 충족돼야 발효된다.
+앤트로픽 상장에 맞춘 100억달러 사모 매입도 마찬가지다. 앤트로픽 증권신고서에 따르면 엔비디아는 구글과 함께 각각 약 100억달러어치 주식을 공모가에 사들이기로 했다. 매입은 상장 완료와 일정 조건 충족을 전제로 상장 직후 이뤄진다. 황 사임 뒤인 17일 제출된 정정 신고서에도 엔비디아 몫은 그대로 남았고, 앤트로픽은 18일 공모가를 확정했다.
+새 경영진이 손댈 수 있는 영역은 네 가지로 좁혀진다.
+첫째는 조건부 투자약정이다. 3분기 말 미집행 투자약정은 200억달러다. 이번 회계연도 잔여분은 50억달러에 그쳤고, 2028회계연도분은 30억달러에서 110억달러로 늘었다. 집행이 뒤로 밀렸다는 뜻이다. 다만 조건의 내용과 취소 가능 여부는 공시되지 않아 실제로 줄일 수 있는 규모는 알 수 없다.
+둘째는 오하이오 데이터센터 추가 보증 옵션이다. 이미 체결된 오하이오 프로젝트는 4.25GW, 상한 1050억달러다. 여기에 3.8GW를 추가 보증할 수 있는 권리가 공시에 '엔비디아의 단독 재량'으로 적혀 있다.
+셋째는 5000억달러 규모의 제3자 금융 플랫폼이다. 엔비디아는 8월 10일 아폴로, 블랙록, 블랙스톤, 브룩필드, 골드만삭스, KKR과 AI 인프라 금융 플랫폼을 위한 업무협약(MOU)을 맺었다. 엔비디아가 직접 보증과 투자를 모두 떠안는 대신, 월가 자금을 끌어와 데이터센터와 GPU 구매 금융을 키우려는 구조다. 당시 블룸버그는 대주단이 거래당 최대 25%인 잔존가치 보전 한도가 부족하다는 입장이라고 보도했다. 아직 실제 대출이 성사되지도 못했다. 13일 뉴욕타임스에 따르면 플랫폼 출범 이후 체결된 대출은 한 건도 없었다. 이는 GPU와 데이터센터를 담보로 돈을 빌려주는 쪽이, AI 인프라의 장기 수익성과 담보가치 하락 위험을 아직 충분히 확신하지 못하고 있다는 의미다.
+넷째는 협상 중인 신규 딜이다. 엔스케일 데이터센터 부채 보증, SK그룹 의향서, 신규 네오클라우드 지원 등이 여기에 속한다. 확정 계약 전 단계의 딜은 새 경영진이 조건을 다시 보거나 집행을 늦출 수 있다. 따라서 변화의 핵심은 기존 약속의 파기가 아니라, 앞으로 나갈 돈의 문턱이 높아지는 데 있다는 전망이 우세하다.
+③ 스캔들이 금융망으로 번진 경로
+이번 사태는 황의 사생활 논란에서 출발했지만, 거버넌스와 국가안보 문제로 번졌다.
+로이터통신의 13일 보도에 따르면 황은 엔비디아의 법무총괄인 팀 테터 등 경영진에게 중국인 사업가 앨리스 황과의 관계 성격을 사실과 다르게 설명했다. 독립이사들은 10일 로펌 워크텔립턴로즌앤드캐츠에 조사를 맡겼고, 주가 급락기의 투자 손실을 다투는 증권 집단소송도 제기됐다.
+가장 먼저 단독 보도한 뉴욕타임스(NYT)에 따르면 황의 내연녀로 알려진 앨리스 황은 싱가포르 업체 메가스피드의 전 CEO다. 월스트리트저널(WSJ)은 메가스피드가 2024년부터 2025년 6월까지 120억달러에 가까운 엔비디아 칩을 중국 기업들에 보내도록 주선했다고 보도했다. 다만 실제로 얼마가 인도됐는지는 기록에 나타나지 않는다고 WSJ는 덧붙였다.
+동시에 미국 정보당국은 앨리스 황을 베이징에 정보를 넘긴 중국 정보자산으로 판단해왔다. 미국 상무부와 법무부가 16일 낸 공동성명에 따르면 상무부는 2024년 메가스피드의 수출통제 위반 조사에 착수했다. 2025년 5월 엔비디아에 거래 기록을 요청했고, 엔비디아는 그해 6월 메가스피드를 판매 금지 명단에 올렸다. 지금은 법무부가 형사 수사를 이끌고 있다. 당국자들은 젠슨 황이 그 사실을 몰랐던 것으로 봤다고 전했다.
+수출통제는 엔비디아 금융망의 또 다른 제약으로 떠올랐다. 미국 상무부 산업안보국(BIS)은 16일 새 규칙을 내고, 중국 등 미국 수출관리규정(EAR)상 무기금수 대상국(D:5)이나 마카오에 본사나 최종 모회사를 둔 기업이 전 세계 데이터센터에서 일정 규모(총처리성능 1200만 TPP)를 넘는 연산력을 확보하는 것을 제한했다. 기존에 서비스를 제공하던 데이터센터도 계속하려면 규칙 발효 후 일정 기간 안에 허가를 받아야 한다. 중국 기업이 동남아 데이터센터를 빌려 미국산 칩의 연산력을 쓰는 구조를 막겠다는 취지다. AP통신은 이 조치가 중국 기업의 간접 접근을 차단하기 위한 것이라고 설명했다.
+부담은 칩을 공급하는 쪽으로 넘어온다. 엔비디아가 칩을 파는 고객, 지분을 넣는 네오클라우드, 보증을 제공하는 프로젝트 모두 이제 최종 수요자와 데이터센터 위치를 함께 심사해야 하기 때문이다. 고객사가 미국·유럽 법인이라도, 실제 연산력을 쓰는 주체나 최종 모회사가 중국 또는 D:5 국가 계열이면 허가 문제가 생길 수 있다. 데이터센터가 고객의 소유·지배 구조를 밝히지 않으면 수출업체는 위반 가능성을 알고 있었던 것으로 간주될 수 있다. 엔비디아로서는 거래 상대뿐 아니라 그 고객의 본사와 최종 모회사, 데이터센터 위치까지 확인해야 하는 셈이다.
+비용은 이미 숫자로 드러났다. 크레스는 17일 실적 발표에서 중국향 호퍼 제품의 출하를 중단했다고 밝혔다. 3분기 판매액은 24억달러였다. 엔비디아 이사회는 같은 날 국가안보·수출통제 감독위원회를 신설했다. 엔비디아가 지분을 사거나 보증을 서는 고객의 최종 수요처도 금융지원 심사의 새 항목이 된다.
+지금까지의 문제는 "중국에 칩을 팔 수 있느냐"에 가까웠다. 이제는 "엔비디아가 돈을 대거나 보증한 회사의 최종 고객이 누구냐"로 옮겨가고 있다. 사태의 출발점은 사생활 논란이었지만, 시장이 주목한 것은 그것이 국가안보와 수출통제, 그리고 엔비디아의 금융지원 모델로 번지는 경로였다.
+④ 향후 네 갈래 시나리오…무게는 '선별 축소'
+월가와 외신은 황이 떠난 엔비디아의 AI 금융에 대해 네 갈래 시나리오를 내놓고 있다.
+가장 먼저, 기조 유지다. 미집행 투자약정을 예정대로 집행하고, 신규 보증도 승인하는 경로다. 금융을 줄이면 자기 매출이 줄어드는 구조여서 쉽게 발을 빼기 어렵다는 논리다. 황이 추진하던 5000억달러 규모 AI 금융 플랫폼도 유지될 가능성이 높다. 그러나 크레스의 '엄격한 평가' 발언을 감안하면 전면 유지 가능성은 낮아졌다는 평가다.
+둘째, 선별 축소다. 체결된 계약은 이행하되 신규 지원은 대형 고객, 장기 수요처가 확인된 고객, 자본이 준비된 고객 위주로 제한하는 방식이다. 보증 대신 선불금과 담보를 요구하고, 제3자 금융 플랫폼은 위험을 나눌 수 있는 프로젝트부터 진행한다. 앤디 리 크레딧사이츠 애널리스트는 13일 CNBC에 "공격적인 딜메이커였던 젠슨이 떠난 만큼 창의적인 거래 방식과 순환식 자금 조달, 지분·신용 지원은 점차 완화될 가능성이 높다"고 말했다.
+셋째, 공백 장기화다. 새 CEO 선임 전까지 대형 딜이 미뤄지는 경우다. 다만 하비 존스 이사회 의장이 황의 복귀 가능성을 배제하고 헤드헌팅사 하이드릭앤드스트러글스를 선임한 만큼, 지배구조 불확실성은 일부 줄었다. 크레스도 임시 체제에서 심사 기준을 제시했다. 단순 보류보다는 기준 변경에 가깝다.
+넷째, '무질서한 축소'다. 네오클라우드 한 곳의 차환 실패가 엔비디아의 용량 매입 의무와 보유 지분 평가손으로 이어지고, 대주단 손실과 신규 대출 위축으로 번지는 경로다. 단기 가능성은 높지 않다. 보증 지급은 현재까지 없고, 오하이오 보증은 2029회계연도부터 단계적으로 발효된다. 다만 시장의 불안 신호는 이미 나타나고 있다.
+17일 CNBC에 따르면 코어위브의 2031년 만기 채권(표면금리 9.75%) 수익률은 15.66%다. 5년 만기 신용부도스와프(CDS) 스프레드는 약 1113.5bp(1bp=0.01%포인트)로, 부실 신호로 통하는 1000bp를 웃돈다. 코어위브와 네비우스 주가는 석 달 새 각각 50% 넘게 떨어졌다. 불안은 엔비디아로도 번졌다. 13일 엔비디아의 2031년 만기 채권(표면금리 4.5%) 수익률은 5.717%로 한 주 새 약 0.27%포인트 올랐다. 3분기 엔비디아 장부에는 비상장 지분 손상 18억달러가 처음 대규모로 반영됐다.
+⑤ 연준 "실제 익스포저, 장부보다 훨씬 클 수 있다"
+엔비디아 문제는 AI 금융 전체의 축소판이다. 연방준비제도(Fed·연준)가 13일 공개한 금융안정보고서에 따르면 AI 관련 부채 발행은 올해 10월까지 6800억달러를 넘어 2023년 한 해(1300억달러)의 약 5배가 됐다. 투자등급 비금융 회사채 발행에서 차지하는 비중은 2023년 6% 미만에서 올해 약 31%로 뛰었다.
+연준이 더 주목한 것은 부채가 아닌 의무다. 엔비디아·마이크로소프트·오라클 등 7개 대형 기술기업이 부담한 미개시 리스는 1조달러를 넘고, 인수·지급 계약과 잔존가치 보증 같은 기타 의무는 2조달러를 넘는다. 연준은 GPU 제조사들이 GPU 담보의 잔존가치를 보증해 AI 기업의 칩 구매를 돕고, 여기에 지분투자가 더해져 '순환금융'이 만들어진다고 설명했다. 이 대기업들이 하강기에 손실을 흡수해 금융시스템의 충격을 줄일 수도 있지만, 실제 경제적 익스포저는 장부상 부채보다 훨씬 클 수 있다는 진단이다.
+미국 최대 은행지주회사들이 대형 기술기업·데이터센터 개발사·관련 특수목적법인(SPE)·전력회사 등에 보유한 익스포저는 1조달러에 가깝다. 뉴욕연방준비은행이 9~10월 시장 관계자 23명에게 물은 설문에서는 87%가 AI를 금융안정 위험으로 꼽아 봄(50%)보다 크게 늘었다. 미셸 보먼 연준 감독 담당 부의장은 보고서 공개에 앞선 연설에서 "AI 관련 매출은 빠르게 늘고 있지만 기존 AI 모델과 데이터센터를 유지하고 새 모델을 개발하는 비용을 감당하기에는 아직 충분하지 않다"고 말했다. 그는 AI 인프라 투자가 경제성을 가지려면 작은 기업들이 결국 공급자에게서 받은 자금을 "돈을 내는 고객의 매출"로 대체해야 한다고 했다.
+엔비디아의 지원이 깐깐해질수록 네오클라우드가 이 과제를 풀어야 할 시점도 앞당겨진다. 손실을 먼저 떠안는 위험은 은행 밖으로도 퍼져 있다. 연준에 따르면 데이터센터 관련 특수목적법인이 발행한 채권 가운데 후순위·지분 트랜치는 하이일드 펀드와 생명보험사, 비즈니스개발회사(BDC), 사모 부채 펀드가 주로 들고 있다.
+⑥ SK 의향서·GPU 26만장…한국이 점검할 지점
+한국도 이 변화의 밖에 있지 않다. 한국 입장에서 문제는 엔비디아가 약속을 거둘 가능성 자체보다, 약속의 이행 조건이 더 까다로워질 수 있다는 점이다.
+SK그룹은 지난 7월 엔비디아와 5000억달러 이상 협력 계획을 발표했다. SK텔레콤의 최대 2GW AI 팩토리와 SK하이닉스의 장기 메모리 파트너십을 묶은 총액이다. 엔비디아의 직접 투자금이 아니고, 의향서(LOI) 단계에 머물러 있다. 새 경영진이 속도와 조건을 조정할 수 있는 영역이다.
+네이버는 엔비디아로부터 10억달러의 지분투자를 받았다. 납입은 11월 6일 완료됐고, 엔비디아는 지분율 4.13%로 네이버의 3대 주주가 됐다. 다만 조달액의 절반 이상은 2028년 이후 집행분이다. 추가 투자와 차세대 GPU 배정은 새 경영진의 판단 영역으로 여겨지는 부분이다.
+젠슨 황 엔비디아 CEO가 지난해 10월 방한 당시 약속한 한국 대상 GPU 공급 계획도 새 경영진 체제의 점검 대상이다. 당시 2030년까지 한국 정부와 삼성전자, SK그룹, 현대자동차그룹에 각각 GPU 5만장, 네이버에 6만장 등 26만장 이상을 공급하겠다고 밝혔다. 우선 확인이 필요한 물량은 정부 예산으로 계약된 GPU다. 전체 계약 물량 9704장 가운데 10월 8일 기준 국내에 반입된 물량은 2608장(26.9%)에 그쳤다. 이 물량도 엔비디아와 직접 맺은 계약이 아니라 네이버클라우드·삼성SDS·엘리스그룹 등 클라우드 사업자를 통해 들이는 구조다.
+남은 7096장의 인도 일정이 새 경영진이 확인해야 할 첫 이행 과제가 될 전망이다. 과학기술정보통신부가 13일 엔비디아 측으로부터 공급 계획에 변동이 없다는 취지의 설명을 들었지만, 이는 문서가 아닌 회의 석상에서의 구두 확인이었다.
+국내 스타트업 투자도 예외가 아니다. 엔비디아가 추가 투자를 검토해 온 업스테이지, 모티프테크놀로지스, 리얼월드 등 3개사는 앞으로 단순한 기술력이나 성장성 평가를 넘어 새 고객·투자 심사 기준을 적용받을 가능성이 크다. 기술력뿐 아니라 고객과 연산력의 최종 사용처까지 새 심사 기준을 통과해야 한다.
+수출통제는 국내 사업자에게도 새 부담이다. 한국은 BIS의 5개국 허가 대상에서 빠졌지만, 중국 등에 본사나 최종 모회사를 둔 고객에게 대규모 연산력을 제공하는 데이터센터는 국내에 있어도 허가를 받아야 한다. 엔비디아의 금융지원을 기대하는 사업자라면 부지·전력·건물과 확정 수요처, 최종 고객의 수출통제 위험까지 입증해야 한다. 이는 엔비디아의 공급·투자 심사 기준에도 직접 반영될 수 있다.
+GPU를 얼마나 사겠다는 계획만으로는 부족하다. 부지와 전력, 냉각 설비, 건물 등 물리적 인프라를 실제로 확보했는지, 장기 구매계약이나 확정 수요처가 있는지, 최종 고객이 수출통제 위험에 노출돼 있지 않은지를 함께 입증해야 한다. 엔비디아 입장에서는 칩 판매 이후의 사용 경로까지 확인해야 하는 만큼, 한국 사업자들도 기존보다 높은 수준의 실사와 문서화 요구를 피하기 어려워졌다.
