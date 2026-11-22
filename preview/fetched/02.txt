@@ -1,24 +1,16 @@
-URL: https://mbiz.heraldcorp.com/article/10942070
-SOURCE: 헤럴드경제 (press)
-PUBLISHED: 2026-11-19
+URL: https://news.sbs.co.kr/news/endPage.do?news_id=N1008855082
+SOURCE: SBS (press)
+PUBLISHED: 2026-11-20
 
-Minutes released: 'Almost all' participants backed additional tightening
-Some officials said hike of more than 25bp possible if inflation worsens
-The Federal Reserve held its benchmark interest rate steady at its October FOMC meeting, but minutes from the gathering show broad agreement among policymakers that further rate increases will be needed.
-Some officials said they were open to a 50-basis-point "big step" increase — twice the standard increment — if inflation data deteriorate more than expected.
-According to minutes from the Oct. 27-28 FOMC meeting, released Wednesday (local time), almost all participants judged that additional rate hikes would be necessary in the coming months to bring inflation back to the 2 percent target in a timely manner.
-At that meeting, the Fed held its benchmark interest rate at 3.75 to 4.00 percent. Two members — Fed Governor Lisa Cook and Cleveland Federal Reserve Bank President Beth Hammack — dissented, calling for a 25-basis-point increase.
-A couple of participants said at the meeting that, if incoming inflation data came in worse than expected, they could consider raising rates by more than 25 basis points at the next meeting.
-A few participants also said inflation could prove more persistent than anticipated, which might require a shift to a more restrictive policy stance.
-Even some of those who supported the hold described it as "a close call."
-Officials who had favored a rate increase said they could have supported holding rates steady, provided that market participants clearly understood that further tightening remained likely.
-Many participants said it was critically important to communicate clearly to markets that the decision to pause did not signal any weakening of the Fed's commitment to returning inflation to 2 percent in a timely manner.
-Participants broadly agreed that upward price pressures remain strong.
-They said that while tariff-related effects have eased somewhat, inflationary pressures across the broader economy remain widespread.
-High energy prices were also seen as continuing to add to upward pressure on inflation.
-On AI, participants said demand for AI infrastructure is straining supply chains and pushing up consumer goods prices.
-Several participants expressed concern that these price pressures are not confined to the data center construction sector but are gradually spreading across the broader economy.
-With a December rate hike widely seen in markets as a foregone conclusion, attention has shifted to the size and pace of further tightening.
-Markets were rattled Nov. 10 when Fed Governor Christopher Waller became the first official since the September FOMC to raise the possibility of a big-step hike. Waller reiterated the point that day, saying the Fed may need "to shock people."
-New York Federal Reserve Bank President John Williams, by contrast, drew a line against any "extreme measures," even as he stressed the importance of price stability.
-mokiya@heraldcorp.com
+지난달 사과와 돼지고기 등 농림수산품 가격이 내리면서 생산자물가가 석 달 만에 하락했습니다.
+한국은행은 오늘(20일) 10월 생산자물가지수가 129.66으로, 전달보다 0.1% 떨어졌다고 밝혔습니다.
+생산자물가는 7월 11개월 만에 하락했다가 8월과 9월 0.1%씩 올랐지만, 10월 들어 다시 내렸습니다.
+다만 1년 전과 비교하면 화학제품과 석유제품 등이 올라 7.2% 상승했습니다.
+품목별로 보면 농림수산품이 8.3% 떨어지며 하락을 이끌었습니다.
+기상 여건이 좋아 사과가 29.2% 내리는 등 농산물이 11.8% 하락했고, 추석 이후 수요가 줄면서 돼지고기가 12.8% 떨어져 축산물도 7.3% 내렸습니다.
+반면 공산품은 화학제품과 석탄·석유제품 가격이 오르며 0.3% 상승했고, 전력·가스·수도 및 폐기물도 산업용 도시가스가 오르며 0.2% 올랐습니다.
+서비스는 음식점·숙박과 운송 서비스가 올랐지만 금융·보험서비스가 3.9% 하락하면서 보합을 나타냈습니다.
+한국은행은 농림수산품 가격 변동이 없었다면 생산자물가는 0.2% 올랐을 것이라며, 원자재 가격 상승분이 시차를 두고 반영되면서 공산품을 중심으로 올랐다고 설명했습니다.
+생산자물가와 수입물가를 합쳐 상품과 서비스 가격 변동을 측정한 국내 공급물가지수는 원재료 가격이 7.3% 뛰면서 전달보다 0.7% 상승했습니다.
+한국은행은 이달 들어 국제유가가 지난달 평균보다 15% 떨어졌지만, 산업용 도시가스 도매요금과 항공 유류할증료 인상이 상승 요인으로 작용할 것으로 내다봤습니다.
+(사진=연합뉴스)
