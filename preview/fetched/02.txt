@@ -1,28 +1,14 @@
-URL: https://seoul.co.kr/news/economy/2026/11/23/20261123029005
-SOURCE: 서울신문 (press)
+URL: https://aboutamazon.com/news/company-news/amazon-decart-ai-optimization
+SOURCE: Amazon (official)
 PUBLISHED: 2026-11-23
 
-금융위기급 공포에 F4 긴급회의
-기관 출자 통한 주가 급락 완화 장치
-금융위기 후 18년 만에 투입 가능성
-공매도 집중 감시 위법 행위 막고
-자사주 매수 한도 풀어 하락 방지도
-최근 인공지능(AI) 산업에 대한 투자 심리 악화 속 지난 20일(현지시간) 미국 증시가 폭락장을 맞으면서 23일 한국 증시에 ‘블랙 먼데이’가 예고되자 금융당국이 긴급 대응 조치로 ‘증권시장안정펀드’(증안펀드) 가동 준비에 착수했다. ‘불법 공매도’도 집중적으로 감시해 엄정 대응하기로 했다.
-이형일 부총리 겸 재정경제부 장관은 22일 정부서울청사에서 개최한 관계기관 합동 ‘긴급 시장상황점검회의’에서 ‘컨틴전시 플랜’(비상대응 계획)에 따른 시장안정 조치를 발표했다. 이날 회의에는 신현송 한국은행 총재, 이억원 금융위원장, 이찬진 금융감독원장까지 ‘파이낸스4’(F4) 멤버가 모두 참석했다.
-먼저 참석자들은 최근 미국 증시 주가 하락에 따른 국내 금융시장 영향과 주요 위험 요인에 대해 “최근 글로벌 AI·반도체 산업, 미국 금리 인상 등을 둘러싼 대내외 불확실성으로 국내외 증시 변동성이 크게 확대됐다”면서 “AI 산업의 수익성과 자금 조달의 불확실성, 미국의 데이터센터 규제, 반도체 수출 통제 강화 등 정책 리스크가 부각되며 글로벌 AI 산업 생태계 전반을 둘러싼 우려가 커지고 있다”고 진단했다.
-금융당국은 이런 상황을 종합적으로 고려해 4가지 시장안정 조치를 내놨다. 먼저 증안펀드가 시장 상황에 따라 바로 가동될 수 있도록 발동 체계, 실효성 제고 작업 등 관련 필요 조치 준비 작업에 즉시 착수하기로 했다. 증안펀드는 국책은행 등 금융회사와 증권 유관기관 등이 공동 출자한 자금으로 주식을 사들여 증시 급락을 완화하는 시장안정 장치다. 정부가 시장에 직접 개입하는 조치라는 인식이 강해 실제 자금 집행은 신중하게 이뤄졌다. 2008년 글로벌 금융위기 당시 5150억원을 투입한 이후 18년간 실제 집행된 적은 없다.
-이와 함께 주식 시세 조종을 막기 위한 장치인 ‘상장기업의 1일 자사주 매수 주문 수량 한도 제한’을 24일부터 3개월간 완화한다. 기업이 자사주를 매입할 수 있는 여력을 넓혀 주가 하락을 방지하려는 조치다.
-‘불법 공매도’에도 대응한다. 금융감독원과 한국거래소는 3개월간 불법 공매도 특별 집중 감시 기간을 운영하며 위법 행위 근절에 나선다. 신용융자·미수거래와 반대매매 동향도 면밀히 점검한다. 주가 하락에 따른 연쇄적인 매도 압력이 시장 불안을 증폭시키지 않도록 관리하고, 반대매매 사전 안내를 강화하는 등 투자자 보호조치도 병행한다. 시장 불안을 틈탄 허위사실 유포와 시세조종 등 불공정거래에 대한 감시도 강화한다.
-정부는 단기 시장안정 조치와 함께 ‘자본시장 개혁 추진 태스크포스’(TF)를 조속히 발족해 근본적인 시장 체질 개선에도 나설 방침이다.
-세줄 요약
-- 미국 증시 급락에 국내 증시 불안 확대
-- 증안펀드 가동 준비와 실효성 제고 착수
-- 자사주 한도 완화·불법 공매도 감시 강화
-2026-11-23 B1면
-Copyright ⓒ 서울신문 All rights reserved. 무단 전재-재배포, AI 학습 및 활용 금지
-[ 내안의 AI 본성 분석 :
-UNMASK ]
-"기사를 읽는 동안 깨어난 당신의 숨겨진 페르소나를 AI가 스캔합니다."
-Q.
-기사를 끝까지 읽으셨나요? 이제 AI 퀴즈로 기사의 핵심 내용을 점검해보세요.
-증권시장안정펀드가 마지막으로 집행된 시기는?
+Key takeaways
+- Decart’s technology will help Amazon further optimize both its inference and custom silicon performance so more customers can train and run AI models faster and at lower cost.
+- Since 2025, Decart's team has worked closely with Amazon to deliver strong performance results on Trainium, using a full-stack approach that spans software and hardware.
+Today, Amazon announced it has signed an agreement to purchase the proprietary technology behind the Decart Optimization Stack (DOS), and bring the Decart AI co-founders—Dean Leitersdorf, Moshe Shalev, and Orian Leitersdorf—along with their team of AI researchers and engineers, to Amazon. With their deep expertise in full-stack performance optimization across hardware and software, Decart brings a strong connection between technology and talent that will help further Amazon’s investment in custom silicon and optimize AI inference for its customers.
+Amazon has long believed that inference speed and compute efficiency are central to the future of AI, and has advanced that vision through innovation across its custom silicon portfolio, from Graviton to Trainium. That work spans large language models, multimodal and agentic systems, and world models, alike. Amazon began working with Decart in 2025, and the collaboration quickly showed how much the two teams shared, from a full-stack view of performance to an appetite for solving some of the world’s most challenging science and engineering problems.
+“Every leap forward in AI starts with getting more out of every chip,” said Peter DeSantis, SVP of foundational AI models, custom silicon, quantum computing, Amazon. “More efficient compute means better training, better reinforcement learning, faster inference, and better models for customers at a lower cost. That's the pillar Trainium and our AI efforts are built on, and from our earliest work with Decart, we knew they were the kind of technologically fearless team who would help us push it even further.”
+“From day one, our mission has been to redefine the boundaries of what AI can do and to make it dramatically more efficient along the way,” said Dean Leitersdorf, co-founder and CEO of Decart. “Joining Amazon gives our team the scale, the customers, and the infrastructure to pursue that mission faster than we could on our own. We’re looking forward to exploring what we can build together.”
+Completion of the transaction is subject to customary closing conditions, including regulatory clearance.
+Cautionary Statement Regarding Forward-Looking Statements
+Amazon’s statements related to the proposed purchase of the Decart Optimization Stack (DOS) and the anticipated hiring of members of the Decart team contain forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding expected benefits of the transaction. These forward-looking statements are inherently uncertain and difficult to predict. We use words and phrases such as will, believe, expect, intend, anticipate, plan, future, potential, continue, look forward, opportunity, and similar expressions, as well as words referring to future outcomes such as accelerate, advance, achieve, deliver, help, build, bring, join, strengthen, expand, improve, pursue, push, explore, and similar expressions to identify forward-looking statements. Actual results and outcomes could differ materially from those projected or forecast in the forward-looking statements for a variety of reasons, including, among others, that the conditions to the completion of the transaction may not be satisfied, or the regulatory approvals required for the transaction may not be obtained on the terms expected, on the anticipated schedule, or at all; closing of the transaction may not occur or may be delayed, either as a result of litigation related to the transaction or otherwise; Amazon may be unable to integrate the acquired technology or achieve the anticipated benefits of the transaction such as anticipated improvements in the speed, performance, cost efficiency, and capabilities of AI workloads, Trainium and other Amazon custom silicon, and Amazon’s chips and model offerings; Amazon may be unable to hire and retain members of the Decart team; operating costs, customer loss, and business disruption (including, without limitation, difficulties in maintaining relationships with employees, partners, and commercial counterparties) may be greater than expected; Amazon may assume unexpected risks and liabilities; completing the transaction may distract Amazon’s management from other important matters; and the other factors discussed in “Risk Factors” in Amazon’s Annual Report on Form 10-K for the fiscal year ended December 31, 2025 and in Amazon’s other filings with the Securities and Exchange Commission. Amazon assumes no obligation to update the information in this press release, except as otherwise required by law. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of the date hereof.
