@@ -1,14 +1,19 @@
-## AI 인공지능
-## AI 반도체
-mk.co.kr  https://www.mk.co.kr/article/12219963
-mk.co.kr  https://www.mk.co.kr/article/12219958
-heraldcorp.com  https://biz.heraldcorp.com/article/10951344?ref=naver
-edaily.co.kr  https://www.edaily.co.kr/News/Read?newsId=01725286645649984&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article
-## AI 데이터센터
-mk.co.kr  https://www.mk.co.kr/article/12219963
-heraldcorp.com  https://biz.heraldcorp.com/article/10951344?ref=naver
-## AI 일자리
-nocutnews.co.kr  https://www.nocutnews.co.kr/news/6613485?utm_source=naver&utm_medium=article&utm_campaign=20261127100036
-heraldcorp.com  https://biz.heraldcorp.com/article/10950458?ref=naver
-hankyung.com  https://www.hankyung.com/article/202611274130i
-## AI 규제
+## AI 에이전트
+sedaily.com  https://www.sedaily.com/article/20119707?ref=naver
+chosun.com  https://biz.chosun.com/it-science/ict/2026/11/27/ABCXZOVOBRCJJPTRMNE2TKSKYA/?utm_source=naver&utm_medium=original&utm_campaign=biz
+## 생성형 AI
+yna.co.kr  https://www.yna.co.kr/view/AKR20261127036700017?input=1195m
+## AI 투자
+fnnews.com  https://www.fnnews.com/news/202611270958216894
+## 엔비디아
+news1.kr  https://www.news1.kr/world/usa-canada/6368060
+sedaily.com  https://www.sedaily.com/article/20119704?ref=naver
+sedaily.com  https://www.sedaily.com/article/20119703?ref=naver
+news1.kr  https://www.news1.kr/industry/auto-industry/6366921
+## 오픈AI
+## AI 기본법
+mt.co.kr  https://www.mt.co.kr/policy/2026/11/27/2026112708421851063
+newsis.com  https://www.newsis.com/view/NISX20261127_0003885437
+etoday.co.kr  http://www.etoday.co.kr
+etoday.co.kr  https://www.etoday.co.kr/news/view/2653647
+seoul.co.kr  https://www.seoul.co.kr/news/society/law/2026/11/27/20261127018003?wlog_tag3=naver
