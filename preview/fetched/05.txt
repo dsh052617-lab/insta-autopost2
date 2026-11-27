@@ -1,14 +1,10 @@
-URL: https://www.khan.co.kr/article/202611262047005
-SOURCE: 경향신문 (press)
-PUBLISHED: 2026-11-26
+URL: https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/
+SOURCE: TechCrunch (press)
+PUBLISHED: 2026-11-25
 
-국토부, 전세사기 의심 88건 적발
-임차권등기명령 걸린 집 다수
-‘바지’ 임대인 세워 신축 분양도
-자기 돈 없이 세입자 전세보증금만으로 주택 수십 채를 사들이거나, 이름만 빌려준 ‘바지’ 임대인을 내세워 오피스텔을 분양한 전세사기 의심 사례가 적발됐다.
-국토교통부는 지난해 신고된 임대차 거래를 대상으로 기획조사를 벌여 위법의심거래 1457건을 적발했다고 26일 밝혔다.
-이 중 전세사기 의심거래는 88건이다. 국토부는 전세사기 의심자 22명을 경찰청에 수사 의뢰했다. 이외에 공인중개사법 위반 39명, 명의신탁 3명까지 포함하면 수사 의뢰 인원은 모두 64명이다.
-국토부가 공개한 전세사기 의심거래 사례를 보면, 모두 집값에 맞먹는 전세보증금으로 매매대금이나 분양대금을 치른 경우였다. 매수인 A씨는 세입자에게 받은 보증금으로 자기 돈 없이 수도권 아파트·오피스텔 55채를 사들였다. 기존 세입자의 보증금을 넘겨받거나, 매매계약과 동시에 전세계약을 맺는 방식이었다.
-대부분 집의 보증금이 매매가의 90% 이상이었고,  매매가보다 높은 집도 있었다. 55채 중 9채에는 임차권등기명령이 걸려 있었다. 임차권등기명령은 세입자가 보증금을 돌려받지 못했을 때 신청하는 절차다. A씨는 소득 자료를 내지 않아 보증금을 돌려줄 능력도 확인되지 않았다. 국토부는 A씨 사례를 ‘무자본 갭투기’ 형태의 전세사기로 의심하고 있다. 같은 방식으로 매수인 B씨는 27채를 매입했다. 이 중 18채에서 압류·가압류·강제경매·임차권등기명령 등이 확인됐다.
-조직적 사기 의심 사례도 있었다. 건축주 C씨는 오피스텔 49채를 지어 이름만 빌려준 ‘바지’ 임대인에게 분양했다. 이 위장 임대인은 분양가의 95~100% 수준으로 전세계약을 맺었고, 보증금을 C씨에게 분양 잔금으로 넘겼다. 이 보증금이 분양대금의 대부분을 차지했다. C씨 통장에서는 수수료·리베이트 출금 내역이 여러 건 나왔고, 중개수수료도 과다하게 지급됐다. 국토부는 건축주나 분양업체를 중심으로 세입자 모집책, 중개업자 등이 조직적으로 공모한 것으로 의심하고 있다.
-국토부는 이 밖에 가격·계약일 거짓신고 등 959건을 지방자치단체에, 편법증여·특수관계인 차입 등 278건을 국세청에 통보했다. 김영국 국토부 주택토지실장은 “효과적인 불법행위 단속으로 국민이 안심하고 살 수 있는 주거환경 조성에 최선을 다하겠다”고 밝혔다.
+S&P Global Ratings, one of the three major credit rating agencies, is considering downgrading Nvidia’s rating, citing concerns about the company’s management and governance practices.
+Despite Nvidia’s strong financial performance, the ouster and reinstatement of CEO Jensen Huang has raised concerns about “weak executive oversight and lack of succession planning” and “key man risk,” meaning heavy reliance on Huang for its future success, S&P said in a statement.
+The agency expects to finish its review within 90 days and could cut Nvidia’s rating from AA to AA-, the fourth-highest on its scale.
+Although Nvidia is certain to keep its investment-grade rating, a downgrade could raise its borrowing costs. Because Nvidia backstops neoclouds and other infrastructure companies that lack strong credit on their own, a lower rating could make their debt costlier or force them to post more collateral.
+In August, Nvidia announced plans to arrange $500 billion in financing for AI infrastructure with six financial institutions, including Goldman Sachs, Apollo, and Blackstone. Under the original terms, Nvidia would guarantee 25% of the loans. But even before Huang’s ouster and return, lenders had been demanding that Nvidia guarantee more, Bloomberg reported.
+A downgrade would likely prompt lenders to demand even larger guarantees.
