@@ -1,0 +1,219 @@
+{
+  "date": "2026-11-27",
+  "topic": "ai",
+  "version": 1,
+  "post": {
+    "cover_kicker": "신용등급 경고",
+    "cover_title": "엔비디아 신용등급\n강등 검토 들어갔다",
+    "cover_subtitle": "S&P, AA 등급 부정적 관찰대상에",
+    "slides": [
+      {
+        "heading": "S&P가 내놓은 경고",
+        "highlight": "AA → AA-",
+        "points": [
+          "S&P가 25일 엔비디아 등급을 **부정적 관찰대상**에 올렸어요",
+          "90일 안에 한 단계 **강등**될 수 있다는 뜻이에요"
+        ],
+        "terms": [
+          {
+            "term": "부정적 관찰대상",
+            "meaning": "곧 등급을 낮출 수 있다고 보고 지켜보는 상태"
+          }
+        ]
+      },
+      {
+        "heading": "왜 문제 삼았나",
+        "highlight": "",
+        "points": [
+          "CEO 퇴진·복귀로 **이사회 감독** 약점이 드러났대요",
+          "승계 계획이 없어 **한 사람 의존** 위험이 크다는 지적",
+          "중국 관련 **내부통제**에도 의문을 제기했어요"
+        ],
+        "terms": [
+          {
+            "term": "핵심 인물 위험",
+            "meaning": "회사 미래가 한 사람에게 지나치게 달린 위험"
+          }
+        ]
+      },
+      {
+        "heading": "무디스는 등급 유지",
+        "highlight": "Aa1 유지",
+        "points": [
+          "무디스는 등급과 **안정적** 전망을 그대로 뒀어요",
+          "다만 지배구조 **불확실성**은 남았다고 봤어요"
+        ],
+        "terms": []
+      },
+      {
+        "heading": "AI 인프라에 미칠 영향",
+        "highlight": "",
+        "points": [
+          "엔비디아는 AI 인프라 기업 대출을 **보증**해 왔어요",
+          "강등되면 대출 **보증 요구**가 더 커질 수 있어요",
+          "AI 데이터센터 자금 비용이 오를지 **지켜볼** 때예요"
+        ],
+        "terms": [
+          {
+            "term": "신용등급",
+            "meaning": "돈을 빌려도 갚을 능력이 있는지 매긴 점수"
+          }
+        ]
+      }
+    ],
+    "takeaways": [
+      "S&P, 엔비디아 AA 강등 검토",
+      "이유는 경영 감독·승계 공백",
+      "AI 인프라 자금 비용이 변수"
+    ],
+    "question": "한 사람에게 크게 기대는 회사, 얼마나 위험하다고 보나요?",
+    "caption": "S&P가 엔비디아의 신용등급 AA를 부정적 관찰대상에 올리고 90일 안에 AA-로 낮출 수 있다고 밝혔어요.\nCEO 퇴진과 복귀 과정에서 이사회의 경영진 감독이 약하고 승계 계획이 없다는 점을 문제로 꼽았어요. 무디스는 등급을 유지했지만 지배구조 불확실성은 남았다고 봤어요.\n엔비디아는 신용이 약한 AI 인프라 기업들의 대출을 보증해 왔어요. 등급이 내려가면 이들의 자금 조달 비용이 오를 수 있어요.",
+    "hashtags": [
+      "AGI시대경제",
+      "엔비디아",
+      "신용등급",
+      "AI인프라",
+      "기업지배구조",
+      "AI산업"
+    ],
+    "needs_disclaimer": true,
+    "claims": [
+      {
+        "claim": "S&P가 25일 엔비디아 AA 등급을 부정적 관찰대상에 편입",
+        "source": 1,
+        "evidence": "스탠더드앤드푸어스(S&P)는 25일(현지시간) 엔비디아의 경영·지배구조의 취약점 등 이유로 엔비디아의 발행자(기업) 신용등급과 선순위 무담보 채무 신용등급 'AA'를 부정적 관찰대상에 편입했다고 밝혔다."
+      },
+      {
+        "claim": "90일 이내 강등 가능, 한 단계 제한",
+        "source": 1,
+        "evidence": "향후 90일 이내에 신용등급을 강등할 수 있다는 가능성을 반영한다"
+      },
+      {
+        "claim": "강등 폭은 한 단계",
+        "source": 1,
+        "evidence": "신용등급 강등 폭은 한 단계로 제한될 것으로 예상한다"
+      },
+      {
+        "claim": "AA에서 AA-로 낮출 수 있음",
+        "source": 3,
+        "evidence": "could cut Nvidia’s rating from AA to AA-"
+      },
+      {
+        "claim": "미흡한 감독과 승계 계획 부재로 핵심 인물 의존 위험",
+        "source": 1,
+        "evidence": "경영진에 대한 미흡한 감독과 승계 계획의 부재로 '핵심 인물 의존 위험'에 관한 의문이 부각됐다"
+      },
+      {
+        "claim": "CEO 퇴진·복귀로 이사회 감독 의문",
+        "source": 1,
+        "evidence": "CEO 퇴진과 이후 복귀는 경영진 행동규범에 대한 이사회의 감독과 관련한 의문에 충분한 답을 제공하지 못한다"
+      },
+      {
+        "claim": "중국 관련 내부통제 의문",
+        "source": 1,
+        "evidence": "중국 관련 익스포저(위험 노출) 문제 역시 지정학적 위험 관리와 내부 통제에 관한 의문을 제기한다"
+      },
+      {
+        "claim": "무디스는 Aa1·안정적 유지",
+        "source": 2,
+        "evidence": "엔비디아에 부여하고 있는 'Aa1' 신용등급과 '안정적' 전망에는 변함이 없다"
+      },
+      {
+        "claim": "무디스, 지배구조 불확실성 남아",
+        "source": 2,
+        "evidence": "관련된 지배구조 및 규제 불확실성을 완전히 해결하지는 못한다"
+      },
+      {
+        "claim": "엔비디아가 신용 약한 인프라 기업 보증, 강등 시 부채 비용 상승",
+        "source": 3,
+        "evidence": "Because Nvidia backstops neoclouds and other infrastructure companies that lack strong credit on their own, a lower rating could make their debt costlier"
+      },
+      {
+        "claim": "강등 시 대출 보증 요구 확대",
+        "source": 3,
+        "evidence": "A downgrade would likely prompt lenders to demand even larger guarantees."
+      }
+    ]
+  },
+  "kind": "news",
+  "custom": false,
+  "request": "엔비디아 신용등급 강등 검토 들어갔다",
+  "sources": [
+    {
+      "title": "S&P, '젠슨황 복귀' 엔비디아 신용등급 강등 검토…\"경영·지배구조 의문\"",
+      "url": "https://www.newsis.com/view/NISX20261126_0003883825",
+      "source": "뉴시스",
+      "published": "2026-11-26",
+      "tier": "press"
+    },
+    {
+      "title": "무디스 \"엔비디아, 지배구조 의문 남아…신용등급은 그대로\"(상보)",
+      "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4446640",
+      "source": "연합인포맥스",
+      "published": "2026-11-26",
+      "tier": "press"
+    },
+    {
+      "title": "S&P considers Nvidia credit downgrade over governance and 'key man' risks",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "source": "TechCrunch",
+      "published": "2026-11-25",
+      "tier": "press"
+    }
+  ],
+  "story": {
+    "reason": "S&P가 젠슨 황 CEO 해임·복귀 사태 이후 엔비디아 신용등급 강등 검토에 착수해 AI 인프라 금융 전반에 영향을 줄 수 있는 새 조치가 나왔고, 뉴시스·연합인포맥스·TechCrunch 등 여러 매체가 다뤘어요.",
+    "angle": "주가가 아닌 신용등급의 시선으로, AI 인프라를 떠받치는 엔비디아의 보증 역할이 흔들릴 수 있다는 점을 짚어요.",
+    "category": "산업·기업"
+  },
+  "verification": {
+    "passed": true,
+    "problems": [],
+    "verified": [
+      {
+        "claim": "S&P가 25일 엔비디아 AA 등급을 부정적 관찰대상에 편입",
+        "source": 1
+      },
+      {
+        "claim": "90일 이내 강등 가능, 한 단계 제한",
+        "source": 1
+      },
+      {
+        "claim": "강등 폭은 한 단계",
+        "source": 1
+      },
+      {
+        "claim": "AA에서 AA-로 낮출 수 있음",
+        "source": 3
+      },
+      {
+        "claim": "미흡한 감독과 승계 계획 부재로 핵심 인물 의존 위험",
+        "source": 1
+      },
+      {
+        "claim": "CEO 퇴진·복귀로 이사회 감독 의문",
+        "source": 1
+      },
+      {
+        "claim": "중국 관련 내부통제 의문",
+        "source": 1
+      },
+      {
+        "claim": "무디스는 Aa1·안정적 유지",
+        "source": 2
+      },
+      {
+        "claim": "무디스, 지배구조 불확실성 남아",
+        "source": 2
+      },
+      {
+        "claim": "엔비디아가 신용 약한 인프라 기업 보증, 강등 시 부채 비용 상승",
+        "source": 3
+      },
+      {
+        "claim": "강등 시 대출 보증 요구 확대",
+        "source": 3
+      }
+    ]
+  }
+}
