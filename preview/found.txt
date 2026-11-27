@@ -1,30 +1,28 @@
-## 포용 온렌딩 대출
-mt.co.kr  https://www.mt.co.kr/finance/2026/11/27/2026112619402414917
-donga.com  https://www.donga.com/news/Economy/article/all/20261126/135098711/2
-khan.co.kr  https://www.khan.co.kr/article/202611262045035
-sedaily.com  https://www.sedaily.com/article/20119569?ref=naver
-fnnews.com  https://www.fnnews.com/news/202611261805302606
-## 수도권 공공주택 5만6000호
+## 공공분양 3만5000호 내년
 newsis.com  https://www.newsis.com/view/NISI20261127_0002303827
+## 매입확약 민간택지 확대
+sedaily.com  https://www.sedaily.com/article/20119699?ref=naver
 sbs.co.kr  https://biz.sbs.co.kr/article_hub/20000349229?division=NAVER
-## 전세사기 의심거래 88건
-khan.co.kr  https://www.khan.co.kr/article/202611262047005
-ytn.co.kr  https://www.ytn.co.kr/_ln/0102_202611261823556278
-## 10월 산업활동동향
-khan.co.kr  https://weekly.khan.co.kr/article/202611220027001
-chosun.com  https://biz.chosun.com/policy/policy_sub/2026/11/17/74KCSKHFCZAYDIIYKAOZWVZBCU/?utm_source=naver&utm_medium=original&utm_campaign=biz
-einfomax.co.kr  https://news.einfomax.co.kr/
-einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4444764
-## 11월 소비자심리지수
+sedaily.com  https://www.sedaily.com/article/20119561?ref=naver
+news1.kr  https://www.news1.kr/realestate/general/6367584
+mt.co.kr  https://www.mt.co.kr/estate/2026/11/27/2026112619524488873
+kmib.co.kr  https://www.kmib.co.kr/article/20261126501874
+## 11월 소비자심리지수 반등
 ytn.co.kr  https://www.ytn.co.kr/_ln/0134_202611270818526194
 ytn.co.kr  https://www.ytn.co.kr/_ln/0102_202611270717153806
 fnnews.com  https://www.fnnews.com/news/202611261436100723
-## 가계대출 11월
-## 국민연금 기금운용
-chosun.com  https://www.chosun.com/economy/economy_general/2026/11/27/GY7O6S24BRDHBKVGBJUGR6UVIQ/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news
-joongang.co.kr  https://www.joongang.co.kr/article/25482398
-chosun.com  https://www.chosun.com/opinion/editorial/2026/11/27/QZQMOWLWGRC65F5GVDYTRAGOLE/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news
-hankyung.com  https://www.hankyung.com/article/202611263436h
-## 부동산 대책 11월
-ytn.co.kr  https://www.ytn.co.kr/_ln/0102_202611270717153806
-mt.co.kr  https://www.mt.co.kr/estate/2026/11/27/2026112619524488873
+asiae.co.kr  https://view.asiae.co.kr/article/2026112517135935626
+## 국민연금 환헤지
+joongang.co.kr  https://www.joongang.co.kr/article/25480326
+chosun.com  https://www.chosun.com/opinion/contribution/2026/11/17/NVVUMQQPWFFRLAJIXWSJTT3HIA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4444946
+asiae.co.kr  https://view.asiae.co.kr/article/2026111211223002470
+edaily.co.kr  https://www.edaily.co.kr/News/Read?newsId=06317286645642768&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article
+dt.co.kr  https://www.dt.co.kr/article/12093156?ref=naver
+etoday.co.kr  http://www.etoday.co.kr
+etoday.co.kr  https://www.etoday.co.kr/news/view/2644077
+## 10월 주택 인허가
+fnnews.com  https://www.fnnews.com/news/202611270920367313
+asiae.co.kr  https://view.asiae.co.kr/article/2026112709073825240
+asiae.co.kr  https://view.asiae.co.kr/article/2026112708180734939
