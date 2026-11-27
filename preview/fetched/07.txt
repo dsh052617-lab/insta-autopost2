@@ -1,14 +1,20 @@
-URL: https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/
-SOURCE: TechCrunch (press)
-PUBLISHED: 2026-11-25
+URL: https://www.sedaily.com/article/20119704
+SOURCE: 서울경제 (press)
+PUBLISHED: 2026-11-27
 
-SpaceX was given conditional approval by the Federal Communications Commission on Wednesday to deploy and operate a constellation of up to 1 million satellites for its orbital data center business, a regulatory victory for Elon Musk and his bid to move AI data centers into space.
-The FCC authorization was granted despite objections from Amazon, Viasat, and the American Astronomical Society, which flagged concerns over orbital debris and congestion, radiofrequency interference, and environmental consequences. Amazon, which is building a competitor to SpaceX’s Starlink service, argued in its petition that the application lacked basic details and described it as a “lofty ambition rather than a real plan.” Despite that lack of detail, Amazon also said the proposal “risks real harm.”
-The FCC dismissed some of the key concerns raised by opponents, including potential threats to scientific research, because the agency determined they fell outside its regulatory authority.
-FCC Chair Brendan Carr said in a statement that the action “opens a bold new frontier for the computing infrastructure needed to power America’s leadership and growth.”
-Musk thanked Carr in a post on X, writing “Much appreciate. This will be a great asset to America and the world.”
-This initial regulatory approval doesn’t mean orbital data centers are imminent.
-SpaceX faces a number of technical and economic challenges, including how to dramatically reduce the cost of manufacturing and launching satellites, cool processors in space, and even how to secure financing for chips that are destined for orbit.
-The company must also clear other regulatory hurdles. The FCC has not yet approved SpaceX’s plans to handle orbital debris for satellites that would operate above 600 kilometers, for instance. SpaceX requested a waiver of existing FCC rules, which requires satellites ending missions below 2,000 kilometers reenter Earth’s atmosphere within five years of completing those missions. The company is interested in moving some of these retired satellites into other orbits around Earth or even around the sun, according to the FCC authorization document.
-SpaceX has said it plans to deploy the satellites, known as Starmind, at altitudes ranging from 500 to 1,002 kilometers. The FCC’s approval gives SpaceX the authority to use radiofrequency communications to maintain contact with and control its orbital data centers from Earth if their primary communications systems fail. The Starmind satellites would primarily communicate using lasers to connect with other satellites, including SpaceX’s Starlink.
-The FCC has given SpaceX time to sort out these issues. Under the approval, SpaceX has seven years to get its first operational satellite into orbit and 14 years to deploy the entire constellation.
+▲ AI 프리즘* 맞춤형 경제 브리핑
+* 편집자 주: ‘AI PRISM’(Personalized Report & Insight Summarizing Media)은 한국언론진흥재단의 지원을 받아 개발한 ‘인공지능(AI) 기반 맞춤형 뉴스 추천 및 요약 서비스’입니다. 독자 유형별 맞춤 뉴스 6개를 선별해 제공합니다.
+[주요 이슈 브리핑]
+■ 美 USTR: 미국 무역대표부(USTR)가 194쪽 보고서에서 광주·전라 반도체 클러스터를 구체적으로 적시하며 한국에 15% 과잉생산 관세를 예고하고, 협상 결과에 따라 25%까지 올릴 수 있다고 경고했다. 삼성전자(005930)·SK하이닉스(000660)의 미국 내 전공정 팹 건설 압박이 현실화되는 상황에서 경영진은 미국 현지 투자 계획과 관세 리스크 간의 비용 시나리오를 즉시 재점검해야 할 국면이다.
+■ 기준금리 3.25%: 한국은행이 26일 기준금리를 0.25%포인트 올린 3.25%로 결정하고, 점도표 최고값을 3.75%로 제시해 내년 상반기까지 최대 2차례 추가 인상 가능성을 시사했다. 차입 비용 상승이 가시화된 만큼 경영진은 조달 구조 재검토와 고금리 환경에서의 투자 우선순위 재설정을 3개월 내 완료해야 하는 상황이다.
+■ 엔비디아 신용등급 ‘AA’: S&P가 젠슨 황 CEO 의존도 과다를 이유로 엔비디아를 부정적 관찰 대상에 올렸으며, 엔비디아 5년물 CDS 프리미엄은 장중 최대 147.27bp로 사상 최고치를 기록했다. AI 투자가 내년 정점 후 하강할 것이라는 관측이 번지면서 AI 인프라 연계 사업 계획을 보유한 기업들은 투자 타이밍과 리스크 헤지 전략을 재검토해야 할 시점이다.
+[기업 CEO 관심 뉴스]
+- 핵심 요약: USTR이 보고서에서 광주·전라 반도체 클러스터 조성 계획(기업 투자 약속 800조 원, 정부 15년간 30조 원 투입)을 구체적으로 문제 삼으며 한국에 15% 과잉생산 관세를 부과하고, 협상 불만족 시 일부 품목 25%까지 인상을 경고했다. 경쟁국인 일본·EU의 관세 상한선이 20%인 데 비해 한국을 5%포인트 높게 책정해 압박 수위를 더욱 높인 모습이다. 업계는 삼성전자·SK하이닉스의 미국 내 전공정 팹 건설 요구로 이어질 것으로 내다보며, SK하이닉스의 뉴욕주 낸드 공장 협상과 삼성전자의 텍사스 테일러 D램 투자 부담이 현실화될 가능성이 커졌다. 경영진은 관세 시나리오별 비용 분석과 함께 조선·원자력 협력 등 반대급부 협상 카드도 함께 검토하는 복합 대응 전략이 시급한 상황이다.
+- 핵심 요약: S&P가 엔비디아의 현행 등급 ‘AA’를 부정적 관찰 대상에 올리며 90일 내 최종 판단을 예고했고, 엔비디아의 5년물 CDS 프리미엄은 장중 147.27bp로 사상 최고치를 기록했다. 오라클(356bp), 코어위브(1314bp), 소프트뱅크(500bp 돌파) 등 AI 연계 기업들의 신용 위험도 동반 급등해 AI 생태계 전반의 자금 경색 우려가 치솟았다. 가벨리펀드는 “하이퍼스케일러 설비투자가 내년 정점 후 2028년부터 감소할 것”이라고 전망하며 AI 투자 과열 경계론에 불을 지폈다. AI 인프라 투자를 계획 중이거나 이미 집행한 기업들은 엔비디아 의존도와 차입 조달 구조를 재점검하고, 투자 일정 조정 여부를 선제적으로 검토해야 할 시점으로 분석된다.
+- 핵심 요약: 한국은행이 26일 기준금리를 연 3%에서 3.25%로 0.25%포인트 올렸으며, 점도표 중간값 3.5%·최고값 3.75%를 제시해 내년 상반기까지 추가 인상 2회 가능성을 열어뒀다. 한은은 내년 소비자물가 전망치를 2.4%로 상향하고 2028년에야 2.1%로 목표(2.0%)에 근접할 것으로 내다봐 긴축 기조의 장기화 가능성을 시사했다. 7·8월 연속 인상에 이은 세 번째 인상으로 고금리 기조가 고착화되면서 차입 의존도가 높은 기업들의 금융 비용 부담이 가속화되는 모습이다. 경영진은 단기 차입 구조 점검과 고정금리 전환 검토, 투자 계획별 금리 민감도 분석을 즉시 가동해 긴축 장기화에 대비한 재무 방어선을 구축해야 할 국면이다.
+[기업 CEO 참고 뉴스]
+- 핵심 요약: 한국은행이 내년 경제성장률을 4.1%로 제시해 시장의 ‘서프라이즈’를 이끌었으며, 반도체 슈퍼사이클 효과가 수출·설비투자를 넘어 가계 소비로 파급되면서 성장률을 1.2%포인트 추가로 끌어올릴 것으로 추산했다. 데이터센터 투자 지연·빅테크 자금 조달 차질·중국 범용 메모리 증산 등 세 가지 악재가 동시에 현실화되더라도 내년 성장률은 3%대 중반을 유지할 것으로 분석됐다. 반면 메모리 가격은 악재 현실화 시 기본 전망 대비 내년 15%, 2028년에는 51%까지 하락할 수 있어 중장기 하방 리스크는 여전히 크다는 경고도 함께 제기됐다. 경영진은 반도체 호황의 소비 파급 효과를 내수 사업 확장 기회로 포착하면서도, 2028년 성장률 급락 시나리오에 대비한 중장기 포트폴리오 재편 계획을 병행 수립하는 투트랙 전략이 필요한 시점이다.
+- 핵심 요약: 삼성전자가 메모리개발담당 조직을 폐지하고 D램·낸드·패키지 개발실 전체를 황상준 사장 직속으로 편입해 의사결정 단계를 대폭 줄이는 개편을 단행했으며, HBM4부터 고객 맞춤형 로직다이 설계 중요성을 반영해 솔루션개발실 산하에 로직개발팀도 신설했다. 엔비디아·AMD 등 글로벌 AI 반도체 고객사를 직접 상대하는 DS미주법인장(DSA)에는 윤하룡 부사장을 내정해 현지 고객 수요의 본사 개발 반영을 강화하는 체계로 전환했다. 이번 개편은 HBM 경쟁 심화와 미국의 현지화 압박이 가중되는 환경에서 고객 대응 속도와 개발 민첩성을 동시에 높이려는 전략적 포석으로 해석된다. 반도체 공급망을 활용하는 기업들은 삼성의 조직 개편 방향을 벤치마킹해 고객 접점 조직의 의사결정 단계를 단축하고, 핵심 기술 개발을 경영진 직할로 운영하는 구조 혁신을 검토할 만한 사례로 주목된다.
+- 핵심 요약: 금융위원회가 김용범 메리츠금융지주 부회장을 ‘자본시장 대전환 위원회’ 위원장으로 선임하며 전원 민간 구성의 자본시장 개혁 전담기구를 출범시켰으며, 위원 구성부터 의제 설정, 대통령 보고까지 사실상 전권을 민간에 부여했다. 주요 과제로 주주 중심 경영 확산·기업가치 제고, 코스닥 시장 재설계, 장기·기관 중심 수요 기반 확충, 시장 변동성 완화 등이 거론되며 1997년 금융개혁위원회에 버금가는 역할을 맡게 됐다는 평가가 나왔다. 김 부회장은 “대주주 1주 가치=일반주주 1주의 가치”를 개혁 원칙으로 천명해 주주 평등 중심의 제도 설계를 예고했다. 주주환원 정책과 기업지배구조 개선을 준비 중인 경영진은 위원회의 의제 설정 방향을 선제적으로 모니터링하고, IR 활성화·주주가치 제고 계획을 위원회 출범 전에 먼저 정비해 자본시장 개혁 흐름을 경쟁 우위로 전환하는 대응이 필요한 상황이다.
+이 기사를 추천합니다.
+ⓒ 서울경제신문, 무단 전재-재배포, AI 학습 및 활용 금지

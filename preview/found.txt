@@ -1,19 +1,33 @@
-## AI 에이전트
-sedaily.com  https://www.sedaily.com/article/20119707?ref=naver
-chosun.com  https://biz.chosun.com/it-science/ict/2026/11/27/ABCXZOVOBRCJJPTRMNE2TKSKYA/?utm_source=naver&utm_medium=original&utm_campaign=biz
-## 생성형 AI
-yna.co.kr  https://www.yna.co.kr/view/AKR20261127036700017?input=1195m
-## AI 투자
-fnnews.com  https://www.fnnews.com/news/202611270958216894
-## 엔비디아
-news1.kr  https://www.news1.kr/world/usa-canada/6368060
+## 엔비디아 신용등급
 sedaily.com  https://www.sedaily.com/article/20119704?ref=naver
 sedaily.com  https://www.sedaily.com/article/20119703?ref=naver
-news1.kr  https://www.news1.kr/industry/auto-industry/6366921
-## 오픈AI
-## AI 기본법
-mt.co.kr  https://www.mt.co.kr/policy/2026/11/27/2026112708421851063
-newsis.com  https://www.newsis.com/view/NISX20261127_0003885437
+sedaily.com  https://www.sedaily.com/article/20119701?ref=naver
+sedaily.com  https://www.sedaily.com/article/20119700?ref=naver
+## S&P 엔비디아
+sedaily.com  https://www.sedaily.com/article/20119703?ref=naver
+sedaily.com  https://www.sedaily.com/article/20119704?ref=naver
+sedaily.com  https://www.sedaily.com/article/20119701?ref=naver
+sedaily.com  https://www.sedaily.com/article/20119700?ref=naver
+fnnews.com  https://www.fnnews.com/news/202611270848043209
+## 스페이스X 우주 데이터센터
+sbs.co.kr  https://biz.sbs.co.kr/article_hub/20000349248?division=NAVER
+dt.co.kr  https://www.dt.co.kr/article/12097566?ref=naver
+sbs.co.kr  https://biz.sbs.co.kr/article_hub/20000349245?division=NAVER
+hankyung.com  https://www.hankyung.com/article/2026112738096
+## AI 장난감 뉴욕
+joongang.co.kr  https://www.joongang.co.kr/article/25482442
+news1.kr  https://www.news1.kr/world/usa-canada/6367574
+newsis.com  https://www.newsis.com/view/NISX20261126_0003885054
+newsis.com  https://www.newsis.com/view/NISX20261126_0003884335
+chosun.com  https://www.chosun.com/international/us/2026/11/25/UZR7YVDJIVG55LLQZDHMOMAQVM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news
+edaily.co.kr  https://www.edaily.co.kr/News/Read?newsId=02532166645649328&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article
+## 아세안+3 AI 금융안정
+edaily.co.kr  https://www.edaily.co.kr/News/Read?newsId=01725286645649984&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article
+einfomax.co.kr  https://news.einfomax.co.kr/
+einfomax.co.kr  https://news.einfomax.co.kr/news/articleView.html?idxno=4446904
+nocutnews.co.kr  https://www.nocutnews.co.kr/news/6613452?utm_source=naver&utm_medium=article&utm_campaign=20261127100036
 etoday.co.kr  http://www.etoday.co.kr
-etoday.co.kr  https://www.etoday.co.kr/news/view/2653647
-seoul.co.kr  https://www.seoul.co.kr/news/society/law/2026/11/27/20261127018003?wlog_tag3=naver
+etoday.co.kr  https://www.etoday.co.kr/news/view/2653814
+asiae.co.kr  https://view.asiae.co.kr/article/2026112708261610871
+news1.kr  https://www.news1.kr/economy/trend/6367839
+yna.co.kr  https://www.yna.co.kr/view/AKR20261127040900002?input=1195m
